@@ -1,0 +1,13 @@
+Chủ đề: Website bán sách, truyện.
+
+1 tuần thiết kế lõi hệ thống
+
+1 tuần thiết kế giao diện
+
+3 tuần code front-end
+
+4 tuần code back-end
+
+2 tuần triển khai
+
+tối thứ 7 tuần sau họp tiếp
