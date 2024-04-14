@@ -1,13 +1,17 @@
-import React from 'react'
-import Product_slide from '../components/products/Product_slide'
+import React from "react";
+import BookList from "../components/products/BookList";
 
 function Bkbosto() {
+  
+
   return (
-    <div>Trang chu
-      <Product_slide/>
+    <div>
+      <h1>Home page</h1>
+      <div className="books">
+      <BookList />
       </div>
-    
-  )
+    </div>
+  );
 }
 
-export default Bkbosto
+export default Bkbosto;

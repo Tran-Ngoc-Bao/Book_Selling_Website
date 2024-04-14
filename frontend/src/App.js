@@ -8,7 +8,8 @@ import Order from './pages/Order';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Footer from './components/footer';
-import './App.css'
+import BookDetail from './pages/BookDetail'
+
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/order"  element={<Order/>}/>
         <Route path="/login"  element={<Login/>}/>
         <Route path="/signup"  element={<Signup/>}/>
+        <Route path="/bookdetail/:id" element={<BookDetail/>}/>
       </Routes>
     </div>
 
