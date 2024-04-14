@@ -1,0 +1,145 @@
+[{
+  "_id": {
+    "$oid": "660cf45b5670e1487a331b79"
+  },
+  "bookids": [
+    "660caefe234b5f0fdbc8d262",
+    "661a754efdb17d368353e723",
+    "661a86cbfdb17d368353e734",
+    "661a877efdb17d368353e735",
+    "661a8b09fdb17d368353e739",
+    "661a8caefdb17d368353e73b",
+    "661a8f01fdb17d368353e73f",
+    "661a91f8fdb17d368353e743",
+    "661a94a7fdb17d368353e747",
+    "661a950afdb17d368353e748",
+    "661a9844fdb17d368353e74e",
+    "661a98f0fdb17d368353e74f",
+    "661b3cf52899767175a64faf",
+    "661b3dfc2899767175a64fb0",
+    "661b3ffe2899767175a64fb2",
+    "661b40d42899767175a64fb3",
+    "661b3f1a2899767175a64fb1",
+    "661b50780a51ca4b1175c12e",
+    "661b54ae0a51ca4b1175c132"
+  ],
+  "email": "vh@gmail.com",
+  "location": "18 P. Nguyễn Trường Tộ, Nguyễn Trung Trực, Ba Đình, Hà Nội",
+  "name": "Nhà xuất bản Văn học",
+  "phone": "0203423901"
+},
+{
+  "_id": {
+    "$oid": "660d3d10e8a092cf6f02f7b4"
+  },
+  "bookids": [
+    "660d3bace8a092cf6f02f7ae",
+    "661a92b6fdb17d368353e744"
+  ],
+  "email": "tt@gmail.com",
+  "location": "53 Nguyễn Du, quận Hai Bà Trưng, Hà Nội",
+  "name": "Nhà xuất bản Trí thức",
+  "phone": "0119521897"
+},
+{
+  "_id": {
+    "$oid": "661a767afdb17d368353e727"
+  },
+  "bookids": [
+    "661a846ffdb17d368353e732"
+  ],
+  "email": "hd@gmail.com",
+  "location": "65 P. Tràng Thi, Hàng Bông, Hoàn Kiếm, Hà Nội",
+  "name": "Nhà xuất bản Hồng Đức",
+  "phone": "0414275525"
+},
+{
+  "_id": {
+    "$oid": "661a76f7fdb17d368353e728"
+  },
+  "bookids": [
+    "661a8607fdb17d368353e733",
+    "661a8be3fdb17d368353e73a",
+    "661a96e1fdb17d368353e74c"
+  ],
+  "email": "tn@gmail.com",
+  "location": "D29, Khu Đô Thị Mới, Cầu Giấy, Hà Nội",
+  "name": "Nhà xuất bản Thanh niên",
+  "phone": "0681271061"
+},
+{
+  "_id": {
+    "$oid": "661a7764fdb17d368353e729"
+  },
+  "bookids": [
+    "661a887efdb17d368353e736",
+    "661a8a3bfdb17d368353e738",
+    "661a8d3efdb17d368353e73c",
+    "661a95bafdb17d368353e749",
+    "661a9601fdb17d368353e74a",
+    "661a966cfdb17d368353e74b",
+    "661b52b90a51ca4b1175c130"
+  ],
+  "email": "kd@gmail.com",
+  "location": "55 P. Quang Trung, Nguyễn Du, Hai Bà Trưng, Hà Nội",
+  "name": "Nhà xuất bản Kim Đồng",
+  "phone": "0467516043"
+},
+{
+  "_id": {
+    "$oid": "661a7810fdb17d368353e72a"
+  },
+  "bookids": [
+    "661a8982fdb17d368353e737"
+  ],
+  "email": "ttqgst@gmail.com",
+  "location": "6 Ng. 86 P. Duy Tân, Dịch Vọng Hậu, Cầu Giấy, Hà Nội",
+  "name": "Nhà xuất bản Chính trị quốc gia Sự thật",
+  "phone": "0986597257"
+},
+{
+  "_id": {
+    "$oid": "661a78b6fdb17d368353e72b"
+  },
+  "bookids": [
+    "661a8ddbfdb17d368353e73d",
+    "661a8e50fdb17d368353e73e",
+    "661a8f84fdb17d368353e740",
+    "661a99d9fdb17d368353e750",
+    "661b3c3e2899767175a64fae",
+    "661b4fbc0a51ca4b1175c12c"
+  ],
+  "email": "t@gmail.com",
+  "location": "21 Đầm Trấu, Bạch Đằng, Hai Bà Trưng, Hà Nội",
+  "name": "Nhà xuất bản Trẻ",
+  "phone": "0646250058"
+},
+{
+  "_id": {
+    "$oid": "661a7941fdb17d368353e72c"
+  },
+  "bookids": [
+    "661a911efdb17d368353e741",
+    "661a917efdb17d368353e742",
+    "661a9430fdb17d368353e746",
+    "661b510b0a51ca4b1175c12f"
+  ],
+  "email": "hnv@gmail.com",
+  "location": "65, Nguyễn Du, quận Hai Bà Trưng, Hà Nội",
+  "name": "Nhà xuất bản Hội nhà văn",
+  "phone": "0772292250"
+},
+{
+  "_id": {
+    "$oid": "661a79b3fdb17d368353e72d"
+  },
+  "bookids": [
+    "661a93a5fdb17d368353e745",
+    "661a97b0fdb17d368353e74d",
+    "661b53510a51ca4b1175c131"
+  ],
+  "email": "dt@gmail.com",
+  "location": "347 P. Đội Cấn, Liễu Giai, Ba Đình, Hà Nội",
+  "name": "Nhà xuất bản Dân trí",
+  "phone": "0460940308"
+}]

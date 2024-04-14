@@ -1,0 +1,1017 @@
+[{
+  "_id": {
+    "$oid": "660caefe234b5f0fdbc8d262"
+  },
+  "authors": [
+    "La Quán Trung"
+  ],
+  "description": "Tam quốc diễn nghĩa, nguyên tên là Tam quốc chí thông tục diễn nghĩa, là một cuốn tiểu thuyết dã sử về Lịch sử Trung Quốc được nhà văn La Quán Trung viết vào thế kỷ 14.",
+  "genres": [
+    "Văn học",
+    "Lịch sử"
+  ],
+  "price": 540000,
+  "publishinghouseid": "660cf45b5670e1487a331b79",
+  "rate": null,
+  "sold": 4,
+  "title": "Tam quốc diễn nghĩa",
+  "year": 2016,
+  "feedbacks": null
+},
+{
+  "_id": {
+    "$oid": "660d3bace8a092cf6f02f7ae"
+  },
+  "authors": [
+    "Charles Darwin"
+  ],
+  "description": "Nguồn gốc các loài của Charles Darwin có thể được coi là một trong các ấn phẩm khoa học tiêu biểu và là tác phẩm nòng cốt của ngành sinh học tiến hóa.",
+  "genres": [
+    "Khoa học"
+  ],
+  "price": 185000,
+  "publishinghouseid": "660d3d10e8a092cf6f02f7b4",
+  "rate": null,
+  "sold": 13,
+  "title": "Nguồn gốc các loài",
+  "year": 2019,
+  "feedbacks": null
+},
+{
+  "_id": {
+    "$oid": "661a754efdb17d368353e723"
+  },
+  "authors": [
+    "Nguyễn Văn Khỏa"
+  ],
+  "description": "Thần thoại Hy Lạp là một tập hợp các câu chuyện, truyền thuyết và truyền thống của người Hy Lạp cổ đại, được truyền bá qua nhiều thế hệ. Những câu chuyện này kể về cuộc sống của các vị thần và thần tiên, các anh hùng và nhân vật huyền thoại, tạo nên một thế giới phong phú và đầy màu sắc. Với sự kỳ diệu, giận dữ, tình yêu và thách thức, thần thoại Hy Lạp không chỉ là một phần quan trọng của văn hóa Hy Lạp, mà còn là một nguồn cảm hứng vô tận cho nghệ thuật, văn học và triết học trên khắp thế giới.",
+  "genres": [
+    "Thần thoại"
+  ],
+  "price": 200000,
+  "publishinghouseid": "660cf45b5670e1487a331b79",
+  "rate": null,
+  "sold": 95,
+  "title": "Thần thoại Hy Lạp",
+  "year": 2016,
+  "feedbacks": null
+},
+{
+  "_id": {
+    "$oid": "661a846ffdb17d368353e732"
+  },
+  "authors": [
+    "Ngô Sĩ Liên",
+    "Vũ Quỳnh",
+    "Nguyễn Công Trứ"
+  ],
+  "description": "Đại Việt Sử Ký Toàn Thư là một tác phẩm lịch sử vĩ đại của Việt Nam, được viết bởi nhà sử học Ngô Sĩ Liên vào thế kỷ 15. Tác phẩm này bao gồm một tập hợp các bài viết chi tiết về lịch sử, văn hóa và xã hội của Việt Nam từ thời khai sinh đất nước đến thời đại Lê sơ. Với sự tỉ mỉ và cẩn trọng trong nghiên cứu, Đại Việt Sử Ký Toàn Thư không chỉ là một nguồn tài liệu quý báu về lịch sử Việt Nam mà còn là một di sản văn hóa to lớn, góp phần khẳng định bản sắc và danh dự dân tộc.",
+  "genres": [
+    "Lịch sử"
+  ],
+  "price": 245000,
+  "publishinghouseid": "661a767afdb17d368353e727",
+  "rate": null,
+  "sold": 59,
+  "title": "Đại Việt sử ký toàn thư",
+  "year": 2021,
+  "feedbacks": null
+},
+{
+  "_id": {
+    "$oid": "661a8607fdb17d368353e733"
+  },
+  "authors": [
+    "Lewis Spence"
+  ],
+  "description": "Thần thoại Ai Cập là một tập hợp các truyền thuyết, huyền thoại và câu chuyện được kể về các vị thần, vua pharaoh, và sức mạnh siêu nhiên trong văn hóa cổ đại Ai Cập. Những câu chuyện này thường kể về sự xuất hiện của các vị thần và quyền lực của pharaoh, cùng với những cuộc phiêu lưu kỳ thú và những trận chiến huyền thoại. Thần thoại Ai Cập không chỉ phản ánh niềm tin tôn giáo mà còn là một phần không thể thiếu của văn hóa và lịch sử của dân tộc Ai Cập cổ đại, cung cấp cảm hứng cho nghệ thuật, văn học và kiến trúc trên khắp thế giới.",
+  "genres": [
+    "Thần thoại"
+  ],
+  "price": 200000,
+  "publishinghouseid": "661a76f7fdb17d368353e728",
+  "rate": null,
+  "sold": 88,
+  "title": "Thần thoại Ai Cập",
+  "year": 2023,
+  "feedbacks": null
+},
+{
+  "_id": {
+    "$oid": "661a86cbfdb17d368353e734"
+  },
+  "authors": [
+    "Trần Trọng Kim"
+  ],
+  "description": "Việt Nam Sử Lược là một tác phẩm lịch sử tóm tắt, được viết bởi nhà sử học Trần Trọng Kim vào những năm đầu của thế kỷ 20. Tác phẩm này cung cấp một cái nhìn tổng quan về lịch sử phong phú và đa dạng của Việt Nam từ thời kỳ tiền sử đến thế kỷ 19. Với phong cách rõ ràng và dễ hiểu, Việt Nam Sử Lược không chỉ là một nguồn tài liệu quý báu về lịch sử Việt Nam mà còn là một công cụ hữu ích cho những ai quan tâm đến sự phát triển và diễn biến của đất nước này qua các thời kỳ khác nhau.",
+  "genres": [
+    "Lịch sử"
+  ],
+  "price": 450000,
+  "publishinghouseid": "660cf45b5670e1487a331b79",
+  "rate": null,
+  "sold": 95,
+  "title": "Việt Nam sử lược",
+  "year": 2020,
+  "feedbacks": null
+},
+{
+  "_id": {
+    "$oid": "661a877efdb17d368353e735"
+  },
+  "authors": [
+    "Neil Gaiman"
+  ],
+  "description": "Thần thoại Bắc Âu là một bộ sưu tập các truyền thuyết và câu chuyện huyền thoại của các dân tộc Bắc Âu, bao gồm các quốc gia như Na Uy, Thụy Điển, Đan Mạch và Iceland. Những câu chuyện này kể về cuộc phiêu lưu của các vị thần, anh hùng và sinh vật huyền bí trong một thế giới đầy kỳ diệu và sức mạnh siêu nhiên. Thần thoại Bắc Âu thường gợi lên những hình ảnh về các thần thú, viking, rồng và các vị thần như Odin, Thor và Loki. Với sự đa dạng và phong phú, thần thoại này không chỉ là một phần quan trọng của văn hóa Bắc Âu mà còn là nguồn cảm hứng cho nghệ thuật, văn học và triết học trên toàn thế giới.",
+  "genres": [
+    "Thần thoại",
+    "Văn học"
+  ],
+  "price": 110000,
+  "publishinghouseid": "660cf45b5670e1487a331b79",
+  "rate": null,
+  "sold": 4,
+  "title": "Thần thoại Bắc Âu",
+  "year": 2019,
+  "feedbacks": null
+},
+{
+  "_id": {
+    "$oid": "661a887efdb17d368353e736"
+  },
+  "authors": [
+    "Phùng Quán"
+  ],
+  "description": "Tuổi thơ dữ dội là một tiểu thuyết dài tám phần xuất bản năm 1988 của nhà văn Phùng Quán, có nội dung xoay quanh cuộc sống chiến đấu và sự hy sinh của những thiếu niên 13, 14 tuổi trong hàng ngũ Đội thiếu niên trinh sát của trung đoàn Trần Cao Vân. Năm 1990, tiểu thuyết Tuổi thơ dữ dội đã được trao giải thưởng Văn học Thiếu nhi của Hội Nhà văn Việt Nam cũng như được dựng thành phim cùng tên.",
+  "genres": [
+    "Văn học",
+    "Lịch sử"
+  ],
+  "price": 160000,
+  "publishinghouseid": "661a7764fdb17d368353e729",
+  "rate": null,
+  "sold": 23,
+  "title": "Tuổi thơ dữ dội",
+  "year": 2023,
+  "feedbacks": null
+},
+{
+  "_id": {
+    "$oid": "661a8982fdb17d368353e737"
+  },
+  "authors": [
+    "Trần Mai Hạnh"
+  ],
+  "description": "Biên bản chiến tranh 1-2-3-4.75 là cuốn tiểu thuyết tư liệu lịch sử của nhà báo Trần Mai Hạnh được viết dưới hình thức biên bản. Những trang ghi chép tại chỗ trong quá trình tham gia chiến dịch, những tài liệu nguyên bản thu được cùng với những tư liệu quý từ phía chính quyền Sài Gòn mà ông tiếp xúc, khai thác được chính là nguồn tài liệu chủ yếu để Trần Mai Hạnh viết cuốn tiểu thuyết tư liệu lịch sử Biên bản chiến tranh 1-2-3-4.75.",
+  "genres": [
+    "Lịch sử"
+  ],
+  "price": 229000,
+  "publishinghouseid": "661a7810fdb17d368353e72a",
+  "rate": null,
+  "sold": 64,
+  "title": "Biên bản chiến tranh 1-2-3-4.75",
+  "year": 2020,
+  "feedbacks": null
+},
+{
+  "_id": {
+    "$oid": "661a8a3bfdb17d368353e738"
+  },
+  "authors": [
+    "Trần Thế Pháp",
+    "Vũ Quỳnh"
+  ],
+  "description": "Lĩnh Nam chích quái là một tập hợp các truyền thuyết và cổ tích dân gian Việt Nam được biên soạn vào khoảng cuối đời nhà Trần.",
+  "genres": [
+    "Thần thoại"
+  ],
+  "price": 350000,
+  "publishinghouseid": "661a7764fdb17d368353e729",
+  "rate": null,
+  "sold": 44,
+  "title": "Lĩnh Nam chích quái",
+  "year": 2021,
+  "feedbacks": null
+},
+{
+  "_id": {
+    "$oid": "661a8b09fdb17d368353e739"
+  },
+  "authors": [
+    "Nam Cao"
+  ],
+  "description": "Nam Cao là một nhà văn, nhà thơ, nhà báo và cũng là một chiến sĩ, liệt sỹ người Việt Nam. Ông là nhà văn hiện thực lớn (trước Cách mạng Tháng Tám), một nhà báo kháng chiến (sau Cách mạng), một trong những nhà văn tiêu biểu nhất thế kỷ 20. Nam Cao có nhiều đóng góp quan trọng đối với việc hoàn thiện phong cách truyện ngắn và tiểu thuyết Việt Nam ở nửa đầu thế kỷ 20. ",
+  "genres": [
+    "Văn học"
+  ],
+  "price": 155000,
+  "publishinghouseid": "660cf45b5670e1487a331b79",
+  "rate": null,
+  "sold": 5,
+  "title": "Tuyển tập Nam Cao",
+  "year": 2015,
+  "feedbacks": null
+},
+{
+  "_id": {
+    "$oid": "661a8be3fdb17d368353e73a"
+  },
+  "authors": [
+    "Lưu Hiểu Huy",
+    "Liêu Tiểu Đao"
+  ],
+  "description": "Ghi chép pháp y là một cuốn sổ ghi chép dựa trên những vụ án có thật mà tác giả đã trải qua trong suốt 15 năm hành nghề pháp y, mổ xẻ hơn 800 tử thi, trải qua 15 vụ án man rợ, sử dụng các phương pháp pháp y khác nhau...",
+  "genres": [
+    "Khoa học",
+    "Văn học"
+  ],
+  "price": 275000,
+  "publishinghouseid": "661a76f7fdb17d368353e728",
+  "rate": null,
+  "sold": 51,
+  "title": "Ghi chép pháp y",
+  "year": 2022,
+  "feedbacks": null
+},
+{
+  "_id": {
+    "$oid": "661a8caefdb17d368353e73b"
+  },
+  "authors": [
+    "Thi Nại Am",
+    "La Quán Trung"
+  ],
+  "description": "Thủy hử hay Thủy hử truyện, tên gốc là Trung nghĩa truyện hay Trung nghĩa Thủy hử truyện, là một tác phẩm trong bốn tác phẩm lớn của văn học cổ điển Trung Hoa, thường gọi là nhóm Tứ đại danh tác. Tác giả Thủy hử thường ghi là Thi Nại Am. Truyện được viết dựa theo sách Đại Tống Tuyên Hòa di sự. Cốt truyện chính là sự hình thành và những thành tích của một nhóm người chống triều đình mà trở thành giặc cướp, thường gọi là 108 anh hùng Lương Sơn Bạc. ",
+  "genres": [
+    "Văn học",
+    "Lịch sử"
+  ],
+  "price": 320000,
+  "publishinghouseid": "660cf45b5670e1487a331b79",
+  "rate": null,
+  "sold": 36,
+  "title": "Thủy hử",
+  "year": 2018,
+  "feedbacks": null
+},
+{
+  "_id": {
+    "$oid": "661a8d3efdb17d368353e73c"
+  },
+  "authors": [
+    "Nguyễn Thị Hường"
+  ],
+  "description": "Thần thoại người da đỏ là một tập hợp những câu chuyện kể dân gian của nhiều bộ tộc da đỏ rải rác khắp châu Mỹ. Chúng đã có bề dày lịch sử hàng vạn năm.",
+  "genres": [
+    "Thần thoại"
+  ],
+  "price": 115000,
+  "publishinghouseid": "661a7764fdb17d368353e729",
+  "rate": null,
+  "sold": 11,
+  "title": "Thần thoại người da đỏ",
+  "year": 2022,
+  "feedbacks": null
+},
+{
+  "_id": {
+    "$oid": "661a8ddbfdb17d368353e73d"
+  },
+  "authors": [
+    "Stephen Hawking"
+  ],
+  "description": "Lược sử thời gian là một cuốn sách khoa học phổ thông được viết bởi nhà vật lý lý thuyết người Anh Stephen Hawking và được xuất bản lần đầu tiên bởi Nhóm Xuất bản Bantam Dell vào năm 1988. Hawking viết cuốn sách này dành cho những độc giả chưa có kiến thức về vật lý.",
+  "genres": [
+    "Khoa học"
+  ],
+  "price": 125000,
+  "publishinghouseid": "661a78b6fdb17d368353e72b",
+  "rate": null,
+  "sold": 48,
+  "title": "Lược sử thời gian",
+  "year": 2020,
+  "feedbacks": null
+},
+{
+  "_id": {
+    "$oid": "661a8e50fdb17d368353e73e"
+  },
+  "authors": [
+    "Stephen Hawking"
+  ],
+  "description": "Vũ trụ trong vỏ hạt dẻ là một trong những đầu sách do Stephen Hawking viết về chủ đề vật lý lý thuyết. Nó giải thích cho người đọc về nhiều vấn đề liên quan tới các nghiên cứu của các Giáo sư Toán học Lucas trong quá khứ, tỉ như Thuyết không đầy đủ của Gödel và màng P.",
+  "genres": [
+    "Khoa học"
+  ],
+  "price": 100000,
+  "publishinghouseid": "661a78b6fdb17d368353e72b",
+  "rate": null,
+  "sold": 51,
+  "title": "Vũ trụ trong vỏ hạt dẻ",
+  "year": 2020,
+  "feedbacks": null
+},
+{
+  "_id": {
+    "$oid": "661a8f01fdb17d368353e73f"
+  },
+  "authors": [
+    "Vũ Trọng Phụng"
+  ],
+  "description": "Vũ Trọng Phụng là một nhà văn, nhà báo nổi tiếng của Việt Nam vào đầu thế kỷ 20. Tuy thời gian cầm bút rất ngắn ngủi, với tác phẩm đầu tay là truyện ngắn Chống nạng lên đường đăng trên Ngọ báo vào năm 1930, ông đã để lại một kho tác phẩm đáng kinh ngạc: hơn 30 truyện ngắn, 9 tập tiểu thuyết, 9 tập phóng sự, 7 vở kịch, cùng một bản dịch vở kịch từ tiếng Pháp, một số bài viết phê bình, tranh luận văn học và hàng trăm bài báo viết về các vấn đề chính trị, xã hội, văn hóa.",
+  "genres": [
+    "Văn học"
+  ],
+  "price": 175000,
+  "publishinghouseid": "660cf45b5670e1487a331b79",
+  "rate": null,
+  "sold": 51,
+  "title": "Tuyển tập Vũ Trọng Phụng",
+  "year": 2015,
+  "feedbacks": null
+},
+{
+  "_id": {
+    "$oid": "661a8f84fdb17d368353e740"
+  },
+  "authors": [
+    "Stephen Hawking",
+    "Leonard Mlodinow"
+  ],
+  "description": "Bản thiết kế vĩ đại là một cuốn sách phổ biến khoa học được viết bởi các nhà vật lý Stephen Hawking và Leonard Mlodinow và được Bantam Books xuất bản trong năm 2010.",
+  "genres": [
+    "Khoa học"
+  ],
+  "price": 90000,
+  "publishinghouseid": "661a78b6fdb17d368353e72b",
+  "rate": null,
+  "sold": 48,
+  "title": "Bản thiết kế vĩ đại",
+  "year": 2018,
+  "feedbacks": null
+},
+{
+  "_id": {
+    "$oid": "661a911efdb17d368353e741"
+  },
+  "authors": [
+    "J.R.R Tolkien"
+  ],
+  "description": "Anh chàng Hobbit là một tiểu thuyết hư cấu dành cho thiếu nhi của nhà văn J. R. R. Tolkien, xuất bản ngày 21 tháng 9 năm 1937.",
+  "genres": [
+    "Văn học",
+    "Huyền bí"
+  ],
+  "price": 150000,
+  "publishinghouseid": "661a7941fdb17d368353e72c",
+  "rate": null,
+  "sold": 55,
+  "title": "Anh chàng Hobbit",
+  "year": 2020,
+  "feedbacks": null
+},
+{
+  "_id": {
+    "$oid": "661a917efdb17d368353e742"
+  },
+  "authors": [
+    "J.R.R Tolkien"
+  ],
+  "description": "Chúa tể những chiếc nhẫn là một thiên tiểu thuyết kiệt xuất của nhà văn J. R. R. Tolkien, một nhà ngữ văn, Giáo sư, Nhà ngôn ngữ học, Triết gia người Anh.",
+  "genres": [
+    "Văn học",
+    "Huyền bí"
+  ],
+  "price": 500000,
+  "publishinghouseid": "661a7941fdb17d368353e72c",
+  "rate": null,
+  "sold": 34,
+  "title": "Chúa tể những chiếc nhẫn",
+  "year": 2020,
+  "feedbacks": null
+},
+{
+  "_id": {
+    "$oid": "661a91f8fdb17d368353e743"
+  },
+  "authors": [
+    "Nguyễn Du"
+  ],
+  "description": "Đoạn trường tân thanh, thường được biết đến với cái tên đơn giản là Truyện Kiều, là một truyện thơ của đại thi hào Nguyễn Du.",
+  "genres": [
+    "Văn học"
+  ],
+  "price": 68000,
+  "publishinghouseid": "660cf45b5670e1487a331b79",
+  "rate": null,
+  "sold": 2,
+  "title": "Truyện Kiều",
+  "year": 2022,
+  "feedbacks": null
+},
+{
+  "_id": {
+    "$oid": "661a92b6fdb17d368353e744"
+  },
+  "authors": [
+    "Yuval Noah Harari"
+  ],
+  "description": "Sapiens: Lược sử loài người là một cuốn sách của Yuval Noah Harari xuất bản lần đầu bằng tiếng Do Thái ở Israel năm 2011, và bằng tiếng Anh vào năm 2014.",
+  "genres": [
+    "Khoa học"
+  ],
+  "price": 299000,
+  "publishinghouseid": "660d3d10e8a092cf6f02f7b4",
+  "rate": null,
+  "sold": 61,
+  "title": "Sapiens Lược sử về loài người",
+  "year": 2020,
+  "feedbacks": null
+},
+{
+  "_id": {
+    "$oid": "661a93a5fdb17d368353e745"
+  },
+  "authors": [
+    "Fanpage Thần với chả Thoại"
+  ],
+  "description": "Tác phẩm kể lại những mẩu chuyện có phần khác lạ và ít người biết đến của các hệ thống thần thoại nổi tiếng như: Hy Lạp, Bắc Âu, Ai Cập, Celtic và Nhật Bản.",
+  "genres": [
+    "Thần thoại"
+  ],
+  "price": 139000,
+  "publishinghouseid": "661a79b3fdb17d368353e72d",
+  "rate": 4,
+  "sold": 64,
+  "title": "Thần với chả Thoại",
+  "year": 2022,
+  "feedbacks": [
+    {
+      "rate": 4,
+      "customerid": "661b30f02899767175a64fad",
+      "text": "Tàm tạm",
+      "time": {
+        "$date": "2003-04-13T17:00:00.000Z"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "661a9430fdb17d368353e746"
+  },
+  "authors": [
+    "Đặng Thùy Trâm"
+  ],
+  "description": "Nhật ký Đặng Thùy Trâm là hai tập nhật ký viết tay của bác sĩ Đặng Thùy Trâm từ ngày 8 tháng 4 năm 1968 đến ngày 20 tháng 6 năm 1970. ",
+  "genres": [
+    "Văn học",
+    "Lịch sử"
+  ],
+  "price": 90000,
+  "publishinghouseid": "661a7941fdb17d368353e72c",
+  "rate": null,
+  "sold": 50,
+  "title": "Nhật ký Đặng Thùy Trâm",
+  "year": 2022,
+  "feedbacks": null
+},
+{
+  "_id": {
+    "$oid": "661a94a7fdb17d368353e747"
+  },
+  "authors": [
+    "Thạch Lam"
+  ],
+  "description": "Thạch Lam, tên thật là Nguyễn Tường Lân, là một nhà văn Việt Nam thuộc nhóm Tự Lực văn đoàn. Ông là em ruột của hai nhà văn khác cũng trong nhóm Tự Lực văn đoàn là Nhất Linh và Hoàng Đạo.",
+  "genres": [
+    "Văn học"
+  ],
+  "price": 145000,
+  "publishinghouseid": "660cf45b5670e1487a331b79",
+  "rate": null,
+  "sold": 51,
+  "title": "Tuyển tập Thạch Lam",
+  "year": 2015,
+  "feedbacks": null
+},
+{
+  "_id": {
+    "$oid": "661a950afdb17d368353e748"
+  },
+  "authors": [
+    "Ngô Tất Tố"
+  ],
+  "description": "Ngô Tất Tố là một nhà văn, nhà báo, nhà Nho học, dịch giả và nhà nghiên cứu có ảnh hưởng lớn ở Việt Nam giai đoạn trước 1954.",
+  "genres": [
+    "Văn học"
+  ],
+  "price": 165000,
+  "publishinghouseid": "660cf45b5670e1487a331b79",
+  "rate": null,
+  "sold": 80,
+  "title": "Tuyển tập Ngô Tất Tố",
+  "year": 2015,
+  "feedbacks": null
+},
+{
+  "_id": {
+    "$oid": "661a95bafdb17d368353e749"
+  },
+  "authors": [
+    "Nhiều tác giả"
+  ],
+  "description": "Trong 12 ngày đêm cuối năm 1972, dưới sự lãnh đạo của Đảng, quân và dân ta đã đánh bại cuộc tập kích đường không chiến lược bằng máy bay B-52 của đế quốc Mỹ trên bầu trời miền Bắc, lập nên chiến thắng Hà Nội - Điện Biên Phủ trên không, buộc đế quốc Mỹ phải kí Hiệp định Paris về chấm dứt chiến tranh, lập lại hoà bình ở Việt Nam, tạo bước ngoặt cho cuộc kháng chiến chống Mỹ, cứu nước đi đến thắng lợi hoàn toàn.",
+  "genres": [
+    "Lịch sử",
+    "Văn học"
+  ],
+  "price": 35000,
+  "publishinghouseid": "661a7764fdb17d368353e729",
+  "rate": 5,
+  "sold": 62,
+  "title": "Người lính phi công kể chuyện",
+  "year": 2022,
+  "feedbacks": [
+    {
+      "rate": 5,
+      "customerid": "661b308e2899767175a64fac",
+      "text": "Rất hay",
+      "time": {
+        "$date": "2003-04-13T17:00:00.000Z"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "661a9601fdb17d368353e74a"
+  },
+  "authors": [
+    "Nhiều tác giả"
+  ],
+  "description": "“Tôi không kể lịch sử chiến dịch, không kể về những diễn biến của chiến dịch, mà tôi kể những mẩu chuyện những người lính chúng tôi ở Trung đoàn 174 của Đại đoàn 316 đã chiến đấu như thế nào, đã sống như thế nào trong 56 ngày đêm ấy. Cuộc chiến đấu qua 56 ngày đêm rất sinh động mà nhiều đồng đội của tôi đã nằm xuống, không thể kể được nữa.",
+  "genres": [
+    "Lịch sử",
+    "Văn học"
+  ],
+  "price": 35000,
+  "publishinghouseid": "661a7764fdb17d368353e729",
+  "rate": 5,
+  "sold": 32,
+  "title": "Người lính Điện Biên kể chuyện",
+  "year": 2022,
+  "feedbacks": [
+    {
+      "rate": 5,
+      "customerid": "661b30092899767175a64fab",
+      "text": "Rất hay",
+      "time": {
+        "$date": "2003-04-13T17:00:00.000Z"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "661a966cfdb17d368353e74b"
+  },
+  "authors": [
+    "Sơn Tùng"
+  ],
+  "description": "Búp sen xanh là tiểu thuyết đầu tiên viết về Chủ tịch Hồ Chí Minh và cũng là tiểu thuyết lịch sử nổi tiếng nhất của nhà văn Sơn Tùng.",
+  "genres": [
+    "Văn học",
+    "Lịch sử"
+  ],
+  "price": 72000,
+  "publishinghouseid": "661a7764fdb17d368353e729",
+  "rate": 5,
+  "sold": 76,
+  "title": "Búp sen xanh",
+  "year": 2022,
+  "feedbacks": [
+    {
+      "rate": 5,
+      "customerid": "661b2f972899767175a64faa",
+      "text": "Rất hay",
+      "time": {
+        "$date": "2003-04-13T17:00:00.000Z"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "661a96e1fdb17d368353e74c"
+  },
+  "authors": [
+    "Nhiều tác giả"
+  ],
+  "description": "Dân tộc Việt Nam anh hùng đã trải qua hơn bốn ngàn năm lịch sử dựng nước và giữ nước. Với ý chí quật cường ông cha ta đã viết nên những trang sử vàng chói lói làm vẻ vang cho dân tộc ta, đất nước ta.",
+  "genres": [
+    "Lịch sử"
+  ],
+  "price": 120000,
+  "publishinghouseid": "661a76f7fdb17d368353e728",
+  "rate": 5,
+  "sold": 56,
+  "title": "Các triều đại Việt Nam",
+  "year": 2019,
+  "feedbacks": [
+    {
+      "rate": 5,
+      "customerid": "661b2ef22899767175a64fa9",
+      "text": "Rất hay",
+      "time": {
+        "$date": "2003-04-13T17:00:00.000Z"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "661a97b0fdb17d368353e74d"
+  },
+  "authors": [
+    "Ethel Lilian Voynich"
+  ],
+  "description": "Ruồi trâu là tên một cuốn tiểu thuyết của Ethel Lilian Voynich, đã được xuất bản năm 1897 tại Hoa Kỳ và Anh.",
+  "genres": [
+    "Văn học"
+  ],
+  "price": 120000,
+  "publishinghouseid": "661a79b3fdb17d368353e72d",
+  "rate": 5,
+  "sold": 63,
+  "title": "Ruồi trâu",
+  "year": 2022,
+  "feedbacks": [
+    {
+      "rate": 5,
+      "customerid": "661b2ef22899767175a64fa9",
+      "text": "Rất hay",
+      "time": {
+        "$date": "2003-04-13T17:00:00.000Z"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "661a9844fdb17d368353e74e"
+  },
+  "authors": [
+    "Nikolai A.Ostrovsky"
+  ],
+  "description": "Thép đã tôi thế đấy! là một tiểu thuyết của nhà văn Nikolai Alekseyevich Ostrovsky.",
+  "genres": [
+    "Văn học",
+    "Lịch sử"
+  ],
+  "price": 135000,
+  "publishinghouseid": "660cf45b5670e1487a331b79",
+  "rate": null,
+  "sold": 55,
+  "title": "Thép đã tôi thế đấy",
+  "year": 2020,
+  "feedbacks": null
+},
+{
+  "_id": {
+    "$oid": "661a98f0fdb17d368353e74f"
+  },
+  "authors": [
+    "Victor Hugo"
+  ],
+  "description": "Những người khốn khổ là tiểu thuyết của văn hào Pháp Victor Hugo, được xuất bản năm 1862. Tác phẩm được đánh giá là một trong những tiểu thuyết nổi tiếng nhất của nền văn học thế giới thế kỷ 19.",
+  "genres": [
+    "Văn học",
+    "Lịch sử"
+  ],
+  "price": 650000,
+  "publishinghouseid": "660cf45b5670e1487a331b79",
+  "rate": null,
+  "sold": 36,
+  "title": "Những người khốn khổ",
+  "year": 2016,
+  "feedbacks": null
+},
+{
+  "_id": {
+    "$oid": "661a99d9fdb17d368353e750"
+  },
+  "authors": [
+    "Viktoe Mayer",
+    "Kenneth Cukier"
+  ],
+  "description": "Màu sơn nào có thể cho bạn biết một chiếc xe đã qua sử dụng vẫn còn trong tình trạng tốt? Làm thế nào các công chức ở thành phố New York có thể xác định các hố ga nguy hiểm nhất trước khi chúng phát nổ? Và làm thế nào những cuộc tìm kiếm của Google dự đoán được sự lây lan của dịch cúm H1N1?",
+  "genres": [
+    "Khoa học"
+  ],
+  "price": 140000,
+  "publishinghouseid": "661a78b6fdb17d368353e72b",
+  "rate": 5,
+  "sold": 53,
+  "title": "Khoa học khám phá dữ liệu lớn",
+  "year": 2020,
+  "feedbacks": [
+    {
+      "rate": 5,
+      "customerid": "661b2dfe2899767175a64fa7",
+      "text": "Rất hay",
+      "time": {
+        "$date": "2003-04-13T17:00:00.000Z"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "661b3c3e2899767175a64fae"
+  },
+  "authors": [
+    "J.K Rowling"
+  ],
+  "description": "Harry Potter là một loạt tiểu thuyết huyền bí gồm bảy phần của nhà văn Anh Quốc J. K. Rowling. Bộ truyện viết về những cuộc phiêu lưu phù thủy của cậu bé Harry Potter cùng hai người bạn thân là Ron Weasley và Hermione Granger, lấy bối cảnh tại Trường Phù thủy và Pháp sư Hogwarts ở nước Anh.",
+  "genres": [
+    "Văn học",
+    "Huyền bí"
+  ],
+  "price": 1400000,
+  "publishinghouseid": "661a78b6fdb17d368353e72b",
+  "rate": 5,
+  "sold": 17,
+  "title": "Harry Potter",
+  "year": 2019,
+  "feedbacks": [
+    {
+      "rate": 5,
+      "customerid": "661b2dfe2899767175a64fa7",
+      "text": "Rất hay",
+      "time": {
+        "$date": "2003-04-13T17:00:00.000Z"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "661b3cf52899767175a64faf"
+  },
+  "authors": [
+    "Nguyễn Văn Khỏa"
+  ],
+  "description": "Thần thoại Hy Lạp là một tập hợp các câu chuyện, truyền thuyết và truyền thống của người Hy Lạp cổ đại, được truyền bá qua nhiều thế hệ. Những câu chuyện này kể về cuộc sống của các vị thần và thần tiên, các anh hùng và nhân vật huyền thoại, tạo nên một thế giới phong phú và đầy màu sắc. Với sự kỳ diệu, giận dữ, tình yêu và thách thức, thần thoại Hy Lạp không chỉ là một phần quan trọng của văn hóa Hy Lạp, mà còn là một nguồn cảm hứng vô tận cho nghệ thuật, văn học và triết học trên khắp thế giới.",
+  "genres": [
+    "Thần thoại"
+  ],
+  "price": 295000,
+  "publishinghouseid": "660cf45b5670e1487a331b79",
+  "rate": 4,
+  "sold": 82,
+  "title": "Thần thoại Hy Lạp",
+  "year": 2023,
+  "feedbacks": [
+    {
+      "rate": 4,
+      "customerid": "661b2d572899767175a64fa6",
+      "text": "Tàm tạm",
+      "time": {
+        "$date": "2003-04-13T17:00:00.000Z"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "661b3dfc2899767175a64fb0"
+  },
+  "authors": [
+    "Ngô Thừa Ân"
+  ],
+  "description": "Tây Du Ký, là một trong những tác phẩm kinh điển trong văn học Trung Hoa. Được xuất bản với tác giả giấu tên trong những năm 1590 và không có bằng chứng trực tiếp còn tồn tại để biết tác giả của nó, nhưng tác phẩm này thường được cho là của tác giả Ngô Thừa Ân.",
+  "genres": [
+    "Văn học",
+    "Huyền bí"
+  ],
+  "price": 650000,
+  "publishinghouseid": "660cf45b5670e1487a331b79",
+  "rate": null,
+  "sold": 31,
+  "title": "Tây du ký",
+  "year": 2022,
+  "feedbacks": null
+},
+{
+  "_id": {
+    "$oid": "661b3f1a2899767175a64fb1"
+  },
+  "authors": [
+    "Tào Tuyết Cần"
+  ],
+  "description": "Hồng lâu mộng hay tên gốc Thạch đầu ký là một trong Tứ đại danh tác của Trung Quốc. Với hơn 100 triệu bản được xuất bản, tiểu thuyết này trở thành một trong những sách bán chạy nhất của mọi thời đại.",
+  "genres": [
+    "Văn học"
+  ],
+  "price": 495000,
+  "publishinghouseid": "660cf45b5670e1487a331b79",
+  "rate": 5,
+  "sold": 85,
+  "title": "Hồng lâu mộng",
+  "year": 2023,
+  "feedbacks": [
+    {
+      "rate": 5,
+      "customerid": "661b2d572899767175a64fa6",
+      "text": "Rất hay!",
+      "time": {
+        "$date": "2003-04-13T17:00:00.000Z"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "661b3ffe2899767175a64fb2"
+  },
+  "authors": [
+    "Hồ Chí Minh"
+  ],
+  "description": "Nhật ký trong tù là tập thơ chữ Hán gồm 134 bài theo thể Đường luật do Hồ Chí Minh sáng tác trong thời gian bị chính quyền Tưởng Giới Thạch bắt giam ở Quảng Tây, Trung Quốc, từ ngày 29 tháng 8 năm 1942 đến ngày 10 tháng 9 năm 1943.",
+  "genres": [
+    "Văn học",
+    "Lịch sử"
+  ],
+  "price": 80000,
+  "publishinghouseid": "660cf45b5670e1487a331b79",
+  "rate": 5,
+  "sold": 31,
+  "title": "Nhật ký trong tù",
+  "year": 2015,
+  "feedbacks": [
+    {
+      "rate": 5,
+      "customerid": "661b2c722899767175a64fa4",
+      "text": "Rất hay!",
+      "time": {
+        "$date": "2003-04-13T17:00:00.000Z"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "661b40d42899767175a64fb3"
+  },
+  "authors": [
+    "Miguel De Cervantes"
+  ],
+  "description": "Don Quijote hay đôi khi được phiên âm thành Đôn Ki-hô-tê hoặc Đông Ki-xốt, là tiểu thuyết của văn sĩ Miguel de Cervantes Saavedra",
+  "genres": [
+    "Văn học"
+  ],
+  "price": 370000,
+  "publishinghouseid": "660cf45b5670e1487a331b79",
+  "rate": 5,
+  "sold": 43,
+  "title": "Don Quixote",
+  "year": 2020,
+  "feedbacks": [
+    {
+      "rate": 5,
+      "customerid": "661b2c722899767175a64fa4",
+      "text": "Cha đẻ của mọi loại tiểu thuyết",
+      "time": {
+        "$date": "2024-03-03T17:00:00.000Z"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "661b4fbc0a51ca4b1175c12c"
+  },
+  "authors": [
+    "Bình Ca"
+  ],
+  "description": "Khu tập thể Nam Đồng là khu gia binh lớn nhất thủ đô Hà Nội, được hình thành cách đây hơn 50 năm. Là nơi ở của hơn 500 gia đình cán bộ quân đội trung, cao cấp, hơn 70 vị tướng đã từng sinh sống và trưởng thành từ Khu tập thể Nam Đồng, nhiều gia đình có cả hai thế hệ “tướng cha” và “tướng con”.",
+  "genres": [
+    "Văn học",
+    "Lịch sử"
+  ],
+  "price": 140000,
+  "publishinghouseid": "661a78b6fdb17d368353e72b",
+  "rate": null,
+  "sold": 35,
+  "title": "Quân khu Nam Đồng",
+  "year": 2022,
+  "feedbacks": null
+},
+{
+  "_id": {
+    "$oid": "661b50780a51ca4b1175c12e"
+  },
+  "authors": [
+    "Trần Thọ"
+  ],
+  "description": "Tam quốc chí, nguyên tên là Tam quốc chí thông tục diễn nghĩa, là một cuốn tiểu thuyết dã sử về Lịch sử Trung Quốc được nhà văn Trần Thọ viết vào thế kỷ 3.",
+  "genres": [
+    "Văn học",
+    "Lịch sử"
+  ],
+  "price": 1590000,
+  "publishinghouseid": "660cf45b5670e1487a331b79",
+  "rate": null,
+  "sold": 5,
+  "title": "Tam quốc chí",
+  "year": 2023,
+  "feedbacks": null
+},
+{
+  "_id": {
+    "$oid": "661b510b0a51ca4b1175c12f"
+  },
+  "authors": [
+    "Frank Herbert"
+  ],
+  "description": "Một thời điểm rất xa trong tương lai… Từ đời này sang đời khác, người Fremen trên hành tinh sa mạc lưu truyền lời tiên tri về một đấng cứu tinh sẽ dẫn dắt họ giành lấy tự do đích thực…",
+  "genres": [
+    "Văn học",
+    "Huyền bí"
+  ],
+  "price": 249000,
+  "publishinghouseid": "661a7941fdb17d368353e72c",
+  "rate": null,
+  "sold": 43,
+  "title": "Dune",
+  "year": 2021,
+  "feedbacks": null
+},
+{
+  "_id": {
+    "$oid": "661b52b90a51ca4b1175c130"
+  },
+  "authors": [
+    "Nguyễn Thị Hường"
+  ],
+  "description": "Thần thoại Ai Cập là một tập hợp các truyền thuyết, huyền thoại và câu chuyện được kể về các vị thần, vua pharaoh, và sức mạnh siêu nhiên trong văn hóa cổ đại Ai Cập. Những câu chuyện này thường kể về sự xuất hiện của các vị thần và quyền lực của pharaoh, cùng với những cuộc phiêu lưu kỳ thú và những trận chiến huyền thoại. Thần thoại Ai Cập không chỉ phản ánh niềm tin tôn giáo mà còn là một phần không thể thiếu của văn hóa và lịch sử của dân tộc Ai Cập cổ đại, cung cấp cảm hứng cho nghệ thuật, văn học và kiến trúc trên khắp thế giới.",
+  "genres": [
+    "Thần thoại"
+  ],
+  "price": 120000,
+  "publishinghouseid": "661a7764fdb17d368353e729",
+  "rate": 4,
+  "sold": 44,
+  "title": "Thần thoại Ai Cập",
+  "year": 2023,
+  "feedbacks": [
+    {
+      "rate": 4,
+      "customerid": "660cb61e234b5f0fdbc8d264",
+      "text": "Tàm tạm",
+      "time": {
+        "$date": "2003-04-13T17:00:00.000Z"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "661b53510a51ca4b1175c131"
+  },
+  "authors": [
+    "Philip Freeman"
+  ],
+  "description": "Những câu chuyện hoành tráng trong Thần thoại Hy Lạp và Thần thoại Bắc Âu hay thế giới Ả Rập huyền bí trong “Nghìn lẻ một đêm” hẳn đã quá quen thuộc với chúng ta rồi, nhưng chắc chẳng mấy ai từng nghe nói tới Thần thoại Celt.",
+  "genres": [
+    "Thần thoại"
+  ],
+  "price": 175000,
+  "publishinghouseid": "661a79b3fdb17d368353e72d",
+  "rate": null,
+  "sold": 33,
+  "title": "Thần thoại Celt",
+  "year": 2023,
+  "feedbacks": null
+},
+{
+  "_id": {
+    "$oid": "661b54ae0a51ca4b1175c132"
+  },
+  "authors": [
+    "Nguyên Hồng"
+  ],
+  "description": "Tên thật của ông là Nguyễn Nguyên Hồng, sinh ngày 5 tháng 11 năm 1918 ở Nam Định. Những tác phẩm của ông mang một tình cảm nhân đạo thống thiết . Sinh trưởng trong một gia đình nghèo, mồ côi cha, từ nhỏ theo mẹ ra Hải Phòng kiếm sống trong các xóm chợ nghèo.",
+  "genres": [
+    "Văn học"
+  ],
+  "price": 145000,
+  "publishinghouseid": "660cf45b5670e1487a331b79",
+  "rate": null,
+  "sold": 15,
+  "title": "Tuyển tập Nguyên Hồng",
+  "year": 2015,
+  "feedbacks": null
+}]

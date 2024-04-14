@@ -13,8 +13,10 @@ try {
 }
 
 async function test() {
-    const p = await publishinghouse.find()
-    console.log(p)
+    const p = await book.find({ publishinghouseid: "661a79b3fdb17d368353e72d"})
+    for (let i = 0; i < p.length; ++i) {
+        console.log(p[i].id)
+    }
 }
 
 test()

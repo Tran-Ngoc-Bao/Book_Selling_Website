@@ -1,0 +1,33 @@
+Giới thiệu lại về MongoDB và database của nhóm
+
+Dữ liệu tạo ra không phải ngẫu nhiên, có móc nối với nhau => Không nên thay đổi dữ liệu, phát hiện lỗi hoặc muốn thay đổi nhắn riêng cho Bảo rồi cả nhóm trao đổi.
+
+Chú ý các trường dữ liệu là mảng, mảng của object; các trường dữ liệu Number.
+
+Chú ý các dữ liệu required (not null) và các dữ liệu có thể null.
+
+Date trong mongodb là thuộc múi giờ Anh => Muốn chính xác thì cộng thêm 7 giờ.
+
+Check email, phone.
+
+Thiết kế thêm trang admin với các chức năng đơn giản như trong Usecase.
+
+Ảnh trong thư mục images của scr thuộc frontend, được đặt tên theo id của book.
+
+
+
+books:
+
+	genres (loại sách) bao gồm: Văn học, Lịch sử, Thần thoại, Khoa học, Huyền bí.
+
+	rate: thuộc kiểu double từ 1.0 đến 5.0 hoặc nhận giá trị null.
+
+	sold: ban đầu khi tạo dữ liệu là một số ngẫu nhiên không ảnh hưởng gì. Sau này, khi 			muốn tăng sold dựa vào status (DG thì tăng lên quantity) thuộc order bên phía customer.
+
+	feedbacks: nhận giá trị null hoặc là 1 mảng object như trong thiết kế CSDL, rate trong object đó thuộc kiểu int từ 1 đến 5 (khi đã có object thì không có rate null), còn text trong object đó có thể null.
+	
+
+customers:
+	order: nhận giá trị null hoặc là 1 mảng object như trong thiết kế CSDL:
+		shipprice: chia giá tiền theo quận: Hai Bà Trưng: 10000; Hoàn Kiếm, Hoàng Mai, Ba Đình, Đống Đa: 20000; khác: 30000.
+		status có các giá trị sau: CXN (Chờ xác nhận), CLH (Chờ lấy hàng), CGH (Chờ giao hàng), DG (Đã giao), TH (Trả hàng), DH (Đã hủy).

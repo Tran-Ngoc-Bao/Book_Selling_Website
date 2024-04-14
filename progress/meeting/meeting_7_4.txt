@@ -1,0 +1,17 @@
+Tất cả Id đều đặt làm khóa 
+
+Cắt giảm dữ liệu trong các collection, nhưng tăng truy vấn dữ liệu
+
+Chú ý các dữ liệu required
+
+Chú ý đặt tên và các kiểu dữ liệu giống theo thiết kế
+
+Chú ý database, collection, key đều viết thường không viết hoa từ nào cá
+
+Phone và Email sẽ được dùng để làm tài khoản
+
+Ảnh sách có tên file chính là id của book, được đặt trong images thuộc src của frontend
+
+
+
+	Bình thiết kế thêm figma
