@@ -1,22 +1,31 @@
 const express = require('express')
 const mongoose = require('mongoose')
+const dotenv = require('dotenv')
+const booksRoutes = require('./api/booksRoute.js')
+const customerRoute = require('./api/customerRoute.js')
+const publishinghouseRoute = require('./api/publishinghouseRoute.js')
+dotenv.config()
 
-const book = require('./models/book.js')
-const customer = require('./models/customer.js')
-const publishinghouse = require('./models/publishinghouse.js')
+const app = express()
+const port = process.env.PORT || 8000
+
+// Middleware
+app.use(express.json());
 
 try {
-    mongoose.connect('mongodb://127.0.0.1:27017/bookstore')
-        .then(() => console.log('Database connected!'))
+  mongoose.connect('mongodb://127.0.0.1:27017/bookstore')
+    .then(() => console.log('Database connected!'))
 } catch (error) {
-    console.log(error);
+  console.log(error);
 }
 
-async function test() {
-    const p = await book.find({ publishinghouseid: "661a79b3fdb17d368353e72d"})
-    for (let i = 0; i < p.length; ++i) {
-        console.log(p[i].id)
-    }
-}
+app.use('/api', booksRoutes)
+app.use('/api', customerRoute)
+app.use('/api', publishinghouseRoute)
 
-test()
+app.get('/', (req, res) => {
+  res.send('Welcome to the bookstore backend!');
+});
+app.listen(port, () => {
+  console.log('server is running on port', + port)
+})
