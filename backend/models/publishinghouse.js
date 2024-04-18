@@ -43,5 +43,6 @@ publishinghouse.delete = (id) => publishinghouse.findByIdAndDelete(id)
 publishinghouse.deletePlus = (name) => publishinghouse.findOneAndDelete({ name })
 
 // Other query
+publishinghouse.addBookId = (id, bookid) => publishinghouse.updateOne({ _id: id }, { $push: { bookids: bookid } })
 
 module.exports = publishinghouse

@@ -1,11 +1,12 @@
 const mongoose = require('mongoose')
+const ObjectId = require('mongodb').ObjectId
 
 const customer = mongoose.model('customer', {
     address: {
         type: String,
         require: [true, "address not provided"]
     },
-    bank: [{
+    bank: {
         name: {
             type: String,
             require: [true, "name not provided"]
@@ -14,7 +15,7 @@ const customer = mongoose.model('customer', {
             type: String,
             require: [true, "seri not provided"]
         }
-    }],
+    },
     birthday: {
         type: Date,
         require: [true, "birthday not provided"]
@@ -81,8 +82,8 @@ customer.readByEmail = (email) => customer.findOne({ email })
 customer.readByPhone = (phone) => customer.findOne({ phone })
 
 customer.updateAddress = (id, address) => customer.findByIdAndUpdate(id, { address })
-customer.updateBank = (id, oldbank, newbank) => customer.updateOne({ _id: id, bank: oldbank }, { "bank.$": newbank })
-customer.updateBirthday = (id, birthday) => customer.updateOne({ _id: id }, { $set: { birthday } })
+customer.updateBank = (id, newbank) => customer.findByIdAndUpdate(id, { bank: newbank })
+customer.updateBirthday = (id, birthday) => customer.findByIdAndUpdate(id, { birthday })
 customer.updateCart = (id, oldcart, newcart) => customer.updateOne({ _id: id, cart: oldcart }, { "cart.$": newcart })
 customer.updateEmail = (id, email) => customer.findByIdAndUpdate(id, { email })
 customer.updateGender = (id, gender) => customer.findByIdAndUpdate(id, { gender })
@@ -94,5 +95,9 @@ customer.updatePhone = (id, phone) => customer.findByIdAndUpdate(id, { phone })
 customer.delete = (id) => customer.findByIdAndDelete(id)
 
 // Other query
+customer.addCart = (id, newcart) => customer.updateOne({ _id: id }, { $push: { cart: newcart } })
+customer.addOrder = (id, neworder) => customer.updateOne({ _id: id }, { $push: { order: neworder } })
+
+customer.readByOrderId = (id) => customer.findOne({ "order.orderid": new ObjectId(id) })
 
 module.exports = customer

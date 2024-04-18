@@ -16,7 +16,8 @@
   "sold": 4,
   "title": "Tam quốc diễn nghĩa",
   "year": 2016,
-  "feedbacks": null
+  "feedbacks": null,
+  "quantity": 10
 },
 {
   "_id": {
@@ -35,7 +36,8 @@
   "sold": 13,
   "title": "Nguồn gốc các loài",
   "year": 2019,
-  "feedbacks": null
+  "feedbacks": null,
+  "quantity": 10
 },
 {
   "_id": {
@@ -54,7 +56,8 @@
   "sold": 95,
   "title": "Thần thoại Hy Lạp",
   "year": 2016,
-  "feedbacks": null
+  "feedbacks": null,
+  "quantity": 10
 },
 {
   "_id": {
@@ -75,7 +78,8 @@
   "sold": 59,
   "title": "Đại Việt sử ký toàn thư",
   "year": 2021,
-  "feedbacks": null
+  "feedbacks": null,
+  "quantity": 10
 },
 {
   "_id": {
@@ -94,7 +98,8 @@
   "sold": 88,
   "title": "Thần thoại Ai Cập",
   "year": 2023,
-  "feedbacks": null
+  "feedbacks": null,
+  "quantity": 10
 },
 {
   "_id": {
@@ -113,7 +118,8 @@
   "sold": 95,
   "title": "Việt Nam sử lược",
   "year": 2020,
-  "feedbacks": null
+  "feedbacks": null,
+  "quantity": 10
 },
 {
   "_id": {
@@ -133,7 +139,8 @@
   "sold": 4,
   "title": "Thần thoại Bắc Âu",
   "year": 2019,
-  "feedbacks": null
+  "feedbacks": null,
+  "quantity": 10
 },
 {
   "_id": {
@@ -153,7 +160,8 @@
   "sold": 23,
   "title": "Tuổi thơ dữ dội",
   "year": 2023,
-  "feedbacks": null
+  "feedbacks": null,
+  "quantity": 10
 },
 {
   "_id": {
@@ -172,7 +180,8 @@
   "sold": 64,
   "title": "Biên bản chiến tranh 1-2-3-4.75",
   "year": 2020,
-  "feedbacks": null
+  "feedbacks": null,
+  "quantity": 10
 },
 {
   "_id": {
@@ -192,7 +201,8 @@
   "sold": 44,
   "title": "Lĩnh Nam chích quái",
   "year": 2021,
-  "feedbacks": null
+  "feedbacks": null,
+  "quantity": 10
 },
 {
   "_id": {
@@ -211,7 +221,8 @@
   "sold": 5,
   "title": "Tuyển tập Nam Cao",
   "year": 2015,
-  "feedbacks": null
+  "feedbacks": null,
+  "quantity": 10
 },
 {
   "_id": {
@@ -232,7 +243,8 @@
   "sold": 51,
   "title": "Ghi chép pháp y",
   "year": 2022,
-  "feedbacks": null
+  "feedbacks": null,
+  "quantity": 10
 },
 {
   "_id": {
@@ -253,7 +265,8 @@
   "sold": 36,
   "title": "Thủy hử",
   "year": 2018,
-  "feedbacks": null
+  "feedbacks": null,
+  "quantity": 10
 },
 {
   "_id": {
@@ -272,7 +285,8 @@
   "sold": 11,
   "title": "Thần thoại người da đỏ",
   "year": 2022,
-  "feedbacks": null
+  "feedbacks": null,
+  "quantity": 10
 },
 {
   "_id": {
@@ -291,7 +305,8 @@
   "sold": 48,
   "title": "Lược sử thời gian",
   "year": 2020,
-  "feedbacks": null
+  "feedbacks": null,
+  "quantity": 10
 },
 {
   "_id": {
@@ -310,7 +325,8 @@
   "sold": 51,
   "title": "Vũ trụ trong vỏ hạt dẻ",
   "year": 2020,
-  "feedbacks": null
+  "feedbacks": null,
+  "quantity": 10
 },
 {
   "_id": {
@@ -329,7 +345,8 @@
   "sold": 51,
   "title": "Tuyển tập Vũ Trọng Phụng",
   "year": 2015,
-  "feedbacks": null
+  "feedbacks": null,
+  "quantity": 10
 },
 {
   "_id": {
@@ -349,7 +366,8 @@
   "sold": 48,
   "title": "Bản thiết kế vĩ đại",
   "year": 2018,
-  "feedbacks": null
+  "feedbacks": null,
+  "quantity": 10
 },
 {
   "_id": {
@@ -369,7 +387,8 @@
   "sold": 55,
   "title": "Anh chàng Hobbit",
   "year": 2020,
-  "feedbacks": null
+  "feedbacks": null,
+  "quantity": 10
 },
 {
   "_id": {
@@ -389,7 +408,8 @@
   "sold": 34,
   "title": "Chúa tể những chiếc nhẫn",
   "year": 2020,
-  "feedbacks": null
+  "feedbacks": null,
+  "quantity": 10
 },
 {
   "_id": {
@@ -408,7 +428,8 @@
   "sold": 2,
   "title": "Truyện Kiều",
   "year": 2022,
-  "feedbacks": null
+  "feedbacks": null,
+  "quantity": 10
 },
 {
   "_id": {
@@ -427,7 +448,8 @@
   "sold": 61,
   "title": "Sapiens Lược sử về loài người",
   "year": 2020,
-  "feedbacks": null
+  "feedbacks": null,
+  "quantity": 10
 },
 {
   "_id": {
@@ -455,7 +477,8 @@
         "$date": "2003-04-13T17:00:00.000Z"
       }
     }
-  ]
+  ],
+  "quantity": 10
 },
 {
   "_id": {
@@ -475,7 +498,8 @@
   "sold": 50,
   "title": "Nhật ký Đặng Thùy Trâm",
   "year": 2022,
-  "feedbacks": null
+  "feedbacks": null,
+  "quantity": 10
 },
 {
   "_id": {
@@ -494,7 +518,8 @@
   "sold": 51,
   "title": "Tuyển tập Thạch Lam",
   "year": 2015,
-  "feedbacks": null
+  "feedbacks": null,
+  "quantity": 10
 },
 {
   "_id": {
@@ -513,7 +538,8 @@
   "sold": 80,
   "title": "Tuyển tập Ngô Tất Tố",
   "year": 2015,
-  "feedbacks": null
+  "feedbacks": null,
+  "quantity": 10
 },
 {
   "_id": {
@@ -542,7 +568,8 @@
         "$date": "2003-04-13T17:00:00.000Z"
       }
     }
-  ]
+  ],
+  "quantity": 10
 },
 {
   "_id": {
@@ -571,7 +598,8 @@
         "$date": "2003-04-13T17:00:00.000Z"
       }
     }
-  ]
+  ],
+  "quantity": 10
 },
 {
   "_id": {
@@ -600,7 +628,8 @@
         "$date": "2003-04-13T17:00:00.000Z"
       }
     }
-  ]
+  ],
+  "quantity": 10
 },
 {
   "_id": {
@@ -628,7 +657,8 @@
         "$date": "2003-04-13T17:00:00.000Z"
       }
     }
-  ]
+  ],
+  "quantity": 10
 },
 {
   "_id": {
@@ -656,7 +686,8 @@
         "$date": "2003-04-13T17:00:00.000Z"
       }
     }
-  ]
+  ],
+  "quantity": 10
 },
 {
   "_id": {
@@ -676,7 +707,8 @@
   "sold": 55,
   "title": "Thép đã tôi thế đấy",
   "year": 2020,
-  "feedbacks": null
+  "feedbacks": null,
+  "quantity": 10
 },
 {
   "_id": {
@@ -696,7 +728,8 @@
   "sold": 36,
   "title": "Những người khốn khổ",
   "year": 2016,
-  "feedbacks": null
+  "feedbacks": null,
+  "quantity": 10
 },
 {
   "_id": {
@@ -725,7 +758,8 @@
         "$date": "2003-04-13T17:00:00.000Z"
       }
     }
-  ]
+  ],
+  "quantity": 10
 },
 {
   "_id": {
@@ -754,7 +788,8 @@
         "$date": "2003-04-13T17:00:00.000Z"
       }
     }
-  ]
+  ],
+  "quantity": 10
 },
 {
   "_id": {
@@ -782,7 +817,8 @@
         "$date": "2003-04-13T17:00:00.000Z"
       }
     }
-  ]
+  ],
+  "quantity": 10
 },
 {
   "_id": {
@@ -802,7 +838,8 @@
   "sold": 31,
   "title": "Tây du ký",
   "year": 2022,
-  "feedbacks": null
+  "feedbacks": null,
+  "quantity": 10
 },
 {
   "_id": {
@@ -830,7 +867,8 @@
         "$date": "2003-04-13T17:00:00.000Z"
       }
     }
-  ]
+  ],
+  "quantity": 10
 },
 {
   "_id": {
@@ -859,7 +897,8 @@
         "$date": "2003-04-13T17:00:00.000Z"
       }
     }
-  ]
+  ],
+  "quantity": 10
 },
 {
   "_id": {
@@ -887,7 +926,8 @@
         "$date": "2024-03-03T17:00:00.000Z"
       }
     }
-  ]
+  ],
+  "quantity": 10
 },
 {
   "_id": {
@@ -907,7 +947,8 @@
   "sold": 35,
   "title": "Quân khu Nam Đồng",
   "year": 2022,
-  "feedbacks": null
+  "feedbacks": null,
+  "quantity": 10
 },
 {
   "_id": {
@@ -927,7 +968,8 @@
   "sold": 5,
   "title": "Tam quốc chí",
   "year": 2023,
-  "feedbacks": null
+  "feedbacks": null,
+  "quantity": 10
 },
 {
   "_id": {
@@ -947,7 +989,8 @@
   "sold": 43,
   "title": "Dune",
   "year": 2021,
-  "feedbacks": null
+  "feedbacks": null,
+  "quantity": 10
 },
 {
   "_id": {
@@ -975,7 +1018,8 @@
         "$date": "2003-04-13T17:00:00.000Z"
       }
     }
-  ]
+  ],
+  "quantity": 10
 },
 {
   "_id": {
@@ -994,7 +1038,8 @@
   "sold": 33,
   "title": "Thần thoại Celt",
   "year": 2023,
-  "feedbacks": null
+  "feedbacks": null,
+  "quantity": 10
 },
 {
   "_id": {
@@ -1013,5 +1058,6 @@
   "sold": 15,
   "title": "Tuyển tập Nguyên Hồng",
   "year": 2015,
-  "feedbacks": null
+  "feedbacks": null,
+  "quantity": 10
 }]

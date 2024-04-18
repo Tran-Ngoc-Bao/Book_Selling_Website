@@ -1,0 +1,7 @@
+2 câu truy vấn trang chủ
+
+quantity sách bên collection books
+
+thêm id vào order của customer
+
+1 bank 1 customer

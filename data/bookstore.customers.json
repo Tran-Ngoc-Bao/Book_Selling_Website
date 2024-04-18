@@ -3,12 +3,10 @@
     "$oid": "660cb61e234b5f0fdbc8d264"
   },
   "address": "18 P. Nguyễn Trường Tộ, Nguyễn Trung Trực, Ba Đình, Hà Nội",
-  "bank": [
-    {
-      "name": "MBBank",
-      "seri": "1481562921"
-    }
-  ],
+  "bank": {
+    "name": "MBBank",
+    "seri": "0123456789"
+  },
   "birthday": {
     "$date": "2003-06-11T17:00:00.000Z"
   },
@@ -34,31 +32,46 @@
       "bookid": "661b50780a51ca4b1175c12e",
       "shipprice": 20000,
       "quantity": 1,
-      "status": "CXN"
+      "status": "CXN",
+      "orderid": {
+        "$oid": "661fe0909af4993c4fb61625"
+      }
     },
     {
       "bookid": "661b54ae0a51ca4b1175c132",
       "shipprice": 20000,
       "quantity": 1,
-      "status": "CLH"
+      "status": "CLH",
+      "orderid": {
+        "$oid": "661fe0b19af4993c4fb61626"
+      }
     },
     {
       "bookid": "661b53510a51ca4b1175c131",
       "shipprice": 20000,
       "quantity": 1,
-      "status": "CGH"
+      "status": "CGH",
+      "orderid": {
+        "$oid": "661fe0e19af4993c4fb61627"
+      }
     },
     {
       "bookid": "661b52b90a51ca4b1175c130",
       "shipprice": 20000,
       "quantity": 1,
-      "status": "DG"
+      "status": "DG",
+      "orderid": {
+        "$oid": "661fe0fa9af4993c4fb61628"
+      }
     },
     {
       "bookid": "661b510b0a51ca4b1175c12f",
       "shipprice": 20000,
       "quantity": 1,
-      "status": "DH"
+      "status": "DH",
+      "orderid": {
+        "$oid": "661fe1069af4993c4fb61629"
+      }
     }
   ],
   "password": "12345678",
@@ -69,12 +82,10 @@
     "$oid": "661b2c722899767175a64fa4"
   },
   "address": "53 Nguyễn Du, quận Hai Bà Trưng, Hà Nội",
-  "bank": [
-    {
-      "name": "BIDV",
-      "seri": "6761256213"
-    }
-  ],
+  "bank": {
+    "name": "BIDV",
+    "seri": "6761256213"
+  },
   "birthday": {
     "$date": "2003-06-11T17:00:00.000Z"
   },
@@ -96,19 +107,28 @@
       "bookid": "661b4fbc0a51ca4b1175c12c",
       "shipprice": 10000,
       "quantity": 1,
-      "status": "CGH"
+      "status": "CGH",
+      "orderid": {
+        "$oid": "661fe12b9af4993c4fb6162a"
+      }
     },
     {
       "bookid": "661b40d42899767175a64fb3",
       "shipprice": 10000,
       "quantity": 1,
-      "status": "DG"
+      "status": "DG",
+      "orderid": {
+        "$oid": "661fe13a9af4993c4fb6162b"
+      }
     },
     {
       "bookid": "661b3ffe2899767175a64fb2",
       "shipprice": 10000,
       "quantity": 1,
-      "status": "DG"
+      "status": "DG",
+      "orderid": {
+        "$oid": "661fe14b9af4993c4fb6162c"
+      }
     }
   ],
   "password": "12345678",
@@ -119,12 +139,10 @@
     "$oid": "661b2d572899767175a64fa6"
   },
   "address": "65 P. Tràng Thi, Hàng Bông, Hoàn Kiếm, Hà Nội",
-  "bank": [
-    {
-      "name": "MBBank",
-      "seri": "9859822699"
-    }
-  ],
+  "bank": {
+    "name": "MBBank",
+    "seri": "9859822699"
+  },
   "birthday": {
     "$date": "2003-09-20T17:00:00.000Z"
   },
@@ -146,19 +164,28 @@
       "bookid": "661b3f1a2899767175a64fb1",
       "shipprice": 20000,
       "quantity": 1,
-      "status": "DG"
+      "status": "DG",
+      "orderid": {
+        "$oid": "661fe16b9af4993c4fb6162d"
+      }
     },
     {
       "bookid": "661b3dfc2899767175a64fb0",
       "shipprice": 20000,
       "quantity": 1,
-      "status": "CGH"
+      "status": "CGH",
+      "orderid": {
+        "$oid": "661fe1779af4993c4fb6162e"
+      }
     },
     {
       "bookid": "661b3cf52899767175a64faf",
       "shipprice": 20000,
       "quantity": 1,
-      "status": "DG"
+      "status": "DG",
+      "orderid": {
+        "$oid": "661fe1829af4993c4fb6162f"
+      }
     }
   ],
   "password": "12345678",
@@ -169,12 +196,10 @@
     "$oid": "661b2dfe2899767175a64fa7"
   },
   "address": "D29, Khu Đô Thị Mới, Cầu Giấy, Hà Nội",
-  "bank": [
-    {
-      "name": "TPBank",
-      "seri": "9107816766"
-    }
-  ],
+  "bank": {
+    "name": "TPBank",
+    "seri": "9107816766"
+  },
   "birthday": {
     "$date": "2003-07-23T17:00:00.000Z"
   },
@@ -196,19 +221,28 @@
       "bookid": "661b3c3e2899767175a64fae",
       "shipprice": 30000,
       "quantity": 1,
-      "status": "DG"
+      "status": "DG",
+      "orderid": {
+        "$oid": "661fe1a89af4993c4fb61630"
+      }
     },
     {
       "bookid": "661a99d9fdb17d368353e750",
       "shipprice": 30000,
       "quantity": 1,
-      "status": "DG"
+      "status": "DG",
+      "orderid": {
+        "$oid": "661fe1b49af4993c4fb61631"
+      }
     },
     {
       "bookid": "661a98f0fdb17d368353e74f",
       "shipprice": 30000,
       "quantity": 1,
-      "status": "CGH"
+      "status": "CGH",
+      "orderid": {
+        "$oid": "661fe1bf9af4993c4fb61632"
+      }
     }
   ],
   "password": "12345678",
@@ -219,12 +253,10 @@
     "$oid": "661b2ef22899767175a64fa9"
   },
   "address": "347 P. Đội Cấn, Liễu Giai, Ba Đình, Hà Nội",
-  "bank": [
-    {
-      "name": "MBBank",
-      "seri": "7276671030"
-    }
-  ],
+  "bank": {
+    "name": "MBBank",
+    "seri": "7276671030"
+  },
   "birthday": {
     "$date": "2003-03-18T17:00:00.000Z"
   },
@@ -246,19 +278,28 @@
       "bookid": "661a9844fdb17d368353e74e",
       "shipprice": 20000,
       "quantity": 1,
-      "status": "CGH"
+      "status": "CGH",
+      "orderid": {
+        "$oid": "661fe1e09af4993c4fb61633"
+      }
     },
     {
       "bookid": "661a97b0fdb17d368353e74d",
       "shipprice": 20000,
       "quantity": 1,
-      "status": "DG"
+      "status": "DG",
+      "orderid": {
+        "$oid": "661fe1ea9af4993c4fb61634"
+      }
     },
     {
       "bookid": "661a96e1fdb17d368353e74c",
       "shipprice": 20000,
       "quantity": 1,
-      "status": "DG"
+      "status": "DG",
+      "orderid": {
+        "$oid": "661fe1f49af4993c4fb61635"
+      }
     }
   ],
   "password": "12345678",
@@ -269,12 +310,10 @@
     "$oid": "661b2f972899767175a64faa"
   },
   "address": "55 P. Quang Trung, Nguyễn Du, Hai Bà Trưng, Hà Nội",
-  "bank": [
-    {
-      "name": "MBBank",
-      "seri": "1551071988"
-    }
-  ],
+  "bank": {
+    "name": "MBBank",
+    "seri": "1551071988"
+  },
   "birthday": {
     "$date": "2003-06-11T17:00:00.000Z"
   },
@@ -292,7 +331,10 @@
       "bookid": "661a966cfdb17d368353e74b",
       "shipprice": 10000,
       "quantity": 1,
-      "status": "DG"
+      "status": "DG",
+      "orderid": {
+        "$oid": "661fe2099af4993c4fb61636"
+      }
     }
   ],
   "password": "12345678",
@@ -303,12 +345,10 @@
     "$oid": "661b30092899767175a64fab"
   },
   "address": "6 Ng. 86 P. Duy Tân, Dịch Vọng Hậu, Cầu Giấy, Hà Nội",
-  "bank": [
-    {
-      "name": "MBBank",
-      "seri": "6831498283"
-    }
-  ],
+  "bank": {
+    "name": "MBBank",
+    "seri": "6831498283"
+  },
   "birthday": {
     "$date": "2003-11-18T17:00:00.000Z"
   },
@@ -326,7 +366,10 @@
       "bookid": "661a9601fdb17d368353e74a",
       "shipprice": 30000,
       "quantity": 1,
-      "status": "DG"
+      "status": "DG",
+      "orderid": {
+        "$oid": "661fe21c9af4993c4fb61637"
+      }
     }
   ],
   "password": "12345678",
@@ -337,12 +380,10 @@
     "$oid": "661b308e2899767175a64fac"
   },
   "address": "21 Đầm Trấu, Bạch Đằng, Hai Bà Trưng, Hà Nội",
-  "bank": [
-    {
-      "name": "MBBank",
-      "seri": "9203131603"
-    }
-  ],
+  "bank": {
+    "name": "MBBank",
+    "seri": "9203131603"
+  },
   "birthday": {
     "$date": "2003-02-14T17:00:00.000Z"
   },
@@ -360,7 +401,10 @@
       "bookid": "661a95bafdb17d368353e749",
       "shipprice": 10000,
       "quantity": 1,
-      "status": "DG"
+      "status": "DG",
+      "orderid": {
+        "$oid": "661fe22f9af4993c4fb61638"
+      }
     }
   ],
   "password": "12345678",
@@ -371,12 +415,10 @@
     "$oid": "661b30f02899767175a64fad"
   },
   "address": "65, Nguyễn Du, quận Hai Bà Trưng, Hà Nội",
-  "bank": [
-    {
-      "name": "MBBank",
-      "seri": "6805887808"
-    }
-  ],
+  "bank": {
+    "name": "MBBank",
+    "seri": "6805887808"
+  },
   "birthday": {
     "$date": "2003-06-11T17:00:00.000Z"
   },
@@ -402,31 +444,46 @@
       "bookid": "661a950afdb17d368353e748",
       "shipprice": 10000,
       "quantity": 1,
-      "status": "CXN"
+      "status": "CXN",
+      "orderid": {
+        "$oid": "661fe2479af4993c4fb61639"
+      }
     },
     {
       "bookid": "661a94a7fdb17d368353e747",
       "shipprice": 10000,
       "quantity": 1,
-      "status": "CLH"
+      "status": "CLH",
+      "orderid": {
+        "$oid": "661fe2509af4993c4fb6163a"
+      }
     },
     {
       "bookid": "661a9430fdb17d368353e746",
       "shipprice": 10000,
       "quantity": 1,
-      "status": "CGH"
+      "status": "CGH",
+      "orderid": {
+        "$oid": "661fe25b9af4993c4fb6163b"
+      }
     },
     {
       "bookid": "661a93a5fdb17d368353e745",
       "shipprice": 10000,
       "quantity": 1,
-      "status": "DG"
+      "status": "DG",
+      "orderid": {
+        "$oid": "661fe2669af4993c4fb6163c"
+      }
     },
     {
       "bookid": "661a92b6fdb17d368353e744",
       "shipprice": 10000,
       "quantity": 1,
-      "status": "TH"
+      "status": "TH",
+      "orderid": {
+        "$oid": "661fe2729af4993c4fb6163d"
+      }
     }
   ],
   "password": "12345678",

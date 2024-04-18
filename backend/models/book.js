@@ -33,6 +33,10 @@ const book = mongoose.model('book', {
         type: String,
         require: [true, "publishinghouseid not provided"]
     },
+    quantity: {
+        type: Number,
+        require: [true, "quantity not provided"]
+    },
     rate: Number,
     sold: Number,
     title: {
@@ -56,6 +60,7 @@ book.updateFeedbacks = (id, oldfeedback, newfeedback) => book.updateOne({ _id: i
 book.updateGenres = (id, oldgenre, newgenre) => book.updateOne({ _id: id, genres: oldgenre }, { "genres.$": newgenre })
 book.updatePrice = (id, price) => book.findByIdAndUpdate(id, { price })
 book.updatePublishingHouseId = (id, publishinghouseid) => book.findByIdAndUpdate(id, { publishinghouseid })
+book.updateQuantity = (id, quantity) => book.findByIdAndUpdate(id, { quantity })
 book.updateRate = (id, rate) => book.findByIdAndDelete(id, { rate })
 book.updateSold = (id, sold) => book.findByIdAndUpdate(id, { sold })
 book.updateTitle = (id, title) => book.findByIdAndUpdate(id, { title })
@@ -64,5 +69,21 @@ book.updateYear = (id, year) => book.findByIdAndUpdate(id, { year })
 book.delete = (id) => book.findByIdAndDelete(id)
 
 // Other query
+book.readByName = (name) => book.find({ name })
+book.readByGenre = (genre) => book.find({ genres: genre })
+book.readByPublishingHouseId = (publishinghouseid) => book.find({ publishinghouseid })
+
+book.addAuthor = (id, author) => book.updateOne({ _id: id }, { $push: { authors: author } })
+book.addFeedBack = (id, feedback) => book.updateOne({ _id: id }, { $push: { feedbacks: feedback } })
+book.addGenre = (id, genre) => book.updateOne({ _id: id }, { $push: { genres: genre } })
+
+book.sortBySold = () => book.aggregate([{ $sort: { sold: -1 } }])
+book.sortByRate = () => book.aggregate([{ $sort: { rate: -1 } }])
+
+book.sortBySoldWithGenre = (genre) => book.find({ genres: genre }).sort({ sold: -1 })
+book.sortBySoldWithPublishingHouse = (publishinghouseid) => book.find({ publishinghouseid }).sort({ sold: -1 })
+
+book.sortByRateWithGenre = (genre) => book.find({ genres: genre }).sort({ rate: -1 })
+book.sortByRateWithPublishingHouse = (publishinghouseid) => book.find({ publishinghouseid }).sort({ rate: -1 })
 
 module.exports = book
