@@ -1,9 +1,8 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const dotenv = require('dotenv')
-const booksRoutes = require('./api/booksRoute.js')
-const customerRoute = require('./api/customerRoute.js')
-const publishinghouseRoute = require('./api/publishinghouseRoute.js')
+const routes = require('./api/apiRoutes')
+
 dotenv.config()
 
 const app = express()
@@ -11,6 +10,7 @@ const port = process.env.PORT || 8000
 
 // Middleware
 app.use(express.json());
+app.use("/images", express.static('images'));
 
 try {
   mongoose.connect('mongodb://127.0.0.1:27017/bookstore')
@@ -19,9 +19,7 @@ try {
   console.log(error);
 }
 
-app.use('/api', booksRoutes)
-app.use('/api', customerRoute)
-app.use('/api', publishinghouseRoute)
+routes(app)
 
 app.get('/', (req, res) => {
   res.send('Welcome to the bookstore backend!');

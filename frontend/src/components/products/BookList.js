@@ -7,7 +7,7 @@ function BookList(props) {
 
   useEffect(() => {
     const fetchBooks = async () => {
-      const response = await fetch(`/books?p=${page}`);
+      const response = await fetch(`/books/getall?p=${page}`);
       if (response.ok) {
         const json = await response.json();
         setBooks(json);

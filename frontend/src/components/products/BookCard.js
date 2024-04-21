@@ -5,7 +5,7 @@ function BookCard({ book }) {
   return (
     <div className="productCard_container">
       {/* Pass the book ID as a parameter in the URL */}
-      <Link to={`/bookdetail/${book._id}`}>
+      <Link to={`/books/${book._id}`}>
         <div className="bookContent">
           <p>Product Name: {book.Title}</p>
           <p>Author Name: {book.Authors}</p>
