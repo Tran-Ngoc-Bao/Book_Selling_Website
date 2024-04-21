@@ -8,7 +8,8 @@ function Bkbosto() {
     <div>
       <h1>Home page</h1>
       <div className="books">
-      <BookList />
+      <BookList name ='Promotion'/> {/*chua xu ly query*/}
+      <BookList name ='New Arrivals'/> {/*chua xu ly query*/}
       </div>
     </div>
   );
