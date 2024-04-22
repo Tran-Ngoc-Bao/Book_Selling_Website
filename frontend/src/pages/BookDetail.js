@@ -10,7 +10,7 @@ function BookDetail() {
   useEffect(() => {
     fetchBook();
     async function fetchBook() {
-      const response = await fetch(`/api/books/book/${id}`);
+      const response = await fetch(`/api/books/${id}`);
       if (response.ok) {
         const json = await response.json();
         setBook(json);
@@ -24,7 +24,7 @@ function BookDetail() {
 
   return (
     <div>
-      {book != undefined && (
+      {book && (
         <div>
           <div className="book">
             <img className="main-img" src={`../images/${id}.jpeg`} alt="anh" />

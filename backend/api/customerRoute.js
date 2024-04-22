@@ -44,7 +44,7 @@ router.post('/login', async (req, res) => {
     } else if (existingCustomer.password !== password) {
       return res.status(400).json({ message: 'Phone number or password is incorrect' });
     } else {
-      res.json({ message: 'Login successful' });
+      res.json({ message: 'Login successful', existingCustomer});
     }
   } catch (error) {
     console.error('Error logging in:', error);

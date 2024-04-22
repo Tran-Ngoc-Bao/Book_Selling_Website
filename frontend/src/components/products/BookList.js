@@ -1,21 +1,22 @@
 import React, { useEffect, useState } from "react";
 import BookCard from "./BookCard";
 import "./BookList.css";
+import axios from 'axios';
 function BookList(props) {
   const [books, setBooks] = useState(null);
-  const [page, setPage] = useState(0);
-  const [limit, setLimit] = useState(12);
+  // const [page, setPage] = useState(0);
+  // const [limit, setLimit] = useState(12);
 
-  useEffect(() => {
-    const fetchBooks = async () => {
-      const response = await fetch(`/api/books?p=${page}&limit=${limit}`);
-      if (response.ok) {
-        const json = await response.json();
-        setBooks(json);
-      }
-    };
-    fetchBooks();
-  }, [page, limit]);
+  // useEffect(() => {
+  //   const fetchBooks = async () => {
+  //     const response = await fetch(`/api/books/?p=${page}&limit=${limit}`);
+  //     if (response.ok) {
+  //       const json = await response.json();
+  //       setBooks(json);
+  //     }
+  //   };
+  //   fetchBooks();
+  // }, [page, limit]);
 
   // function nextPage() {
   //   setPage((prevPage) => prevPage + 1); // Correctly update page state
@@ -26,10 +27,22 @@ function BookList(props) {
   //     setPage((prevPage) => prevPage - 1); // Correctly update page state
   //   }
   // }
-
-  function change(newlimit) {
-    setLimit(newlimit);
+  useEffect(()=>{
+    fetchData()
+  async function fetchData() {
+    try {
+      const response = await axios.get('/api/books/getall');
+      console.log(response.data);
+      setBooks(response.data.books)
+    } catch (error) {
+      console.error('Error:', error);
+    }
   }
+  },[])
+  
+  // function change(newlimit) {
+  //   setLimit(newlimit);
+  // }
   return (
     <div className="container">
       <h2>{props.name}</h2>

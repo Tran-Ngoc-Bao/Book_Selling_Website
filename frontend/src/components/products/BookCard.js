@@ -4,7 +4,7 @@ function BookCard({ book }) {
   return (
     <div className="BookCards_container">
       <div className="book-item">
-        <a href={`/bookdetail/${book._id}`}>
+      <a href={`/bookdetail/${book._id}`}>
             <img src={`../images/${book._id}.jpeg`} width={200} height={200} alt={book.title} />
         </a>
         <div className="book-content">
