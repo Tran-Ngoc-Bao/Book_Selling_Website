@@ -1,5 +1,6 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
+import "./Signup.css"; // Import CSS file for styling
 
 function Signup() {
   const handleSubmit = (e) => {
@@ -21,43 +22,49 @@ function Signup() {
   };
 
   return (
-    <div>
-      <h2>Signup</h2>
+    <div className="signup-container">
+      <h2>Đăng ký</h2>
       <form id="userForm" onSubmit={handleSubmit}>
-        <div>
+        <div className="form-group">
           <label htmlFor="name">Tên người dùng:</label>
-          <input type="text" id="name" name="name" required = {true}/>
+          <input type="text" id="name" name="name" required />
         </div>
-        <div>
+        <div className="form-group">
           <label htmlFor="phone">Số điện thoại:</label>
-          <input type="text" id="phone" name="phone" required = {true}/>
+          <input type="text" id="phone" name="phone" required />
         </div>
-        <div>
+        <div className="form-group">
           <label htmlFor="email">Địa chỉ email:</label>
-          <input type="text" id="email" name="email" required = {true}/>
+          <input type="text" id="email" name="email" required />
         </div>
-        <div>
-          <label>Giới tính:</label>
+        <div className="input-group">
+          <label className="gender-label">Giới tính:</label>
           <input type="radio" id="nam" name="gender" value="Nam" />
-          <label htmlFor="nam">Nam</label>
+          <label className="radio-label" htmlFor="nam">
+            Nam
+          </label>
           <input type="radio" id="nu" name="gender" value="Nu" />
-          <label htmlFor="nu">Nữ</label>
+          <label className="radio-label" htmlFor="nu">
+            Nữ
+          </label>
         </div>
-        <div>
+        <div className="form-group">
           <label htmlFor="birthday">Ngày sinh:</label>
-          <input type="date" id="birthday" name="birthday" required = {true}/>
+          <input type="date" id="birthday" name="birthday" required />
         </div>
-        <div>
+        <div className="form-group">
           <label htmlFor="address">Địa chỉ:</label>
-          <input type="text" id="address" name="address" required = {true}/>
+          <input type="text" id="address" name="address" required />
         </div>
-        <div>
+        <div className="form-group">
           <label htmlFor="password">Mật khẩu:</label>
-          <input type="password" id="password" name="password" required = {true}/>
+          <input type="password" id="password" name="password" required />
         </div>
         <button type="submit">Đăng ký</button>
       </form>
-      <Link to='/login'><p>Đăng nhập</p></Link> 
+      <Link to="/login">
+        <p>Đăng nhập</p>
+      </Link>
     </div>
   );
 }

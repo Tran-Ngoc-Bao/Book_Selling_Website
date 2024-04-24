@@ -1,0 +1,24 @@
+body {
+  background-color: #f0f0f0; /* Light mode background color */
+}
+
+.App.dark-mode {
+  background-color: #333; /* Dark mode background color */
+  color: #fff; /* Dark mode text color */
+}
+
+.toggle-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  color: #333; /* Default icon color */
+}
+
+.App.dark-mode .toggle-button {
+  color: #fff; /* Dark mode icon color */
+}

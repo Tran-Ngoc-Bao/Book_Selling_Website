@@ -1,0 +1,40 @@
+.footer {
+  display: flex;
+  justify-content: space-around;
+  background-color: orange;
+  color: blue;
+  width: 100%;
+  bottom: 0;
+  margin-top: 400px;
+  padding: 20px 0; /* Add padding top and bottom */
+}
+
+.social-media,
+.site-links {
+  flex: 1;
+  padding: 0 20px; /* Add padding left and right */
+}
+
+h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  margin-bottom: 5px;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+a:hover {
+  text-decoration: underline;
+}
