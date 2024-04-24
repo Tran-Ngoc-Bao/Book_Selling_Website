@@ -19,14 +19,14 @@ try {
   console.log(error);
 }
 
-routes(app)
+routes(app);
 
 app.get('/', (req, res) => {
   res.send('Welcome to the bookstore backend!');
 });
 app.listen(port, () => {
   console.log('server is running on port', + port)
-})
+});
 
 // express = require('express')
 // const mongoose = require('mongoose')
