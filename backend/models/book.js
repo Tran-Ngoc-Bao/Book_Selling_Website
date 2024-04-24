@@ -80,10 +80,10 @@ book.addGenre = (id, genre) => book.updateOne({ _id: id }, { $push: { genres: ge
 book.sortBySold = () => book.aggregate([{ $sort: { sold: -1 } }])
 book.sortByRate = () => book.aggregate([{ $sort: { rate: -1 } }])
 
-book.sortBySoldWithGenre = (genre) => book.find({ genres: genre }).sort({ sold: -1 })
+book.sortBySoldWithGenre = ({ genres: genre }) => book.find({ genres: genre }).sort({ sold: -1 })
 book.sortBySoldWithPublishingHouse = (publishinghouseid) => book.find({ publishinghouseid }).sort({ sold: -1 })
 
-book.sortByRateWithGenre = (genre) => book.find({ genres: genre }).sort({ rate: -1 })
+book.sortByRateWithGenre = ({ genres: genre }) => book.find({ genres: genre }).sort({ rate: -1 })
 book.sortByRateWithPublishingHouse = (publishinghouseid) => book.find({ publishinghouseid }).sort({ rate: -1 })
 
 module.exports = book
