@@ -77,16 +77,9 @@ const getByPublishinghouse = async (req, res) => {
 const createBook = async (req, res) => {
     try {
         const { authors, description, feedbacks, genres, price, publishinghouseid, quantity, rate, sold, title, year } = req.body
-        if (!authors || !genres || !price || !publishinghouseid
-            || !quantity || !title || !year) {
-            return res.status(200).json({
-                status: 'ERR',
-                message: 'The input is required'
-            })
-        } else {
             const newBook = await book.create(req.body)
             res.status(201).json(newBook)
-        }
+        
     } catch (err) {
         console.error(err)
         res.status(500).json({ message: 'Server Error' })
@@ -104,11 +97,11 @@ const updateBook = async (req, res) => {
         else {
             await book.findByIdAndUpdate(bookID, updateField)
             const updatedBook = await book.readById(bookID)
-            res.json({ message: 'updated successfully', bookid: bookID, updatedBook })
+            res.json({ message: 'Updated successfully', bookid: bookID, updatedBook })
 
         }
     } catch (error) {
-        console.error('Error updating customer:', error)
+        console.error('Error updating book:', error)
         res.status(500).json({ message: 'Server Error' })
     }
 }
@@ -116,9 +109,9 @@ const deleteBook = async (req, res) => {
     try {
         const bookID = req.params.id
         await book.delete(bookID)
-        res.status(200).json({ message: 'Delete customer successfully' })
+        res.status(200).json({ message: 'Delete book successfully' })
     } catch (error) {
-        console.error('Error deleting customer:', error)
+        console.error('Error deleting book:', error)
         res.status(500).json({ message: 'Server Error' })
     }
 }

@@ -3,10 +3,11 @@ const publishinghouseController = require('../controller/publishinghouseControll
 const auth = require('../service/authenticationService')
 const router = express.Router()
 
-router.post('/create', publishinghouseController.createPublishinghouse)
+router.post('/admin/create', publishinghouseController.createPublishinghouse)
 router.get('/getall', publishinghouseController.getAllPublishinghouse)
 router.get('/getdetail/:id', publishinghouseController.getPublishinhghouseDetails)
-router.put('/update/:id', auth.authAdmins, publishinghouseController.updatePublishinghouse)
-router.post('/sentorder/:id', auth.authAdmins, publishinghouseController.sentOrder)
+router.put('/admin/update/:id', auth.authAdmins, publishinghouseController.updatePublishinghouse)
+router.delete('/admin/delete',auth.authAdmins,publishinghouseController.deletePublishinghouse )
+router.post('/admin/sentorder/:id', auth.authAdmins, publishinghouseController.sentOrder)
 
 module.exports = router

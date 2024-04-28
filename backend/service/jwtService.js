@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken')
-const { checkCustomer, checkAdmins } = require('./authenticationService')
+const { checkAdmins } = require('./authenticationService')
 const dotenv = require('dotenv')
 dotenv.config()
 
@@ -14,18 +14,24 @@ const gennerateRefreshToken = async (payload) => {
 }
 
 const refreshToken = (token) => {
-    jwt.verify(token, process.env.REFRESH_TOKEN, async (err, customer) => {
-        if (err) {
-            resolve({ status: 'ERR', message: 'The authentication' })
-        } else if (!customer) {
-            resolve({ status: 'ERR', message: 'User not found' })
-        } else {
-            const access_token = await gennerateAccessToken({
-                id: customer._id,
-                isAdmin: checkAdmins(user.id)
-            });
-            resolve({ status: 'OK', message: 'SUCESS', access_token })
-        }
+    return new Promise((resolve, reject) => {
+        jwt.verify(token, process.env.REFRESH_TOKEN, async (err, customer) => {
+            if (err) {
+                resolve({ status: 'ERR', message: 'The authentication' })
+            } else if (!customer) {
+                resolve({ status: 'ERR', message: 'User not found' })
+            } else {
+                try {
+                    const access_token = await gennerateAccessToken({
+                        id: customer._id,
+                        isAdmin: checkAdmins(customer._id)
+                    });
+                    resolve({ status: 'OK', message: 'SUCESS', access_token })
+                } catch (error) {
+                    reject({ status: 'ERR', message: 'Failed to generate access token' })
+                }
+            }
+        })
     })
 }
 module.exports = {

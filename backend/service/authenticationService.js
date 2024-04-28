@@ -28,16 +28,16 @@ const authAdmins = (req, res, next) => {
     const token = req.headers.token.split(' ')[0]
     jwt.verify(token, process.env.ACCESS_TOKEN, function (err, user) {
         if (err) {
-            return res.status(404).json({
+            return res.status(401).json({
                 message: 'The authentication',
                 status: 'ERROR'
             })
         }
-        else if (user.isAdmin) {
+        else if (checkAdmins(user.id)) {
             next()
         }
         else {
-            return res.status(404).json({
+            return res.status(401).json({
                 message: 'The authemtication',
                 status: 'ERROR'
             })
@@ -49,16 +49,16 @@ const authBoth = (req, res, next) => {
     const token = req.headers.token.split(' ')[0]
     jwt.verify(token, process.env.ACCESS_TOKEN, function (err, user) {
         if (err) {
-            return res.status(404).json({
+            return res.status(401).json({
                 message: 'The authemtication',
                 status: 'ERROR'
             })
         }
-        else if (user.isAdmin || checkCustomer(user.id)) {
+        else if (checkAdmins(user.id) || checkCustomer(user.id)) {
             next()
         }
         else {
-            return res.status(404).json({
+            return res.status(401).json({
                 message: 'The authemtication',
                 status: 'ERROR'
             })
