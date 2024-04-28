@@ -51,7 +51,7 @@ function BookList(props) {
           books.map((book) => (
             <React.Fragment key={book._id}>
               <br />
-              <BookCard book={book} />
+              <BookCard book={book} user={props.user}/>
             </React.Fragment>
           ))}
       </div>

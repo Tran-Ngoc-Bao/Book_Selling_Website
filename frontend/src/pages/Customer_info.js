@@ -1,8 +1,9 @@
-import React from "react";
+import React,{useState} from "react";
 import { useForm } from "react-hook-form";
 import { Link } from 'react-router-dom';
 
 function Customer_info(props) {
+  const[login,setLogin]=useState(props.user.current)
   const { register, handleSubmit, formState } = useForm();
   const { errors } = formState;
   const onSubmit = (data) => {
@@ -11,7 +12,7 @@ function Customer_info(props) {
   return (
     <div>
       <h2>Customer Information</h2>
-      {props.user && (
+      {login && (
         <form onSubmit={handleSubmit(onSubmit)} noValidate="">
           <div>
             <label htmlFor="name">Tên người dùng:</label>
