@@ -10,7 +10,7 @@ function Login(props) {
   const [error, setError] = useState(null);
   const [response, setResponse] = useState(null);
   const [loginMethod, setLoginMethod] = useState("phone");
-  const { user, logout } = useContext(UserContext);
+  const { user, logout, fetchCart } = useContext(UserContext);
 
   function loginbyphone() {
     setLoginMethod("phone");
@@ -39,16 +39,7 @@ function Login(props) {
       props.setAccessTk(response.data.accessToken);
       props.setRefreshTk(response.refreshToken);
       try {
-        const cart = await axios.get(
-          `api/customers/cart/${response.data.customerId}`,
-          {
-            headers: {
-              token: response.data.accessToken,
-            },
-          }
-        );
-        props.setCart(cart.data);
-        console.log(cart.data);
+          fetchCart(response.data.existingCustomer,response.data.accessToken)
       } catch (err) {
         console.error("Error fetching cart", err);
       }

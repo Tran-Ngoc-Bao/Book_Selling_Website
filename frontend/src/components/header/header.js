@@ -4,10 +4,13 @@ import pageLogo from "../../images/logos/One_Piece_Anime_Logo.png";
 import userIcon from "../../images/icons/user.png";
 import searchIcon from "../../images/icons/search.png";
 import "./header.css";
+import UserContext from "../../UserContext";
+import { useContext } from "react";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [iconPosition, setIconPosition] = useState({ x: 0, y: 0 });
+  const { logout } = useContext(UserContext);
 
   const handleMenuEnter = (event) => {
     setIsMenuOpen(true);
@@ -87,6 +90,7 @@ export default function Header() {
             <li>
               <Link to="/link2">Đăng xuất</Link>
             </li>
+            <button onClick={logout}>Dăng xuất</button>
           </ul>
         </div>
       )}

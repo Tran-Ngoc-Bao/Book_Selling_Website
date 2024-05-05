@@ -10,88 +10,102 @@ function BookDetail(props) {
   // Access the URL parameters using useParams
   const { id } = useParams();
   const [book, setBook] = useState(null);
-  const [err, setErr] = useState(null);
-  const { user, logout, accesstk } = useContext(UserContext);
-
+  const [error, setErr] = useState(null);
+  const { user, logout, accesstk, getnewTk, setAccessTk, refreshtk, cart , setCart} = useContext(UserContext);
+  const {giohang}= props
   useEffect(() => {
-    async function fetchBook() {
+    if(user){async function fetchBook() {
       const response = await fetch(`/api/books/${id}`);
       if (response.ok) {
         const json = await response.json();
         setBook(json);
       }
     }
+    
+  fetchBook()};}
+  , [user,refreshtk])
 
-    fetchBook();
-  }, []);
-
-  async function AddToCart() {
-    console.log(user);
-    const userid = user._id;
-  
-    try {
-      // Retrieve the user's cart from the backend
-      const cartcontainer = await axios.get(`/api/customers/getdetails/${userid}`, {
-        headers: {
-          token: accesstk,
-        },
-      });
-      let getcart = cartcontainer.data.cart || [];
-      console.log("cart from backend:", getcart);
-
-
-      // Map existing items in the user's cart to a new array
-      let cart=[]
+// bo truong __id tu cart lay ve tu server
+function remove__id (getcart ){
+  let repcart=[]
       getcart.map((book) => {
         let bookrep = {};
         bookrep.bookid = book.bookid;
         bookrep.quantity = book.quantity;
-        cart.push(bookrep);
+        repcart.push(bookrep);
       });
-  
-      // Check if the book is already in the cart
-      const isBookInCart = (getcart.some((item) => item.bookid === id)||cart.some((item) => item.bookid === id));
+  return repcart
+}
+
+// Check if the book is already in the cart
+function addcheckCart (checkcart){
+  const isBookInCart = (checkcart.some((item) => item.bookid === id));
       if (!isBookInCart) {
         // If the book is not in the cart, add it
         const newbook = {
           bookid: id,
           quantity: 1,
         };
-        cart.push(newbook);
-  
-        // Prepare the data to be sent to the backend
-        const sentCart = { cart };
-  
-        console.log("cart send to backend:",sentCart);
-        // console.log(userid);
-        // console.log(accesstk);
-  
-        // Send the updated cart to the backend
-        const response = await axios.put(`/api/customers/update/${userid}`, sentCart, {
-          headers: {
-            token: accesstk,
-          },
-        });
-        console.log("updated cart from backend:",response.data.updatedCustomer.cart);
-  
-        // Reset the cart and set success message
-        cart = [];
+        checkcart.push(newbook);
+      return checkcart
+    }
+    else{
+      setErr("Sách đã có trong giỏ hàng")
+    }
+}
 
-        setErr("Đã thêm vào giỏ hàng");
-      } else {
-        // If the book is already in the cart, set error message
-        setErr("Sách đã tồn tại trong giỏ hàng");
-      }
-    } catch (error) {
-      // Handle errors
-      console.log(error);
-      setErr("Error updating the cart");
+// prepare the cart to sent
+function GetReadyCart(cart){
+  const sentCart = { cart };
+  console.log("cart send to backend:",sentCart);
+  return sentCart
+}
+
+async function SentCart(readycart){
+  try{
+    const response = await axios.put(`/api/customers/update/${user._id}`, readycart, {
+      headers: {
+        token: accesstk,
+      },
+    });
+    console.log("updated cart from backend:",response.data.updatedCustomer.cart);
+    const newcart = response.data.updatedCustomer.cart
+    giohang.current = newcart
+    console.log(newcart)
+  }catch (err){
+    console.log(err)
+    setErr(err)
+  }
+}
+
+  async function AddToCart() {
+    // if(user){
+    console.log(user)
+    console.log(giohang)
+    let cartwoID= remove__id(giohang.current) // bo id 
+    console.log('cart gốc: ',cartwoID)
+    let added = addcheckCart(cartwoID) // them phan tu
+    console.log('cart thêm mới: ',cartwoID)
+    console.log(cartwoID!==added)
+
+    let sentcart =GetReadyCart(added) // goi vao object
+    console.log(sentcart)
+    await SentCart(sentcart) // gui và nhan reply
+    if(cartwoID!==added){ // neu them thanh cong
+  
+      let updatedCart=await SentCart(sentcart) // gui và nhan reply
+      setCart(updatedCart) // cap nhat cart
+      console.log("cart from backend:",updatedCart)
+      setErr("Đã thêm vào giỏ hàng thành công")
+    // }
+    // else{
+    //   setErr("Hãy đăng nhập")
+    //   console.log(user)
+    // }
+
     }
   }
-  
-  // Destructure properties from the book object outside the return statement
-  // Now you can use the book ID (id) to fetch book details or perform other actions
-  // For demonstration, let's just display the book ID
+
 
   return (
     <div>
@@ -131,7 +145,7 @@ function BookDetail(props) {
               <button onClick={AddToCart} className="cart">
                 Add to cart
               </button>
-              <p>{err}</p>
+              <p>{error}</p>
 
               <button className="Buy"> Buy now</button>
             </div>

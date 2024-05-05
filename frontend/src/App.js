@@ -13,7 +13,7 @@ import LightModeIcon from "./images/icons/light_mode.png";
 import DarkModeIcon from "./images/icons/dark_mode.png";
 import UserContext from "./UserContext"
 import axios from "axios";
-import { useContext } from "react";
+// import { useContext } from "react";
 
 import "./App.css"; // Import your CSS file for dark mode styles
 
@@ -22,33 +22,68 @@ function App() {
   const [darkMode, setDarkMode] = useState(false); // State to track dark mode
   const [accesstk, setAccessTk] = useState(null)
   const [refreshtk, setRefreshTk] = useState(null)
-  const [cart,setCart]=useState([])
+  const [cart,setCart]=useState(null)
   const login = (userData) => {
     setUser(userData);
   };
   const logout = () => {
-    setUser(null);
-  };
-
-  async function getCart (userid, accesstk) {
-    if(!userid){
-      console.log("login pls")
-      return false
+    if(user){
+      setUser(null);
+      // const rep= axios.get('/api/customers/logout')
+      // console.log(rep)
     }
+    
+  };
+const giohang =useRef(null)
+  async function fetchCart(user,accesstk) { // lay cart tu back-end
     try {
-      // Retrieve the user's cart from the backend
-      const cartcontainer = await axios.get(`/api/customers/getdetails/${userid}`, {
-        headers: {
-          token: accesstk,
-        },
-      });
-      let getcart = cartcontainer.data.cart || [];
-      console.log("cart from backend:", getcart);
-      return getcart
-    }catch(err){return err}
+        const cartcontainer = await axios.get(`/api/customers/getdetails/${user._id}`, {
+            headers: {
+                token: accesstk,
+            },
+        })
+        let getcart = cartcontainer.data.cart || [];
+        console.log("cart from backend:", getcart);
+        giohang.current= getcart
+        console.log( "day la giohang ",giohang.current)
+        return getcart;
+    } catch (error) {
+        // Handle token refresh if the initial request fails
+        try{
+          const newtk = await getnewTk(refreshtk, setAccessTk);
+        const cartcontainer = await axios.get(`/api/customers/getdetails/${user._id}`, {
+            headers: {
+                token: newtk,
+            },
+        })
+        let getcart = cartcontainer.data.cart || [];
+        console.log("cart from backend after refresh token:", getcart);
+        setCart(getcart)
+        giohang.current= getcart
+        console.log( "day la giohang ",giohang.current)
+        return getcart;
+        } catch(err){console.log(err)
+          // setErr("Hãy đăng nhập")
+        }  
+      }
+    }    
+
+async function getnewTk(accesstk, setAccessTk ){
+  try {
+    const res = await axios.post('/api/customers/refreshtoken',{
+      header:{
+        token:refreshtk
+      }
+    })
+    const newtk = res.refreshing
+    setAccessTk(newtk)
+    return newtk
+  }
+  catch (err){
+    return err
   }
 
-
+}
 
   // Function to toggle dark mode
   const toggleDarkMode = () => {
@@ -56,7 +91,7 @@ function App() {
   };
 
   return (
-    <UserContext.Provider value={{ user, setUser,logout, accesstk, cart, getCart  }}>
+    <UserContext.Provider value={{ user, setUser,logout, accesstk, setAccessTk, cart, setCart, getnewTk,refreshtk, fetchCart }}>
        <div className={`App ${darkMode ? "dark-mode" : ""}`}>
       <Header />
       <div className="Content">
@@ -67,17 +102,17 @@ function App() {
             element={<Customer_info user={login}  
            />}
           />
-          <Route path="/cart" element={<Cart cart={cart} setCart={setCart} user={login} />}  />
+          <Route path="/cart" element={<Cart cart={cart} setCart={setCart} user={login} giohang={giohang} />}  />
           <Route path="/order" element={<Order />} />
           <Route
             path="/login"
             element={<Login user={user} setUser={login}  
             accesstk={accesstk} setAccessTk={setAccessTk}
             refreshtk={refreshtk} setRefreshTk={setRefreshTk}
-            cart={cart} setCart={setCart}/>}
+            cart={cart} setCart={setCart} fetchCart={fetchCart}/>}
           />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/bookdetail/:id" element={<BookDetail cart={cart} setCart={setCart} user={user} setUser={setUser} accesstk={accesstk}/>} />
+          <Route path="/bookdetail/:id" element={<BookDetail giohang={giohang} setCart={setCart} user={user} setUser={setUser} accesstk={accesstk}/>} />
         </Routes>
       </div>
 

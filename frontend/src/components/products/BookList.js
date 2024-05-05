@@ -27,6 +27,7 @@ function BookList(props) {
   //     setPage((prevPage) => prevPage - 1); // Correctly update page state
   //   }
   // }
+  //lay du lieu tu back end
   useEffect(()=>{
     fetchData()
   async function fetchData() {
