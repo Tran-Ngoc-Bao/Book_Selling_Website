@@ -64,7 +64,7 @@ const logIn = async (req, res) => {
                         sameSite: 'strict',
                         path: '/',
                     })
-                    res.json({ message: 'Login successful',existingCustomer, customerId: existingCustomer._id, accessToken, refreshToken })
+                    res.json({ message: 'Login successful', existingCustomer, customerId: existingCustomer._id, accessToken, refreshToken })
                 }
             } else if (existingAdmin) {
                 if (existingAdmin.password !== password) {
@@ -80,7 +80,7 @@ const logIn = async (req, res) => {
                         sameSite: 'strict',
                         path: '/',
                     })
-                    res.json({ message: 'Login successful',existingAdmin, customerId: existingAdmin._id, accessToken, refreshToken })
+                    res.json({ message: 'Login successful', existingAdmin, customerId: existingAdmin._id, accessToken, refreshToken })
                 }
             }
         }
@@ -157,6 +157,19 @@ const getCustomerCart = async (req, res) => {
         res.status(500).json({ message: 'Server Error' })
     }
 }
+const updateCustomerCart = async (req, res) => {
+    try {
+        const customerID = req.params.id
+        const updateField = req.body
+        oldCart = customer.readById(customerID)
+        await customer.addCart(customerID,oldCart,updateField.cart)
+        const newCustomerCart = await customer.readById(customerID)
+        res.status(200).json({message:'Updated successfully',newCart: newCustomerCart.cart})
+    } catch (error) {
+        console.error('Error updatting cart:', error)
+        res.status(500).json({ message: 'Server Error' })
+    }
+}
 const getCustomerOrder = async (req, res) => {
     try {
         const customerId = req.params.id
@@ -173,7 +186,7 @@ const refreshToken = async (req, res) => {
         if (!token) {
             res.status(200).json({ message: 'The token is required' })
         } else {
-            const refreshing = await refreshToken(token)
+            const refreshing = await jwt.refreshToken(token)
             res.status(200).json(refreshing)
         }
     } catch (error) {
@@ -190,6 +203,7 @@ module.exports = {
     deleteCustomer,
     getCustomerDetails,
     getCustomerCart,
+    updateCustomerCart,
     getCustomerOrder,
     refreshToken
 }

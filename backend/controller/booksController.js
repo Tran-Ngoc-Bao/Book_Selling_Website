@@ -1,16 +1,24 @@
 const book = require('../models/book')
 
-const paginateResults = async (model, query, p = 1, limit = 12) => {
+const paginateResults = async (query, p = 1, limit = 12, sortBy) => {
     const startIndex = (p - 1) * limit
-    const totalItems = await model.countDocuments(query)
+    const totalItems = await book.countDocuments(query)
     const totalPages = Math.ceil(totalItems / limit)
-    const results = await model.find(query).skip(startIndex).limit(limit)
+    const results = await book.find(query).skip(startIndex).limit(limit).sort(sortBy)
     return { results, totalPages, totalItems, currentPage: p }
 }
 const getAll = async (req, res) => {
     try {
-        const { p, limit } = req.query
-        const { results, totalPages, totalItems, currentPage } = await paginateResults(book, {}, p, limit)
+        let query = {}
+        if (req.query.genre) {
+            const genres = req.query.genre.split(',')
+            query.genres = { $in: genres }
+        }
+        if (req.query.publishinghouseid) {
+            query.publishinghouseid = req.query.publishinghouseid
+        }
+        const { p, limit, sortBy } = req.query
+        const { results, totalPages, totalItems, currentPage } = await paginateResults(query, p, limit, sortBy)
         res.json({ books: results, pagination: { totalPages, totalItems, currentPage } })
     } catch (err) {
         console.error(err)
@@ -29,57 +37,13 @@ const getOne = async (req, res) => {
         res.status(500).json({ message: 'Server Error' })
     }
 }
-const getByGenre = async (req, res) => {
-    try {
-        let findBookByGenre
-        //const { p, limit } = req.query
-        const genres = req.params.genre.split(',')
-        const sortOptions = req.query.sortBy ? req.query.sortBy.split(',') : []
-        if (sortOptions.includes('sold')) {
-            findBookByGenre = await book.sortBySoldWithGenre({ genres: { $in: genres } })
-        } else if (sortOptions.includes('rate')) {
-            findBookByGenre = await book.sortBySoldWithGenre({ genres: { $in: genres } })
-        } else {
-            findBookByGenre = await book.find({ genres: { $in: genres } })
-        }
-        if (!findBookByGenre || findBookByGenre.length === 0) {
-            return res.status(404).json({ message: 'Book not found' })
-        }
-        //const { results, totalPages, totalItems, currentPage } = await paginateResults(findBookByGenre, {}, p, limit)
-        res.json(findBookByGenre)
-    } catch (err) {
-        console.error(err)
-        res.status(500).json({ message: 'Server Error' })
-    }
-}
-const getByPublishinghouse = async (req, res) => {
-    try {
-        let findBookByPublishinghouse
-        const { p, limit } = req.query
-        const publishingHouseId = req.params.publishinghouseid
-        const sortOptions = req.query.sortBy ? req.query.sortBy.split(',') : []
-        if (sortOptions.includes('sold')) {
-            findBookByPublishinghouse = await book.sortBySoldWithPublishingHouse(publishingHouseId)
-        } else if (sortOptions.includes('rate')) {
-            findBookByPublishinghouse = await book.sortByRateWithPublishingHouse(publishingHouseId)
-        } else {
-            findBookByPublishinghouse = await book.readByPublishingHouseId(publishingHouseId)
-        }
-        if (!findBookByPublishinghouse || findBookByPublishinghouse.length === 0) {
-            return res.status(404).json({ message: 'Book not found' })
-        }
-        res.json(findBookByPublishinghouse)
-    } catch (err) {
-        console.error(err)
-        res.status(500).json({ message: 'Server Error' })
-    }
-}
+
 const createBook = async (req, res) => {
     try {
         const { authors, description, feedbacks, genres, price, publishinghouseid, quantity, rate, sold, title, year } = req.body
-            const newBook = await book.create(req.body)
-            res.status(201).json(newBook)
-        
+        const newBook = await book.create(req.body)
+        res.status(201).json(newBook)
+
     } catch (err) {
         console.error(err)
         res.status(500).json({ message: 'Server Error' })
@@ -118,8 +82,6 @@ const deleteBook = async (req, res) => {
 module.exports = {
     getAll,
     getOne,
-    getByGenre,
-    getByPublishinghouse,
     createBook,
     updateBook,
     deleteBook
