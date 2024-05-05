@@ -44,10 +44,14 @@ export default function Header() {
                   <img className="search-icon" src={searchIcon} alt="Search" />
                 </button>
               </div>
+            </li> 
+             <li>
+              <Link to="/">Home</Link>
             </li>
             <li>
               <Link to="/cart">Giỏ hàng</Link>
             </li>
+          
             <li>
               <Link to="/order">Đơn hàng</Link>
             </li>

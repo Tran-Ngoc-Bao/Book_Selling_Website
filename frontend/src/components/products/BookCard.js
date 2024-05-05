@@ -1,18 +1,26 @@
 import React from "react";
 import './BookCard.css'
-function BookCard({ book }) {
+import { Link } from 'react-router-dom';
+
+function BookCard({ book, user }) {
   return (
     <div className="BookCards_container">
       <div className="book-item">
-      <a href={`/bookdetail/${book._id}`}>
-            <img src={`../images/${book._id}.jpeg`} width={200} height={200} alt={book.title} />
-        </a>
+        <Link to={{ 
+          pathname: `/bookdetail/${book._id}`, 
+          state: { user: user }
+        }}>
+          <img src={`../images/${book._id}.jpeg`} width={200} height={200} alt={book.title} />
+        </Link>
         <div className="book-content">
-          <a href={`/bookdetail/${book._id}`}>
-          <p className="book-title">{book.title}</p>
-        </a>
-        <p>Sold: {book.sold}</p>
-        <p>Price: {book.price}$</p>
+          <Link to={{ 
+            pathname: `/bookdetail/${book._id}`, 
+            state: { user: user }
+          }}>
+            <p className="book-title">{book.title}</p>
+          </Link>
+          <p>Sold: {book.sold}</p>
+          <p>Price: {book.price}$</p>
         </div>
       </div>
     </div>
