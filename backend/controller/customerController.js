@@ -182,7 +182,7 @@ const getCustomerOrder = async (req, res) => {
 }
 const refreshToken = async (req, res) => {
     try {
-        let token = req.headers.token.split(' ')[0]
+        const token = req.cookies.refreshToken
         if (!token) {
             res.status(200).json({ message: 'The token is required' })
         } else {

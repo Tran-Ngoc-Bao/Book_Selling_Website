@@ -1,4 +1,5 @@
 const publishinghouse = require('../models/publishinghouse')
+const sendOrder = require('../service/emailService')
 
 const getAllPublishinghouse = async (req, res) => {
     try {
@@ -62,12 +63,21 @@ const deletePublishinghouse = async (req, res) => {
         res.status(500).json({ message: 'Server Error' })
     }
 }
-const sentOrder = async (req, res) => { }
+const sendEmailOrder = async (req, res) => {
+    try {
+        const publishingHouse = await publishinghouse.readById(req.params.id)
+        await sendOrder.sendEmail()
+        res.status(200).json(publishingHouse.email)
+    } catch (error) {
+        console.error('Error sending email:', error)
+        res.status(500).json({ message: 'Server Error' })
+    }
+}
 module.exports = {
     getAllPublishinghouse,
     getPublishinhghouseDetails,
     createPublishinghouse,
     updatePublishinghouse,
     deletePublishinghouse,
-    sentOrder
+    sendEmailOrder
 }

@@ -8,6 +8,6 @@ router.get('/getall', publishinghouseController.getAllPublishinghouse)
 router.get('/getdetail/:id', publishinghouseController.getPublishinhghouseDetails)
 router.put('/admin/update/:id', auth.authAdmins, publishinghouseController.updatePublishinghouse)
 router.delete('/admin/delete',auth.authAdmins,publishinghouseController.deletePublishinghouse )
-router.post('/admin/sentorder/:id', auth.authAdmins, publishinghouseController.sentOrder)
+router.post('/admin/sendorder/:id', publishinghouseController.sendEmailOrder)
 
 module.exports = router

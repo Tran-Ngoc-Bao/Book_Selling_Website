@@ -1,5 +1,5 @@
 import React from 'react';
-import './Popup.css';
+import './PopUp.css';
 
 function Popup({ isOpen, onClose, children }) {
   // Render nothing if the modal is not open
