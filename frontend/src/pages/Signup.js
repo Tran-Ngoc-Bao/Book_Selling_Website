@@ -1,72 +1,187 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import "./Signup.css"; // Import CSS file for styling
+import { useForm } from "react-hook-form";
+import axios from "axios";
+import { DevTool } from "@hookform/devtools";
+import "./Signup.css";
+// import { useSelector, useDispatch } from 'react-redux';
+// import {setUser} from '../redux/features/user/userSlice'
+// import {setCart} from '../redux/features/cart/cartSlice'
+// import {setToken,selectAccessToken,selectAccToken} from '../redux/features/user/tokenSlide'
 
-function Signup() {
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const form = e.target;
-    const formData = new FormData(form);
-    const urlEncoded = new URLSearchParams(formData).toString();
 
-    fetch("/signup", {
-      method: "POST",
-      body: urlEncoded,
+function Signup(props) {
+
+  const { register, handleSubmit,control,formState } = useForm({mode: "onSubmit"});
+
+  const [error,setError] = useState(null)
+  const { errors } = formState;
+// dang nhap
+const onSubmit = async (data) => {
+  try {
+    const response = await axios.post("api/customers/signup", data, {
       headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
+        "Content-Type": "application/json",
       },
-    })
-      .then((response) => response.text())
-      .then((data) => console.log(data))
-      .catch((error) => console.error("Error:", error));
-  };
+    });
+    if(response.statusText==="Created"){
+      setError("Đã tạo thành công")
+    }
+    
+    console.log(response)
+  } catch (error) {
+    console.error("Error:", error);
+    setError(error.response);
 
-  return (
-    <div className="signup-container">
-      <h2>Đăng ký</h2>
-      <form id="userForm" onSubmit={handleSubmit}>
-        <div className="form-group">
+  }
+};
+
+
+return (
+  <div>
+    <h2>Sign Up</h2>
+    { (
+      <div>
+      <form onSubmit={handleSubmit(onSubmit)} noValidate="">
+        <div>
           <label htmlFor="name">Tên người dùng:</label>
-          <input type="text" id="name" name="name" required />
+          <input
+            type="text"
+            id="name"
+            {...register("name", {
+              required: "Tên không được bỏ trống",
+            } )}
+            // defaultValue={defaultname.current}
+          />
         </div>
-        <div className="form-group">
+        {/* <p>{errors.name && errors.name.message}</p> */}
+
+        <div>
           <label htmlFor="phone">Số điện thoại:</label>
-          <input type="text" id="phone" name="phone" required />
+          <input
+            type="text"
+            id="phone"
+            {...register("phone", {
+              required: "Số điện thoại không được bỏ trống",
+            })}
+            //  defaultValue={defaultphone.current}
+          />
+          <p>{errors.phone && errors.phone.message}</p>
         </div>
-        <div className="form-group">
+
+        <div>
           <label htmlFor="email">Địa chỉ email:</label>
-          <input type="text" id="email" name="email" required />
+          <input
+            type="text"
+            id="email"
+            {...register("email", {
+              required: "Địa chỉ email không được bỏ trống",
+              pattern: {
+                value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                message: "Định dạng email sai",
+              },
+            })}
+            //  defaultValue={defaultemail.current}
+          />
+          <p>{errors.email && errors.email.message}</p>
         </div>
-        <div className="input-group">
-          <label className="gender-label">Giới tính:</label>
-          <input type="radio" id="nam" name="gender" value="Nam" />
-          <label className="radio-label" htmlFor="nam">
-            Nam
-          </label>
-          <input type="radio" id="nu" name="gender" value="Nu" />
-          <label className="radio-label" htmlFor="nu">
-            Nữ
-          </label>
+
+        <div>
+          <label>Giới tính:</label>
+          <input
+            type="radio"
+            id="nam"
+            value="Male"
+            {...register("gender", {
+              required: "Giới tính không được bỏ trống",
+            })}
+            //  defaultChecked={defaultgender==="Male"}
+          />
+          <label htmlFor="nam">Nam</label>
+          <input
+            type="radio"
+            id="nu"
+            value="Female"
+            {...register("gender", { required: true })}
+            // defaultChecked={defaultgender==="Female"}
+          />
+          <label htmlFor="nu">Nữ</label>
+          <p>{errors.gender && errors.gender.message}</p>
         </div>
-        <div className="form-group">
+
+        <div>
           <label htmlFor="birthday">Ngày sinh:</label>
-          <input type="date" id="birthday" name="birthday" required />
+          {/* {console.log(user_info.birthday)} */}
+          <input
+            type="date"
+            id="birthday"
+            {...register("birthday", {
+              required: "Ngày sinh không được bỏ trống",
+            })}
+            // defaultValue={`${convertToYYYYMMDD(defaultbirthday.current)}`}
+          />
+          <p>{errors.birthday && errors.birthday.message}</p>
         </div>
-        <div className="form-group">
+
+        <div>
           <label htmlFor="address">Địa chỉ:</label>
-          <input type="text" id="address" name="address" required />
+          <input
+              type="text"
+              id="address"
+              {...register("address", {
+                required: "Địa chỉ không được bỏ trống",
+              })}
+              // defaultValue={defaultaddress.current}
+            />
+          <p>{errors.address && errors.address.message}</p>
         </div>
-        <div className="form-group">
+
+        <div>
+          <label htmlFor="bankName">Tên ngân hàng:</label>
+          <input
+            type="text"
+            id="bankName"
+            {...register("bank.name", {
+              required: "Tên ngân hàng không được bỏ trống",
+            })}
+            // defaultValue={defaultbank.name}
+          />
+          <p>{errors.bankName && errors.bankName.message}</p>
+        </div>
+
+        <div>
+          <label htmlFor="bankSeri">Số seri thẻ:</label>
+          <input
+            type="text"
+            id="bankSeri"
+            {...register("bank.seri", {
+              required: "Số tài khoản không được bỏ trống",
+            })}
+            // defaultValue={defaultbank.seri}
+          />
+          <p>{errors.bankSeri && errors.bankSeri.message}</p>
+        </div>
+
+        <div>
           <label htmlFor="password">Mật khẩu:</label>
-          <input type="password" id="password" name="password" required />
+          <input
+            type="password"
+            id="password"
+            {...register("password", {
+              required: "Mật khẩu không được bỏ trống",
+            })}
+            // defaultValue={defaultpassword.current}
+          />
+          <p>{errors.password && errors.password.message}</p>
         </div>
-        <button type="submit">Đăng ký</button>
+        <button type="submit">Đăng Ký</button>
+        <p>{error}</p>
       </form>
-      <Link to="/login">
-        <p>Đăng nhập</p>
-      </Link>
-    </div>
-  );
+      <DevTool control={control}/>
+      </div>
+    )}
+  </div>
+);
 }
 
 export default Signup;

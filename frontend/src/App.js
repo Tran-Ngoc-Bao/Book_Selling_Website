@@ -99,7 +99,7 @@ async function getnewTk(accesstk, setAccessTk ){
           <Route path="/" element={<Bkbosto user={user}/>} />
           <Route
             path="/customer_info"
-            element={<Customer_info user={login}  
+            element={<Customer_info user={user}  
            />}
           />
           <Route path="/cart" element={<Cart cart={cart} setCart={setCart} user={login} giohang={giohang} />}  />

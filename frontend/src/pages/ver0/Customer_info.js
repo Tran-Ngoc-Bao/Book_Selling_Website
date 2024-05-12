@@ -1,103 +1,55 @@
-import React, { useState,useMemo,useEffect, useRef  } from "react";
+import React,{useState} from "react";
 import { useForm } from "react-hook-form";
-import { DevTool } from "@hookform/devtools";
 import { Link } from 'react-router-dom';
-import { useDispatch, useSelector, shallowEqual,useStore } from 'react-redux';
-import { sentUser, showUserinfo } from '../redux/features/user/userSlice';
 
+// truyen bien user vao. check
+//show ra
+// submit
 
-function Customer_info() {
-  const dispatch = useDispatch();
-  
-   const user_info =useSelector( state => state.user)
-   
-  const count=useRef(0)
-  // console.log(user_info);
-
-  const defaultname = useRef(null);
-  const defaultaddress = useRef(null);
-  const defaultbank = useRef(null);
-  const defaultbirthday = useRef(null);
-  const defaultemail = useRef(null);
-  const defaultgender = useRef(null);
-  const defaultpassword = useRef(null);
-  const defaultphone = useRef(null);  
-  
-  const { register, handleSubmit, formState, getValues, control,setValue } = useForm( {mode: 'onSubmit',defaultValues:{
-    name: defaultname.current,
-    address: defaultaddress.current,
-    bank: defaultbank.current,
-    birthday:  convertToYYYYMMDD(defaultbirthday.current),
-    email: defaultemail.current,
-    gender: defaultgender.current,
-    password: defaultpassword.current,
-    phone: defaultphone.current,
-  } })
+function Customer_info(props) {
+  const[login,setLogin]=useState(props.user)
+  console.log(props.user)
+  const { register, handleSubmit, formState, getValues } = useForm();
   const { errors } = formState;
 
-  useEffect(()=>{
-    async function hello(){
-      const data= await dispatch(showUserinfo())
-      defaultname.current = data.name;
-        console.log("this is user name: ", defaultname.current);
-        defaultaddress.current = data.address;
-        defaultbank.current = data.bank;
-        defaultbirthday.current =data.birthday;
-        defaultemail.current = data.email;
-        defaultgender.current = data.gender;
-        defaultpassword.current = data.password;
-        defaultphone.current = data.phone;
-      setValue('name', defaultname.current);
-      setValue('address', defaultaddress.current);
-      setValue('bank', defaultbank.current);
-      setValue('birthday', convertToYYYYMMDD(defaultbirthday.current));
-      setValue('email', defaultemail.current);
-      setValue('gender', defaultgender.current);
-      setValue('password', defaultpassword.current);
-      setValue('phone', defaultphone.current);
+  const onSubmit = (data) => {
+    console.log(getValues())
+    let sent={...getValues(), birthday:{$date:`${convertToISO8601(getValues().birthday)}`}}
+    console.log("sent = ",sent)
+    // gui backend
+    // cap nhat gia tri log in,
+    // gui yeu cau cap nhat bien user toan cuc ?
+  };
 
-      console.log("rerender")
-    }
-    hello()
 
-    return 
-  },[user_info])
-useEffect(()=>{
-  console.log("rerender 2 ")
-})
-
-  // Convert date to YYYY-MM-DD format
+//xu ly ngay sinh
   function convertToYYYYMMDD(isoDateString) {
     const date = new Date(isoDateString);
     const year = date.getUTCFullYear();
     const month = String(date.getUTCMonth() + 1).padStart(2, '0');
     const day = String(date.getUTCDate()).padStart(2, '0');
+    console.log( typeof isoDateString);
     return `${year}-${month}-${day}`;
-  }
+}
 
-  // Convert date to ISO 8601 format
-  function convertToISO8601(dateString) {
-    const parts = dateString.split('-');
-    const year = parseInt(parts[0]);
-    const month = parseInt(parts[1]) - 1;
-    const day = parseInt(parts[2]);
-    const date = new Date(Date.UTC(year, month, day));
-    return date.toISOString();
-  }
+// convert nguoc lai de submit
+// convert nguoc lai de gui data base
+function convertToISO8601(dateString) {
+  const parts = dateString.split('-');
+  const year = parseInt(parts[0]);
+  const month = parseInt(parts[1]) - 1; // Month is zero-indexed in JavaScript Date object
+  const day = parseInt(parts[2]);
 
+  const date = new Date(Date.UTC(year, month, day));
+  return date.toISOString();
+  
+}
 
-  function onSubmit(data) {
-    // Prepare data for submission
-    const sent = { ...getValues(), birthday: `${convertToISO8601(getValues().birthday)}` };
-    dispatch(sentUser(sent));
-    count.current++
-  }
 
   return (
     <div>
       <h2>Customer Information</h2>
-      {(  user_info.name)&& (
-        <div>
+      {login && (
         <form onSubmit={handleSubmit(onSubmit)} noValidate="">
           <div>
             <label htmlFor="name">Tên người dùng:</label>
@@ -107,7 +59,7 @@ useEffect(()=>{
               {...register("name", {
                 required: "Tên không được bỏ trống",
               } )}
-              // defaultValue={defaultname.current}
+              defaultValue={login.name}
             />
           </div>
           <p>{errors.name && errors.name.message}</p>
@@ -120,7 +72,7 @@ useEffect(()=>{
               {...register("phone", {
                 required: "Số điện thoại không được bỏ trống",
               })}
-              //  defaultValue={defaultphone.current}
+              defaultValue={login.phone}
             />
             <p>{errors.phone && errors.phone.message}</p>
           </div>
@@ -137,7 +89,7 @@ useEffect(()=>{
                   message: "Định dạng email sai",
                 },
               })}
-              //  defaultValue={defaultemail.current}
+              defaultValue={login.email}
             />
             <p>{errors.email && errors.email.message}</p>
           </div>
@@ -151,7 +103,7 @@ useEffect(()=>{
               {...register("gender", {
                 required: "Giới tính không được bỏ trống",
               })}
-               defaultChecked={defaultgender==="Male"}
+              defaultChecked={login.gender==="Male"}
             />
             <label htmlFor="nam">Nam</label>
             <input
@@ -159,7 +111,7 @@ useEffect(()=>{
               id="nu"
               value="Female"
               {...register("gender", { required: true })}
-              defaultChecked={defaultgender==="Female"}
+              defaultChecked={login.gender==="Female"}
             />
             <label htmlFor="nu">Nữ</label>
             <p>{errors.gender && errors.gender.message}</p>
@@ -167,14 +119,13 @@ useEffect(()=>{
 
           <div>
             <label htmlFor="birthday">Ngày sinh:</label>
-            {/* {console.log(user_info.birthday)} */}
             <input
               type="date"
               id="birthday"
               {...register("birthday", {
                 required: "Ngày sinh không được bỏ trống",
               })}
-              // defaultValue={`${convertToYYYYMMDD(defaultbirthday.current)}`}
+              defaultValue={`${convertToYYYYMMDD(login.birthday)}`}
             />
             <p>{errors.birthday && errors.birthday.message}</p>
           </div>
@@ -182,13 +133,13 @@ useEffect(()=>{
           <div>
             <label htmlFor="address">Địa chỉ:</label>
             <input
-                type="text"
-                id="address"
-                {...register("address", {
-                  required: "Địa chỉ không được bỏ trống",
-                })}
-                // defaultValue={defaultaddress.current}
-              />
+              type="text"
+              id="address"
+              {...register("address", {
+                required: "Địa chỉ không được bỏ trống",
+              })}
+              defaultValue={login.address}
+            />
             <p>{errors.address && errors.address.message}</p>
           </div>
 
@@ -200,7 +151,7 @@ useEffect(()=>{
               {...register("bank.name", {
                 required: "Tên ngân hàng không được bỏ trống",
               })}
-              // defaultValue={defaultbank.name}
+              defaultValue={login.bank.name}
             />
             <p>{errors.bankName && errors.bankName.message}</p>
           </div>
@@ -213,7 +164,7 @@ useEffect(()=>{
               {...register("bank.seri", {
                 required: "Số tài khoản không được bỏ trống",
               })}
-              // defaultValue={defaultbank.seri}
+              defaultValue={login.bank.seri}
             />
             <p>{errors.bankSeri && errors.bankSeri.message}</p>
           </div>
@@ -226,16 +177,14 @@ useEffect(()=>{
               {...register("password", {
                 required: "Mật khẩu không được bỏ trống",
               })}
-              // defaultValue={defaultpassword.current}
+              defaultValue={login.password}
             />
             <p>{errors.password && errors.password.message}</p>
           </div>
           <button type="submit">Đổi</button>
         </form>
-        <DevTool control={control}/>
-        </div>
       )}
-      {!user_info.name&& (
+      {!props.user && (
         <>
           <p>Hãy đăng nhập để xem thông tin</p>
           <Link to="/login">
@@ -247,4 +196,4 @@ useEffect(()=>{
   );
 }
 
-export default React.memo(Customer_info);
+export default Customer_info;

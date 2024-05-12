@@ -1,18 +1,11 @@
 import React, { useEffect, useState } from "react";
 import CartItem from "../components/products/CartItem";
+import UserContext from "../UserContext";
+import { useContext } from "react";
 import Popup from "../components/products/PopUp";
-import { useDispatch, useSelector, shallowEqual,useStore } from 'react-redux';
-import {addCartAsync,removeCartAsync} from'../redux/features/cart/cartSlice';
-
-
+import axios from "axios";
 
 function Cart(props) {
-  const dispatch = useDispatch();
-  const user =useSelector( state => state.user)
-  const {_id}=user
-  const cart_info = useSelector( state => state.cart)
-  const {book,price}=cart_info // chua id sach, ten sach, gia sach
-  
   const [buy, setBuy] = useState(false);
   function doBuy() {
     setBuy(true);
@@ -53,6 +46,12 @@ function Cart(props) {
     }
   }
 
+  const { user, getCart, accesstk } = useContext(UserContext);
+  const [ccart, setCart] = useState(props.giohang.current);
+
+  useEffect(()=>{
+    setCart(props.giohang.current)
+  },[props.giohang])
 
   const [purchasecost, setPurchasecost] = useState(0);
   function getPurchaseCost() {
@@ -63,23 +62,47 @@ function Cart(props) {
     setPurchasecost(temp);
   }
 
-  function rmCart(id){
-    dispatch(removeCartAsync(id))
+
+  // remove book from cart
+  async function remove(removebookid) {
+    // Prepare new cart without the removed book
+    const newcart = ccart.filter((item) => item.bookid !== removebookid);
+    const cart = newcart.map((book) => {
+      const { _id, ...rest } = book;
+      return rest;
+    });
+
+    // Send the updated cart to the backend
+    try {
+      const response = await axios.put(
+        `/api/customers/update/${user._id}`,
+        { cart },
+        {
+          headers: {
+            token: accesstk,
+          },
+        }
+      );
+      console.log("New cart from backend:", response.data.updatedCustomer.cart);
+      setCart(response.data.updatedCustomer.cart);
+      props.giohang.current=response.data.updatedCustomer.cart
+    } catch (error) {
+      console.error("Error updating cart:", error);
+    }
   }
-  
 
   return (
     <>
-    {console.log("no")}
-      {_id ? (
+    {console.log(props.giohang.current)}
+      {user ? (
         <div>
           <div>Giỏ hàng</div>
-          {book.map((book) => (
+          {ccart.map((book) => (
             <CartItem
-              key={book._id}
+              key={book.bookid}
               cost={cost}
-              bookid={book._id}
-              remove={rmCart}
+              bookid={book.bookid}
+              remove={remove}
               addToCost={addToCost}
               removeFromCost={removeFromCost}
               addToPurchase={addToPurchase}

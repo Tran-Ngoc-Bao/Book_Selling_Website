@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import UserContext from "../../UserContext";
-import { useContext } from "react";
+// import UserContext from "../../UserContext";
+// import { useContext } from "react";
+import { useDispatch, useSelector, shallowEqual,useStore } from 'react-redux';
+import { sentUser, showUserinfo } from '../../redux/features/user/userSlice';
 import  { useReducer } from 'react';
 
 
@@ -39,14 +41,14 @@ const reducer = (state, action) => {
 
 function CartItem(props) {
   // const [bookC,setBookC]=useState(0)
-  const { user } = useContext(UserContext);
+  const user =useSelector( state => state.user)
   // const [quantity, setQuantity] = useState(1);
   const [book, setBook] = useState(null);
   const {  bookid, addToCost,addToPurchase } = props;
   const [isChecked, setIsChecked] = useState(false);
   // const [item, setItem] = useState(null);
   const [state, dispatch] = useReducer(reducer, initialState);
-
+  const { name, id, price, quantity, totalprice } = state;
 
   useEffect(() => {
     async function booka() {
@@ -89,7 +91,10 @@ function CartItem(props) {
   function increase() {
     // setQuantity(prevQuantity => prevQuantity + 1);
     dispatch({ type: 'increment'});
-   props.addToCost(book.price)
+    if(quantity>0){
+      props.addToCost(book.price*(quantity-1))
+    }
+  
     dispatch({type:"updateTotalPrice"})
   }
   

@@ -2,18 +2,15 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axios from "axios";
-import { useSelector, useDispatch } from 'react-redux';
-import {setUser} from '../redux/features/user/userSlice'
-import {setCart,setIntialCart} from '../redux/features/cart/cartSlice'
-import {setToken,selectAccessToken,selectAccToken} from '../redux/features/user/tokenSlide'
 import "./Login.css";
+import UserContext from "../UserContext"
+import { useContext } from "react";
 
 function Login(props) {
-  const dispatch = useDispatch();
   const [error, setError] = useState(null);
   const [response, setResponse] = useState(null);
   const [loginMethod, setLoginMethod] = useState("phone");
-  const [user,setUser1]=useState(null)
+  const { user, logout, fetchCart } = useContext(UserContext);
 
   function loginbyphone() {
     setLoginMethod("phone");
@@ -24,38 +21,34 @@ function Login(props) {
 
   const { register, handleSubmit } = useForm();
 
- 
-// dang nhap
-const onSubmit = async (data) => {
-  try {
-    const response = await axios.post("api/customers/login", data, {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    // Assuming the response contains user data
-    setUser1(response.data.existingCustomer); // Set user state with user data from response
-    console.log(response.data.existingCustomer)
-    setResponse(response.data.message); // Set response state with message from response
-    setError(null); // Clear error state
-    // const user = response.data.existingCustomer;
-    // const { _id, address, bank, birthday, email, gender, name, phone, password, ...rest } = user;
-    // const user_info={ _id, address, bank, birthday, email, gender, name, phone, password} 
-    dispatch(setToken(response.data))   
-    dispatch(setUser(response.data.existingCustomer || null))
-    dispatch(setIntialCart(response.data.existingCustomer || null))
- 
-    let a=  dispatch(selectAccToken())
-      console.log( a)
-      
-  } catch (error) {
-    console.error("Error:", error);
-    setError(error.response);
-    setResponse(null);
-    setUser1(null); // Reset user state if login fails
-  }
-};
+  useEffect(() => {
+    console.log(user);
+  }, [user]);
 
+  const onSubmit = async (data) => {
+    try {
+      const response = await axios.post("api/customers/login", data, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      console.log(response.data);
+      setResponse(response.data.message);
+      setError(null);
+      props.setUser(response.data.existingCustomer);
+      props.setAccessTk(response.data.accessToken);
+      props.setRefreshTk(response.refreshToken);
+      try {
+          fetchCart(response.data.existingCustomer,response.data.accessToken)
+      } catch (err) {
+        console.error("Error fetching cart", err);
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      setError(error.response.data.message);
+      setResponse(null);
+    }
+  };
 
   return (
     <div className="login-container">
@@ -101,15 +94,14 @@ const onSubmit = async (data) => {
           </div>
           {(error && <p className="error-message">{error}</p>) ||
             (response && <p className="success-message">{response}</p>)}
-  
-          {!user && loginMethod === "phone" && (
+          {!props.user && loginMethod === "phone" && (
             <p onClick={loginbyemail}>Đăng nhập bằng địa chỉ email</p>
           )}
-          {!user && loginMethod === "email" && (
+          {!props.user && loginMethod === "email" && (
             <p onClick={loginbyphone}>Đăng nhập bằng số điện thoại</p>
           )}
           <br />
-          {!user && <button type="submit">Đăng nhập</button>}
+          {!props.user && <button type="submit">Đăng nhập</button>}
         </form>
         {!response && (
           <div className="signup-link">
