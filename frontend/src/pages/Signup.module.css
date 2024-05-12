@@ -1,5 +1,5 @@
 /* Signup.css */
-.signup-container {
+.signup {
   max-width: 400px;
   margin: 50px auto;
   padding: 20px;
@@ -9,7 +9,7 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.form-group {
+.form_group {
   margin-bottom: 15px;
 }
 
@@ -20,7 +20,7 @@ label {
   color: #1c1e21;
 }
 
-.input-group {
+.input_group {
   display: flex;
   align-items: center;
 }
@@ -41,17 +41,18 @@ input[type="radio"] {
   vertical-align: middle;
 }
 
-label.radio-label {
+.radio_label {
   margin-right: 10px;
   display: flex;
   align-items: center;
 }
 
-label.gender-label {
-  margin-right: 20px;
+.gender_label input[type="radio"] {
+  margin-right: 5px;
 }
 
 button {
+  margin-top: 10px;
   background-color: #1877f2;
   color: #fff;
   padding: 10px 20px;
@@ -66,17 +67,17 @@ button:hover {
   background-color: #166fe5;
 }
 
-p {
+.error_message {
   margin-top: 10px;
   font-size: 14px;
 }
 
-p a {
+.error_message a {
   color: #1877f2;
   text-decoration: none;
   font-weight: 600;
 }
 
-p a:hover {
+.error_message a:hover {
   text-decoration: underline;
 }

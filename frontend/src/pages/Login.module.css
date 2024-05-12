@@ -1,8 +1,8 @@
-.login-container {
+.login_container {
   padding-top: 100px;
 }
 /* Style for the form container */
-.form-container {
+.form_container {
   max-width: 400px;
   margin: 0 auto;
   padding: 20px;
@@ -12,7 +12,7 @@
 }
 
 /* Style for form inputs */
-.form-container input {
+.form_container input {
   width: 100%;
   margin-bottom: 10px;
   padding: 10px;
@@ -21,19 +21,19 @@
 }
 
 /* Style for error message */
-.error-message {
+.error_message {
   color: #ff0000;
   margin-bottom: 10px;
 }
 
 /* Style for success message */
-.success-message {
+.success_message {
   color: #008000;
   margin-bottom: 10px;
 }
 
 /* Style for submit button */
-.form-container button {
+.form_container button {
   width: 100%;
   padding: 10px;
   border: none;
@@ -44,16 +44,16 @@
 }
 
 /* Style for signup link */
-.signup-link {
+.signup_link {
   text-align: center;
   margin-top: 10px;
 }
 
-.signup-link a {
+.signup_link a {
   color: #007bff;
   text-decoration: none;
 }
 
-.signup-link a:hover {
+.signup_link a:hover {
   text-decoration: underline;
 }

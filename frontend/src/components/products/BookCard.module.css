@@ -9,7 +9,7 @@
 }
 
 /* BookCard Styles */
-.book-item {
+.book_item {
   width: 200px;
   height: 360px;
   margin: 10px;
@@ -20,16 +20,16 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
 }
 
-.book-item:hover {
+.book_item:hover {
   transform: translateY(-5px); /* Lift on hover */
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Increased shadow on hover */
 }
 
-.book-content {
+.book_content {
   padding: 0 1.5rem; /* Increased padding */
 }
 
-.book-title {
+.book_title {
   font-family: "Nunito Sans", sans-serif; /* Custom font */
   font-weight: 600;
   font-size: 1.2rem;
@@ -43,12 +43,12 @@
   overflow: hidden;
 }
 
-.book-details {
+.book_details {
   font-size: 0.9rem;
   color: #777; /* Lighter text color */
 }
 
-.book-details span {
+.book_details span {
   font-weight: 600;
   color: #555; /* Slightly darker */
 }
@@ -58,7 +58,7 @@ a {
 }
 
 /* Image Styles */
-.book-item img {
+.book_item img {
   width: 100%;
   height: 200px;
   object-fit: cover;
@@ -67,7 +67,7 @@ a {
 }
 
 /* Gradient Background */
-.book-item::before {
+.book_item::before {
   content: "";
   position: absolute;
   top: 0;

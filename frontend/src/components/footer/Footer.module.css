@@ -1,0 +1,41 @@
+/* Footer.module.css */
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: lightsalmon; /* Orange theme color */
+  color: #fff; /* Text color */
+  padding: 20px 0;
+}
+
+.social_media,
+.site_links {
+  flex: 1;
+  padding: 0 20px; /* Add padding left and right */
+}
+
+h3 {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  margin-bottom: 8px;
+}
+
+a {
+  text-decoration: none;
+  color: #fff; /* Link color */
+  font-weight: bold;
+}
+
+a:hover {
+  text-decoration: underline;
+}

@@ -1,5 +1,5 @@
 /* Keep existing styles for #nav_bar */
-#nav_bar {
+.nav_bar {
   width: 100%;
   display: flex;
   align-items: center;
@@ -8,7 +8,7 @@
 }
 
 /* Keep existing styles for #nav_bar ul */
-#nav_bar ul {
+.nav_bar ul {
   flex: 1;
   list-style: none;
   text-align: center;
@@ -33,13 +33,13 @@ ul li {
 }
 
 /* Keep existing styles for .search-box */
-.search-box {
+.search_box {
   position: relative;
   display: inline-block;
 }
 
 /* Keep existing styles for .search-box input[type="text"] */
-.search-box input[type="text"] {
+.search_box input[type="text"] {
   padding: 10px;
   border: none;
   border-radius: 5px;
@@ -48,7 +48,7 @@ ul li {
 }
 
 /* Keep existing styles for .search-box .search-button */
-.search-box .search-button {
+.search_box .search-button {
   position: absolute;
   right: 0;
   top: 0;
@@ -60,17 +60,17 @@ ul li {
 }
 
 /* Keep existing styles for .search-box .search-button:hover */
-.search-box .search-button:hover {
+.search_box .search-button:hover {
   background-color: darkorange;
 }
 
 /* Keep existing styles for .search-icon */
-.search-icon {
+.search_icon {
   width: 20px;
-  height: 20px;
+  height: 15px;
 }
 
-.dropdown-menu {
+.dropdown_menu {
   position: absolute;
   top: calc(100% + 8px +50px); /* Position below the user icon */
   left: 50%; /* Center horizontally */
@@ -82,7 +82,7 @@ ul li {
   z-index: 999;
 }
 /* New styles for the dropdown menu */
-.dropdown-menu {
+.dropdown_menu {
   position: absolute;
   top: calc(100% + 8px); /* Position below the user icon */
   left: 50%; /* Center horizontally */
@@ -93,7 +93,7 @@ ul li {
   padding: 8px 0;
 }
 
-.dropdown-menu ul {
+.dropdown_menu ul {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -101,12 +101,12 @@ ul li {
   flex-direction: column;
 }
 
-.dropdown-menu ul li {
+.dropdown_menu ul li {
   padding: 8px 16px;
   display: inline-block; /* Display as inline-block for horizontal layout */
 }
 
-.dropdown-menu ul li a {
+.dropdown_menu ul li a {
   color: black;
   text-decoration: none;
 }
@@ -118,4 +118,43 @@ ul li {
   padding: 10px 20px;
   margin: 5px;
   cursor: pointer;
+}
+.promotion_banner {
+  background-color: #ff973b; /* Orange theme color */
+  color: #fff; /* Text color */
+  padding: 10px 20px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  border-bottom: 2px solid #d46f00; /* Darker shade of orange */
+}
+.promotion_banner p {
+  margin-top: 0px;
+}
+/* Header.module.css */
+
+.sub_nav_bar {
+  background-color: #f9f9f9; /* Light gray background */
+  padding: 10px 0;
+  border-top: 1px solid #ccc; /* Light gray border */
+}
+
+.sub_nav_bar ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sub_nav_bar li {
+  margin: 0 10px;
+  font-size: 16px;
+  color: #333; /* Text color */
+  cursor: pointer;
+}
+
+.sub_nav_bar li:hover {
+  color: #f58220; /* Orange theme color on hover */
 }

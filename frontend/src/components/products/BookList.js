@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import BookCard from "./BookCard";
-import "./BookList.css";
-import axios from 'axios';
+import booklist from "./BookList.module.css";
+import axios from "axios";
 function BookList(props) {
   const [books, setBooks] = useState(null);
   // const [page, setPage] = useState(0);
@@ -28,31 +28,31 @@ function BookList(props) {
   //   }
   // }
   //lay du lieu tu back end
-  useEffect(()=>{
-    fetchData()
-  async function fetchData() {
-    try {
-      const response = await axios.get('/api/books/getall');
-      console.log(response.data);
-      setBooks(response.data.books)
-    } catch (error) {
-      console.error('Error:', error);
+  useEffect(() => {
+    fetchData();
+    async function fetchData() {
+      try {
+        const response = await axios.get("/api/books/getall");
+        console.log(response.data);
+        setBooks(response.data.books);
+      } catch (error) {
+        console.error("Error:", error);
+      }
     }
-  }
-  },[])
-  
+  }, []);
+
   // function change(newlimit) {
   //   setLimit(newlimit);
   // }
   return (
-    <div className="container">
+    <div className={booklist.container}>
       <h2>{props.name}</h2>
-      <div className="list-container">
+      <div className={booklist.list_container}>
         {books &&
           books.map((book) => (
             <React.Fragment key={book._id}>
               <br />
-              <BookCard book={book} user={props.user}/>
+              <BookCard book={book} user={props.user} />
             </React.Fragment>
           ))}
       </div>

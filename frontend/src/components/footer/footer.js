@@ -1,10 +1,10 @@
 import React from "react";
-import "./footer.css";
+import footer from "./Footer.module.css";
 
 function Footer() {
   return (
-    <div className="footer">
-      <div className="social-media">
+    <div className={footer.footer}>
+      <div className={footer.social_media}>
         <h3>Social Media</h3>
         <ul>
           <li>
@@ -18,7 +18,7 @@ function Footer() {
           </li>
         </ul>
       </div>
-      <div className="site-links">
+      <div className={footer.site_links}>
         <h3>Site Links</h3>
         <ul>
           <li>

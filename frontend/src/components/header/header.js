@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import pageLogo from "../../images/logos/One_Piece_Anime_Logo.png";
 import userIcon from "../../images/icons/user.png";
 import searchIcon from "../../images/icons/search.png";
-import "./header.css";
+import header from "./Header.module.css";
 import UserContext from "../../UserContext";
 import { useContext } from "react";
 
@@ -31,30 +31,41 @@ export default function Header() {
   };
 
   return (
-    <div className="header-wrapper">
-      <div className="header_container">
-        <div id="nav_bar">
+    <div className={header.header_wrapper}>
+      <div className={header.header_container}>
+        <div className={header.promotion_banner}>
+          <p>Hello and Welcome</p>
+        </div>
+        <div className={header.nav_bar}>
           <ul>
             <li>
               <Link to="/">
-                <img className="logo" src={pageLogo} alt="Website Logo" />
+                <img
+                  className={header.logo}
+                  src={pageLogo}
+                  alt="Website Logo"
+                />
               </Link>
             </li>
             <li>
-              <div className="search-box">
-                <input type="text" placeholder="Tam Quoc Dien Nghia" />
-                <button className="search-button">
-                  <img className="search-icon" src={searchIcon} alt="Search" />
+              <div className={header.search_box}>
+                <input
+                  type="text"
+                  placeholder="Tìm kiếm bằng tên tác giả, tác phẩm"
+                />
+                <button className={header.search_button}>
+                  <img
+                    className={header.search_icon}
+                    src={searchIcon}
+                    alt="Search"
+                  />
                 </button>
               </div>
-            </li> 
-             <li>
-              <Link to="/">Home</Link>
             </li>
             <li>
               <Link to="/cart">Giỏ hàng</Link>
             </li>
-          
+
             <li>
               <Link to="/order">Đơn hàng</Link>
             </li>
@@ -65,17 +76,32 @@ export default function Header() {
               <div
                 onMouseEnter={handleMenuEnter}
                 onMouseLeave={handleMenuLeave}
-                className="user-icon-wrapper"
+                className={header.user_icon_wrapper}
               >
-                <img src={userIcon} id="userIcon" className="icon" alt="User" />
+                <img
+                  src={userIcon}
+                  id="userIcon"
+                  className={header.icon}
+                  alt="User"
+                />
               </div>
             </li>
+          </ul>
+        </div>
+        <div className={header.sub_nav_bar}>
+          <ul>
+            <li>Thieu nhi</li>
+            <li>Khoa hoc vien tuong</li>
+            <li>Trinh tham</li>
+            <li>Lich su</li>
+            <li>Lang man</li>
+            <li>Sach tranh</li>
           </ul>
         </div>
       </div>
       {isMenuOpen && (
         <div
-          className="dropdown-menu"
+          className={header.dropdown_menu}
           style={{ top: iconPosition.y, left: iconPosition.x }}
           onMouseEnter={handleMenuHover}
           onMouseLeave={handleMenuHoverLeave}
@@ -88,9 +114,8 @@ export default function Header() {
               <Link to="/Login">Đăng nhập</Link>
             </li>
             <li>
-              <Link to="/link2">Đăng xuất</Link>
+              <button onClick={logout}>Đăng xuất</button>
             </li>
-            <button onClick={logout}>Dăng xuất</button>
           </ul>
         </div>
       )}
