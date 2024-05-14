@@ -40,7 +40,7 @@ function BookDetail(props) {
         <div>
           <div className={bookdetail.book}>
             <img
-              className={bookdetail.main_image}
+              className={bookdetail.main_img}
               src={`../images/${id}.jpeg`}
               alt="anh"
             />

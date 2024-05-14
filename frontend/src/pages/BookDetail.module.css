@@ -1,9 +1,7 @@
 .book {
   display: flex;
 }
-.main_img {
-  width: 35%;
-}
+
 .bookdetail {
   text-align: left;
 }
@@ -17,8 +15,8 @@
 }
 
 .main_img {
-  width: 300px;
-  height: 400px;
+  height: 500px;
+  width: 35%;
   object-fit: cover;
   margin-right: 20px;
 }
