@@ -85,10 +85,8 @@ function Cart() {
           {book.map((book) => (
             <CartItem
               key={book._id}
-             
               _id={book._id}
               remove={rmCart}
-        
               addToPurchase={addToPurchase}
               removeFromPurchase={removeFromPurchase}
             />
@@ -104,7 +102,6 @@ function Cart() {
             Thanh toán
           </button>
           <Popup isOpen={buy} onClose={closeBuy} >
-            
           </Popup>
         </div>
       ) : (

@@ -44,7 +44,7 @@ function CartItem(props) {
   const user =useSelector( state => state.user)
   // const [quantity, setQuantity] = useState(1);
   const [book, setBook] = useState(null);
-  const { _id,addToPurchase } = props;
+  const { _id,addToPurchase,removeFromPurchase,remove } = props;
   const [isChecked, setIsChecked] = useState(false);
   // const [item, setItem] = useState(null);
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -96,19 +96,16 @@ function CartItem(props) {
   function decrease() {
     if (state.quantity > 1) {
       dispatch({ type: 'decrement'});
-      props.removeFromCost(book.price)
       dispatch({type:"updateTotalPrice"})
     }
   }
 
-  function remove() {
+  function rm() {
     // Calculate the price of the removed book
     const removedBookPrice = state.totalprice;
+    remove(_id)
     // Update the cart and cost states
-    props.removeFromCost(removedBookPrice)
     // Remove the book from the parent component's cart state using its bookid
-    props.remove(_id);
-    props.removeFromPurchase(state);
     
   }
 
@@ -119,9 +116,9 @@ function CartItem(props) {
 
         // Depending on the new state, call the appropriate function to add or remove the item from purchase
         if (newState) {
-          props.addToPurchase(state);
+          addToPurchase(state);
         } else {
-          props.removeFromPurchase(state);
+          removeFromPurchase(state);
           count ++
         }
         return newState; // Return the new state value
@@ -143,7 +140,7 @@ function CartItem(props) {
       {book && <button onClick={increase}>+</button>}
       <span>{state.quantity}</span>
       {book && <button onClick={decrease}>-</button>}
-      <button onClick={remove}>Remove</button>
+      <button onClick={rm}>Remove</button>
       {book && <p>Đơn giá: {book.price}USD </p>}
       
       <p>Tổng giá: {state.totalprice}</p>
