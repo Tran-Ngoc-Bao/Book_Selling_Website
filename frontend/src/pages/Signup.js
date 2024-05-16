@@ -3,17 +3,13 @@ import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { DevTool } from "@hookform/devtools";
-<<<<<<< Updated upstream
 import signupStyles from "./Signup.module.css";
-=======
-import "./Signup.css";
 import Map from '../components/map/mapcomponent'
 // import { useSelector, useDispatch } from 'react-redux';
 // import {setUser} from '../redux/features/user/userSlice'
 // import {setCart} from '../redux/features/cart/cartSlice'
 // import {setToken,selectAccessToken,selectAccToken} from '../redux/features/user/tokenSlide'
 
->>>>>>> Stashed changes
 
 function Signup(props) {
   const { register, handleSubmit, control, formState } = useForm({
@@ -22,24 +18,6 @@ function Signup(props) {
 
   const [error, setError] = useState(null);
   const { errors } = formState;
-<<<<<<< Updated upstream
-  // dang nhap
-  const onSubmit = async (data) => {
-    try {
-      const response = await axios.post("api/customers/signup", data, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      if (response.statusText === "Created") {
-        setError("Đã tạo thành công");
-      }
-
-      console.log(response);
-    } catch (error) {
-      console.error("Error:", error);
-      setError(error.response);
-=======
 
   const [userAddr, setUserAddr] = useState('');
   
@@ -54,14 +32,15 @@ const onSubmit = async (data) => {
     });
     if(response.statusText==="Created"){
       setError("Đã tạo thành công")
->>>>>>> Stashed changes
     }
+  }catch(err){
+    setError(err)
   };
+}
 
   return (
     <div className={signupStyles.signup}>
       <h2>Đăng ký</h2>
-      {
         <div>
           <form onSubmit={handleSubmit(onSubmit)} noValidate="">
             <div className={signupStyles.formGroup}>
@@ -128,27 +107,10 @@ const onSubmit = async (data) => {
                   // defaultChecked={defaultgender==="Female"}
                 />
                 <label htmlFor="nu">Nữ</label>
-              </div>
-
-<<<<<<< Updated upstream
-              <p>{errors.gender && errors.gender.message}</p>
-            </div>
-
-            <div className={signupStyles.formGroup}>
-              <label htmlFor="birthday">Ngày sinh:</label>
-              {/* {console.log(user_info.birthday)} */}
-              <input
-                type="date"
-                id="birthday"
-                {...register("birthday", {
-                  required: "Ngày sinh không được bỏ trống",
-                })}
-                // defaultValue={`${convertToYYYYMMDD(defaultbirthday.current)}`}
-              />
-              <p>{errors.birthday && errors.birthday.message}</p>
-            </div>
-=======
-        <div>
+                <p>{errors.gender && errors.gender.message}</p>
+                </div>
+           </div>         
+          <div className={signupStyles.formGroup}>
           <label htmlFor="birthday">Ngày sinh:</label>
           {/* {console.log(user_info.birthday)} */}
           <input
@@ -161,6 +123,7 @@ const onSubmit = async (data) => {
           />
           <p>{errors.birthday && errors.birthday.message}</p>
         </div>
+            <br/>
           <Map userAddr={userAddr} setUserAddr={setUserAddr}/>
         <div>
           <label htmlFor="address">Địa chỉ:</label>
@@ -174,8 +137,7 @@ const onSubmit = async (data) => {
               value={userAddr}
             />
           <p>{errors.address && errors.address.message}</p>
-        </div>
->>>>>>> Stashed changes
+          </div>
 
             <div className={signupStyles.formGroup}>
               <label htmlFor="address">Địa chỉ:</label>
@@ -233,9 +195,10 @@ const onSubmit = async (data) => {
           </form>
           <DevTool control={control} />
         </div>
-      }
-    </div>
-  );
+        
+        </div>
+    );
 }
+
 
 export default Signup;

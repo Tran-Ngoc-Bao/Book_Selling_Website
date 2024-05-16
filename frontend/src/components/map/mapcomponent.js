@@ -59,7 +59,7 @@ const Map = (props) => {
       <MapContainer
         center={[21.0288,105.8522]}
         zoom={16}
-        style={{ height: "500px", width: "80%" }}
+        style={{ height: "300px", width: "300px" }}
       >
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

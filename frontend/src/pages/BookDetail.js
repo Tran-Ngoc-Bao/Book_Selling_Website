@@ -3,16 +3,10 @@ import React, { useEffect, useState } from "react";
 import bookdetail from "./BookDetail.module.css";
 import BookList from "../components/products/BookList";
 import axios from "axios";
-<<<<<<< Updated upstream
-import { addCartAsync } from "../redux/features/cart/cartSlice";
-import { useSelector, useDispatch } from "react-redux";
-
-=======
 import{addCartAsync, calTotalPrice} from '../redux/features/cart/cartSlice'
 import {PrductDetail_setPurchase} from '../redux/features/product/purchaseSlice'
 import { useSelector, useDispatch } from 'react-redux';
 import Popup from "../components/products/PopUp";
->>>>>>> Stashed changes
 function BookDetail(props) {
   // Access the URL parameters using useParams
   const dispatch = useDispatch();
@@ -41,13 +35,8 @@ function BookDetail(props) {
   }, [id]);
 
   async function AddToCart() {
-<<<<<<< Updated upstream
-    const rep = await dispatch(addCartAsync(id));
-    setErr(rep);
-=======
     const rep = await dispatch(addCartAsync(id))
     setErr(rep)
->>>>>>> Stashed changes
   }
 
   function AddtoPurchase(){
@@ -116,30 +105,21 @@ function BookDetail(props) {
                   <p className={bookdetail.sold}>sold: {book.sold}</p>
                 </div>
               </div>
-<<<<<<< Updated upstream
               <div className={bookdetail.detail}></div>
-              <button onClick={AddToCart} className={bookdetail.cart}>
-=======
-              <div className="detail"></div>
              
               <button  onClick={Increase}>+</button>
                 <span>{quantity}</span>
               <button onClick={Decrease}>-</button>
              <br/>
              <br/>
-              <button onClick={AddToCart} className="cart">
->>>>>>> Stashed changes
+             <button onClick={AddToCart} className={bookdetail.cart}>
                 Add to cart
               </button>
               <p>{error}</p>
 
-<<<<<<< Updated upstream
-              <button className={bookdetail.buy}> Buy now</button>
-=======
-              <button className="Buy" onClick={AddtoPurchase}> Buy now</button>
+              <button className={bookdetail.buy} onClick={AddtoPurchase}> Buy now</button>
               <Popup isOpen={buy} onClose={closeBuy} >
             </Popup>
->>>>>>> Stashed changes
             </div>
           </div>
           <BookList name="Sách được gợi ý" />

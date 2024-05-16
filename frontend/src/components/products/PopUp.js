@@ -1,12 +1,6 @@
-<<<<<<< Updated upstream
 import React from "react";
 import popup from "./PopUp.module.css";
-=======
-import React from 'react';
-import './PopUp.css';
 import { useDispatch, useSelector, shallowEqual,useStore } from 'react-redux';
-
->>>>>>> Stashed changes
 
 function Popup({ isOpen, onClose, children }) {
   const user =useSelector( state => state.user)
