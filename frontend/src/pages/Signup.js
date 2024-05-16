@@ -1,9 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,useRef } from "react";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { DevTool } from "@hookform/devtools";
+<<<<<<< Updated upstream
 import signupStyles from "./Signup.module.css";
+=======
+import "./Signup.css";
+import Map from '../components/map/mapcomponent'
+// import { useSelector, useDispatch } from 'react-redux';
+// import {setUser} from '../redux/features/user/userSlice'
+// import {setCart} from '../redux/features/cart/cartSlice'
+// import {setToken,selectAccessToken,selectAccToken} from '../redux/features/user/tokenSlide'
+
+>>>>>>> Stashed changes
 
 function Signup(props) {
   const { register, handleSubmit, control, formState } = useForm({
@@ -12,6 +22,7 @@ function Signup(props) {
 
   const [error, setError] = useState(null);
   const { errors } = formState;
+<<<<<<< Updated upstream
   // dang nhap
   const onSubmit = async (data) => {
     try {
@@ -28,6 +39,22 @@ function Signup(props) {
     } catch (error) {
       console.error("Error:", error);
       setError(error.response);
+=======
+
+  const [userAddr, setUserAddr] = useState('');
+  
+
+// dang nhap
+const onSubmit = async (data) => {
+  try {
+    const response = await axios.post("api/customers/signup", data, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    if(response.statusText==="Created"){
+      setError("Đã tạo thành công")
+>>>>>>> Stashed changes
     }
   };
 
@@ -103,6 +130,7 @@ function Signup(props) {
                 <label htmlFor="nu">Nữ</label>
               </div>
 
+<<<<<<< Updated upstream
               <p>{errors.gender && errors.gender.message}</p>
             </div>
 
@@ -119,6 +147,35 @@ function Signup(props) {
               />
               <p>{errors.birthday && errors.birthday.message}</p>
             </div>
+=======
+        <div>
+          <label htmlFor="birthday">Ngày sinh:</label>
+          {/* {console.log(user_info.birthday)} */}
+          <input
+            type="date"
+            id="birthday"
+            {...register("birthday", {
+              required: "Ngày sinh không được bỏ trống",
+            })}
+            // defaultValue={`${convertToYYYYMMDD(defaultbirthday.current)}`}
+          />
+          <p>{errors.birthday && errors.birthday.message}</p>
+        </div>
+          <Map userAddr={userAddr} setUserAddr={setUserAddr}/>
+        <div>
+          <label htmlFor="address">Địa chỉ:</label>
+          <input
+              type="text"
+              id="address"
+              {...register("address", {
+                required: "Địa chỉ không được bỏ trống",
+              })}
+              // defaultValue={defaultaddress.current}
+              value={userAddr}
+            />
+          <p>{errors.address && errors.address.message}</p>
+        </div>
+>>>>>>> Stashed changes
 
             <div className={signupStyles.formGroup}>
               <label htmlFor="address">Địa chỉ:</label>

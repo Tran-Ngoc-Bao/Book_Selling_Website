@@ -9,7 +9,7 @@ import  { useReducer } from 'react';
 
 const initialState = {
   name: null,
-  id: null,
+  bookid: null,
   price: null,
   quantity: 0,
   totalprice: 0,
@@ -22,7 +22,7 @@ const reducer = (state, action) => {
     case 'update':
       return {
         name: action.payload.name,
-        id: action.payload.id,
+        bookid: action.payload.bookid,
         price: action.payload.price,
         quantity: action.payload.quantity,
         totalprice: action.payload.totalprice,
@@ -44,27 +44,26 @@ function CartItem(props) {
   const user =useSelector( state => state.user)
   // const [quantity, setQuantity] = useState(1);
   const [book, setBook] = useState(null);
-  const {  bookid, addToCost,addToPurchase } = props;
+  const { _id,addToPurchase } = props;
   const [isChecked, setIsChecked] = useState(false);
   // const [item, setItem] = useState(null);
   const [state, dispatch] = useReducer(reducer, initialState);
-  const { name, id, price, quantity, totalprice } = state;
+  const { name, bookid, price, quantity, totalprice } = state;
 
   useEffect(() => {
     async function booka() {
-      const fetchedBook = await axios.get(`/api/books/${bookid}`);
+      const fetchedBook = await axios.get(`/api/books/${_id}`);
       setBook(fetchedBook.data);
-      addToCost(fetchedBook.data.price);
     }
     booka();
-  }, [user,bookid]);
+  }, [user,_id]);
 
   useEffect(() => {
     if (book) {
       const totalprice = book.price ;
         const payload = {
           name: book.title,
-          id: bookid,
+          bookid: _id,
           price: book.price,
           quantity: 1,
           totalprice: totalprice,
@@ -91,10 +90,6 @@ function CartItem(props) {
   function increase() {
     // setQuantity(prevQuantity => prevQuantity + 1);
     dispatch({ type: 'increment'});
-    if(quantity>0){
-      props.addToCost(book.price*(quantity-1))
-    }
-  
     dispatch({type:"updateTotalPrice"})
   }
   
@@ -111,8 +106,8 @@ function CartItem(props) {
     const removedBookPrice = state.totalprice;
     // Update the cart and cost states
     props.removeFromCost(removedBookPrice)
-    // Remove the book from the parent component's cart state using its id
-    props.remove(bookid);
+    // Remove the book from the parent component's cart state using its bookid
+    props.remove(_id);
     props.removeFromPurchase(state);
     
   }
@@ -152,7 +147,7 @@ function CartItem(props) {
       {book && <p>Đơn giá: {book.price}USD </p>}
       
       <p>Tổng giá: {state.totalprice}</p>
-      <input type="checkBox" id="chosen" onChange={clickHandler} />
+      <input type="checkBox" bookid="chosen" onChange={clickHandler} />
     </div>
   );
 }

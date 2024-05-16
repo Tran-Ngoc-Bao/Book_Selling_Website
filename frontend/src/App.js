@@ -13,6 +13,7 @@ import LightModeIcon from "./images/icons/light_mode.png";
 import DarkModeIcon from "./images/icons/dark_mode.png";
 import UserContext from "./UserContext"
 import axios from "axios";
+import Book from "./pages/Book";
 // import { useContext } from "react";
 
 import "./App.css"; // Import your CSS file for dark mode styles
@@ -112,6 +113,7 @@ async function getnewTk(accesstk, setAccessTk ){
             cart={cart} setCart={setCart} fetchCart={fetchCart}/>}
           />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/book" element={<Book />} />
           <Route path="/bookdetail/:id" element={<BookDetail giohang={giohang} setCart={setCart} user={user} setUser={setUser} accesstk={accesstk}/>} />
         </Routes>
       </div>

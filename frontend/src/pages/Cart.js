@@ -3,50 +3,58 @@ import CartItem from "../components/products/CartItem";
 import Popup from "../components/products/PopUp";
 import { useDispatch, useSelector, shallowEqual,useStore } from 'react-redux';
 import {addCartAsync,removeCartAsync} from'../redux/features/cart/cartSlice';
+import {Cart_setPurchase} from '../redux/features/product/purchaseSlice'
 
-
-
-function Cart(props) {
+// cart va purchase
+// purchase co dang  bookbuy:[],totalPrice:0,shipprice:0,
+// quan ly local = purchase_local
+// khi an thanh toan thi hop nhat purchase_local voi purchase.bookbuy = ham Cart_setPurchase
+// truyen cho Cart Item
+// truyen cho pop up
+function Cart() {
   const dispatch = useDispatch();
   const user =useSelector( state => state.user)
+  const purchas= useSelector(state=>state.purchase)
   const {_id}=user
   const cart_info = useSelector( state => state.cart)
   const {book,price}=cart_info // chua id sach, ten sach, gia sach
   
   const [buy, setBuy] = useState(false);
-  function doBuy() {
+  const [purchase, setPurchase] = useState([]);
+
+  async function  doBuy() {
+    console.log("day la pc",purchase)
+    const reply = await  dispatch(Cart_setPurchase(purchase))
     setBuy(true);
+    
   }
   function closeBuy() {
     setBuy(false);
   }
-  const [cost, setCost] = useState(0);
-  function addToCost(price) {
-    setCost((prevCost) => prevCost + price);
-  }
-  function removeFromCost(price) {
-    setCost((prevCost) => prevCost - price);
-  }
-  const [purchase, setPurchase] = useState([]);
+  
+
+ 
 
   function addToPurchase(item) {
     if (purchase.length !== 0) {
+      // co the ko can check lap khi add to purchase
       let newpurchase = purchase.filter((curitem) => {
-        return curitem.id !== item.id;
+        return curitem.bookid !== item.bookid;
       });
       newpurchase = [...newpurchase, item];
       setPurchase(newpurchase);
       console.log("thanh toan: ", newpurchase);
     } else {
-      setPurchase([...purchase, item]);
+    setPurchase([...purchase, item]);
       console.log("thanh toan: ", [...purchase, item]);
     }
+ 
   }
 
   function removeFromPurchase(item) {
     if (purchase.length !== 0) {
       let newpurchase = purchase.filter((curitem) => {
-        return curitem.id !== item.id;
+        return curitem.bookid !== item.bookid;
       });
       setPurchase(newpurchase);
       console.log("thanh toan: ", newpurchase);
@@ -77,68 +85,26 @@ function Cart(props) {
           {book.map((book) => (
             <CartItem
               key={book._id}
-              cost={cost}
-              bookid={book._id}
+             
+              _id={book._id}
               remove={rmCart}
-              addToCost={addToCost}
-              removeFromCost={removeFromCost}
+        
               addToPurchase={addToPurchase}
               removeFromPurchase={removeFromPurchase}
             />
           ))}
-          <p>Tổng giá trị giỏ hàng: {cost}$</p>
+         
           <button
             className="Buy"
-            onClick={() => {
-              doBuy();
+            onClick={async () => {
+              await doBuy();
               getPurchaseCost();
             }}
           >
             Thanh toán
           </button>
-          <Popup isOpen={buy} onClose={closeBuy}>
-            <div className="Buycontainer">
-              <h2>Kiem tra don hang</h2>
-              {console.log(purchase)}
-              {purchase &&
-                purchase.map((item) => (
-                  <div className="row" key={item.name}>
-                    <br/>
-                    <img
-                      src={`../images/${item.id}.jpeg`}
-                      width={50}
-                      height={50}
-                      alt={"buy book"}
-                    />
-                    <p>ten san pham: {item.name}</p>
-                    <p>So luong: {item.quantity}</p>
-                    <p>tam tinh: {item.totalprice}</p>
-                    <br/>
-                    <hr
-                      style={{
-                        color: "red",
-                        backgroundColor: "red",
-                        height: 3,
-                        border: "none",
-                      }}
-                    />
-                  </div>
-                ))}
-              <p>tk ngan hang {user.bank.name}</p>
-              <p>so tk {user.bank.seri}</p>
-              <p>Ship toi {user.address}</p>
-              <p>tien don hang {purchasecost}</p>
-              <p>tien ship</p>
-              <hr
-                style={{
-                  color: "black",
-                  backgroundColor: "black",
-                  height: 5,
-                }}
-              />
-              <p>Tong cong</p>
-              <button className="order">Dat hang</button>
-            </div>
+          <Popup isOpen={buy} onClose={closeBuy} >
+            
           </Popup>
         </div>
       ) : (
