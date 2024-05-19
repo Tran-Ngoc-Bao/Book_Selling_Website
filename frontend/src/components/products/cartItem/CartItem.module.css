@@ -1,0 +1,97 @@
+/* CartItem.module.css */
+.item_container {
+  display: flex;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  border-bottom: none;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+.item_container:hover {
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.item_title_container {
+  flex: 1;
+  margin-right: 2rem;
+}
+
+.item_title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #222;
+}
+
+.item_image {
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.item_image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.2s ease-in-out;
+}
+
+.item_image:hover img {
+  transform: scale(1.1);
+}
+
+.add_button,
+.minus_button,
+.remove_button_container {
+  margin-right: 1.5rem;
+}
+
+.add_button,
+.minus_button,
+.quantity_tag {
+  display: flex; /* Make these elements inline-flex for equal spacing */
+  align-items: center; /* Center content vertically */
+  justify-content: center; /* Center content horizontally */
+  width: 30px; /* Set a fixed width for all three elements */
+  height: 30px; /* Set a fixed height for all three elements */
+  margin: 0 0.5rem; /* Adjust margins for spacing between elements */
+  border-radius: 5px; /* Maintain rounded corners */
+  background-color: #f0f0f0; /* Consistent background color */
+  cursor: pointer; /* Maintain hover functionality */
+  transition: background-color 0.2s ease-in-out;
+}
+
+.quantity_tag {
+  max-width: 30px; /* Set a maximum width to prevent excessive expansion */
+  overflow: hidden; /* Truncate text if it overflows */
+  text-align: center; /* Center text within the element */
+}
+
+.add_button button,
+.minus_button button,
+.remove_button_container button {
+  /* Inherit styles from parent elements (no need for separate styles) */
+}
+
+.add_button button:hover,
+.minus_button button:hover,
+.remove_button_container button:hover {
+  background-color: #e0e0e0;
+}
+
+.total_price_container {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+}
+
+.price_label,
+.total_price {
+  font-size: 16px;
+  color: #222;
+  margin-right: 0.5rem;
+}

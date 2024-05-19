@@ -4,33 +4,38 @@ import footer from "./Footer.module.css";
 function Footer() {
   return (
     <div className={footer.footer}>
-      <div className={footer.social_media}>
-        <h3>Social Media</h3>
-        <ul>
-          <li>
-            <a href="https://twitter.com">Twitter</a>
-          </li>
-          <li>
-            <a href="https://facebook.com">Facebook</a>
-          </li>
-          <li>
-            <a href="https://instagram.com">Instagram</a>
-          </li>
-        </ul>
+      <div className={footer.social_link}>
+        <a href="https://facebook.com">
+          <img
+            src={require("../../images/icons/icons8-facebook-50.png")}
+            alt="facebook"
+            className={footer.icon}
+          />
+        </a>
+        <a href="https://linkedin.com">
+          <img
+            src={require("../../images/icons/icons8-linkedin-50.png")}
+            alt="facebook"
+            className={footer.icon}
+          />
+        </a>
+        <a href="https://youtube.com">
+          <img
+            src={require("../../images/icons/icons8-youtube-50.png")}
+            alt="facebook"
+            className={footer.icon}
+          />
+        </a>
+        <a href="https://instagram.com">
+          <img
+            src={require("../../images/icons/icons8-instagram-50.png")}
+            alt="facebook"
+            className={footer.icon}
+          />
+        </a>
       </div>
-      <div className={footer.site_links}>
-        <h3>Site Links</h3>
-        <ul>
-          <li>
-            <a href="/">Home</a>
-          </li>
-          <li>
-            <a href="/about">About</a>
-          </li>
-          <li>
-            <a href="/contact">Contact</a>
-          </li>
-        </ul>
+      <div className={footer.page_logo}>
+        <span className={footer.logo_icon}>BK BoSto</span>
       </div>
     </div>
   );
