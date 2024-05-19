@@ -1,0 +1,8 @@
+/* Book.module.css */
+.mainContainer {
+    display: grid;
+    grid-template-columns: 20% 79% ; /* Sidebar, Main content, Blank */
+    margin: 0 auto;
+    max-width: 1200px; /* Adjust as needed */
+  }
+  

@@ -1,5 +1,4 @@
 import React, { useEffect, useState,useRef } from "react";
-import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { DevTool } from "@hookform/devtools";
@@ -138,20 +137,6 @@ const onSubmit = async (data) => {
             />
           <p>{errors.address && errors.address.message}</p>
           </div>
-
-            <div className={signupStyles.formGroup}>
-              <label htmlFor="address">Địa chỉ:</label>
-              <input
-                type="text"
-                id="address"
-                {...register("address", {
-                  required: "Địa chỉ không được bỏ trống",
-                })}
-                // defaultValue={defaultaddress.current}
-              />
-              <p>{errors.address && errors.address.message}</p>
-            </div>
-
             <div className={signupStyles.formGroup}>
               <label htmlFor="bankName">Tên ngân hàng:</label>
               <input

@@ -1,30 +1,38 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import BookCard from './BookCard';
 import './BookGrid.css';
+import { nextpageasync, prevpageasync } from '../../redux/features/product/productSlice';
 
 function BookGrid() {
-  const [books, setBooks] = useState([]);
+  const dispatch = useDispatch();
+  const { books, pagination } = useSelector(state => state.product);
 
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const response = await axios.get('/api/books/getall');
-        console.log(response.data);
-        setBooks(response.data.books);
-      } catch (error) {
-        console.error('Error:', error);
-      }
-    }
+  const next = async () => {
+    await dispatch(nextpageasync());
+  };
 
-    fetchData();
-  }, []);
+  const prev = async () => {
+    await dispatch(prevpageasync());
+  };
 
   return (
-    <div className="book-grid">
-      {books.map(book => (
-        <BookCard key={book._id} book={book} />
-      ))}
+    <div>
+      <div className="book-grid">
+        {books.length > 0 ? (
+          books.map(book => (
+            <BookCard key={book._id} book={book} />
+          ))
+        ) : (
+          <p>No books found.</p>
+        )}
+      </div>
+      
+      <div className="pagination">
+        <button onClick={prev} disabled={pagination.currpage === 1}>Previous Page</button>
+        <p>{pagination.currpage}/{pagination.maxpage}</p>
+        <button onClick={next} disabled={pagination.currpage === pagination.maxpage}>Next Page</button>
+      </div>
     </div>
   );
 }

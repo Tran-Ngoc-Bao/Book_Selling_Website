@@ -1,6 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import axios from 'axios';
-import{getnewTk} from '../user/tokenSlide'
+
 
 export const purchaseSlice = createSlice({
   name: 'purchase_info',
@@ -19,13 +18,15 @@ export const purchaseSlice = createSlice({
       return {...state,bookbuy:book,totalPrice:price }
     }
     ,
-    Cart_setPurchase: (state, action)=>{ // take array of obj argument
-        let cost =0;
-        action.payload.map((item)=>{
-            cost+=item.price*item.quantity
-        })
-        return {...state,bookbuy:action.payload,totalPrice:cost}
-    }
+    Cart_setPurchase: (state, action) => { 
+      let cost = 0;
+      action.payload.map((item) => {
+          cost += item.price * item.quantity;
+          return undefined; // Explicitly return undefined
+      });
+      return { ...state, bookbuy: action.payload, totalPrice: cost };
+  }
+  
     },
 })
     
