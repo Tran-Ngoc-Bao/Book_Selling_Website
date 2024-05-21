@@ -37,12 +37,47 @@
 
 ## Building our website
 <ul>
-  <li>Main technologies: NodeJS, ExpressJS, React, MongoDB</li>
-  <li>...</li>
+  <li>Main technologies: NodeJS, React, MongoDB</li>
+  <li>Need to install: npm, mongod</li>
+  
+```sh
+pip install npm
+```
+
+```sh
+sudo apt-get install -y mongodb-org
+```
+
+
+  <li>Clone project</li>
+  
+```sh
+git clone https://github.com/Tran-Ngoc-Bao/BookSellingWebsite
+```
+
+  <li>Run mongodb; Create database: bookstore; Create 4 collections: admins, books, customers, publishinghouses; Import data from /data to collections (should use mongodb compass)</li>
+  
+```sh
+sudo systemctl start mongod
+```
+
+  <li>Create new terminal and move to /backend; Create new terminal and move to /frontend</li>
+  
+```sh
+npm install
+```
+
+```sh
+npm start
+```
+
 </ul>
+
+## Demo
+...
 
 ## Report
 <ul>
-  <li>Report</li>
-  <li>Slide</li>
+  <li><a href="https://github.com/Tran-Ngoc-Bao/BookSellingWebsite/blob/master/report/Report.pdf">Report</a></li>
+  <li><a href="https://github.com/Tran-Ngoc-Bao/BookSellingWebsite/blob/master/report/Slide.pptx">Slide</a></li>
 </ul>
