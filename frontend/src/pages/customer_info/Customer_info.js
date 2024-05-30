@@ -12,6 +12,7 @@ function Customer_info() {
   const dispatch = useDispatch();
 
   const user_info = useSelector((state) => state.user);
+  const login = user_info.login
 
   const count = useRef(0);
   // console.log(user_info);
@@ -108,7 +109,7 @@ function Customer_info() {
         <span className={CustomerInfoStyle.information_title}>
           Customer Information
         </span>
-        {user_info.name && (
+        {login && (
           <div className={CustomerInfoStyle.login_notification}>
             <form onSubmit={handleSubmit(onSubmit)} noValidate="">
               <div>
@@ -247,7 +248,7 @@ function Customer_info() {
             <DevTool control={control} />
           </div>
         )}
-        {!user_info.name && (
+        {!login && (
           <>
             <div className={CustomerInfoStyle.no_login_notification}>
               <span className={CustomerInfoStyle.label}>

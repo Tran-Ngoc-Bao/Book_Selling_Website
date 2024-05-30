@@ -29,7 +29,12 @@ export const tokenSlice = createSlice({
     selectAccessToken: (state) => {
       console.log("day la state: ", state.accessTk)
       return {...state,accessTk: state.accessTk}
-  }
+  },
+  logout:(state)=>{return{
+    accessTk: 0,
+    refreshTk: null,
+    _id: null
+  }}
 }});
 
 export function getnewTk (){
@@ -52,7 +57,7 @@ export function getnewTk (){
       console.log(error)
     }
   }}
-export const { setToken,updaterefreshTk,selectAccessToken } = tokenSlice.actions;
+export const { setToken,updaterefreshTk,selectAccessToken,logout } = tokenSlice.actions;
  export const selectAccToken = ()=> {return async function Acc (dispatch,getState){const a= await getState().token.refreshTk
   return a
  }};

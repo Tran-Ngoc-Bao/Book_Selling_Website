@@ -5,6 +5,7 @@
   "private": true,
   "dependencies": {
     "@hookform/devtools": "^4.3.1",
+    "@mui/material": "^5.15.19",
     "@reduxjs/toolkit": "^2.2.3",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",

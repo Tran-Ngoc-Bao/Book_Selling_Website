@@ -1,0 +1,23 @@
+/* CommentList.module.css */
+.commentBox {
+    margin-bottom: 16px; /* Adjust as needed */
+    padding: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+  }
+  
+  .commentHeader {
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+  
+  .commentRate {
+    font-style: italic;
+    margin-bottom: 8px;
+  }
+  
+  .commentText {
+    margin-bottom: 8px;
+  }
+  

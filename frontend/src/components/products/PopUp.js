@@ -1,12 +1,21 @@
 import React from "react";
 import popup from "./PopUp.module.css";
-import { useDispatch, useSelector, shallowEqual,useStore } from 'react-redux';
+import { useDispatch, useSelector, } from 'react-redux';
+import { json } from "react-router-dom";
+import {createOrder} from '../../redux/features/user/OrderSlide'
 
 function Popup({ isOpen, onClose, children }) {
-  const user =useSelector( state => state.user)
-  const container = useSelector(state =>state.purchase)
+  const user =useSelector( state => state.user.user.user_info)
+  const container =  useSelector(state =>state.purchase)
   const purchase = container.bookbuy
   const purchasecost= container.totalPrice
+  const dispatch=useDispatch()
+  async function thanhtoan(){
+    const rep = await dispatch(createOrder())
+    if(rep){
+      onClose()
+    }
+  }
   // Render nothing if the modal is not open
   if (!isOpen) return null;
   if(user.name===null) return (<p> Hãy đăng nhập</p>)
@@ -20,7 +29,6 @@ function Popup({ isOpen, onClose, children }) {
         {children}
         <div className="Buycontainer">
               <h2>Kiem tra don hang</h2>
-              {console.log(purchase)}
               {purchase &&
                 purchase.map((item) => (
                   <div className="row" key={item.name}>
@@ -50,7 +58,7 @@ function Popup({ isOpen, onClose, children }) {
               <p>so tk {user.bank.seri}</p>
               <p>Ship toi {user.address}</p>
               <p>tien don hang {purchasecost}</p>
-              <p>tien ship</p>
+              <p>tien ship: 20.000</p>
               <hr
                 style={{
                   color: "black",
@@ -59,7 +67,7 @@ function Popup({ isOpen, onClose, children }) {
                 }}
               />
               <p>Tong cong</p>
-              <button className="order">Dat hang</button>
+              <button className="order" onClick={thanhtoan}>Dat hang</button>
             </div>
       </div>
     </div>

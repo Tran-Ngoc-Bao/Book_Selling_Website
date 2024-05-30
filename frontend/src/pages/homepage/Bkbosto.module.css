@@ -1,42 +1,57 @@
+.Container {
+  display: flex;
+  flex-direction: column;
+  z-index: 10
+}
+.Header{
+  z-index: 11000;
+  color: aquamarine
+}
 .homepage {
   display: flex;
   flex-direction: column;
+  z-index: 10
 }
 
 .banner {
-  padding-left: 200px;
-  margin-bottom: 60px;
+  padding:0 10%; /* Adjust the padding using a percentage value */
+  margin-bottom: 6%; /* Adjust the margin using a percentage value */
+  z-index: -10;
 }
+
 .top_banner {
-  width: 1000px;
+  width: 100%; /* Set the width to 100% for responsiveness */
 }
 
 .promotion_books {
-  margin-left: 60px;
-  margin-bottom: 60px;
+  margin:6% 6%; /* Adjust the margin using a percentage value */
+   /* Adjust the margin using a percentage value */
 }
+
 .promotion_books_label {
   font-family: "Inter", sans-serif;
-  font-size: 20px;
+  font-size: 2vw; /* Adjust font size using viewport width (vw) unit */
   font-weight: 500;
   color: #ff6347;
   line-height: 150%;
 }
+
 .promotion_books_product {
-  margin-top: 10px;
+  margin-top: 1%; /* Adjust the margin using a percentage value */
 }
 
 .new_books {
-  margin-left: 60px;
-  margin-bottom: 60px;
+  margin:6% 6%;
 }
+
 .new_books_label {
   font-family: "Inter", sans-serif;
-  font-size: 20px;
+  font-size: 2vw; /* Adjust font size using viewport width (vw) unit */
   font-weight: 500;
   color: #ff6347;
   line-height: 150%;
 }
+
 .new_books_product {
-  margin-top: 10px;
+  margin-top: 1%; /* Adjust the margin using a percentage value */
 }

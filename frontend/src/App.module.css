@@ -22,3 +22,13 @@ body {
 .App.dark-mode .toggle-button {
   color: #fff; /* Dark mode icon color */
 }
+
+.header {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Ensure it is above other content */
+  background-color: white; /* Ensure it has a background */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow for better visibility */
+}

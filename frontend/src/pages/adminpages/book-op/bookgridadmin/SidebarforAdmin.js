@@ -3,11 +3,11 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   updategenreasync,
   initialload,
-  updatesortasync
-} from "../../redux/features/product/productSlice";
-import styles from "./Sidebar.module.css"; // Import the CSS module
+  updatesortasync,
+} from "../../../../redux/features/product/productSlice";
+import styles from "./SidebarforAdmin.module.css"; // Import the CSS module
 
-function Sidebar() {
+function SidebarforAdmin() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(initialload());
@@ -112,4 +112,4 @@ function Sidebar() {
   );
 }
 
-export default Sidebar;
+export default SidebarforAdmin;

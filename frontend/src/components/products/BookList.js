@@ -4,35 +4,13 @@ import booklist from "./BookList.module.css";
 import axios from "axios";
 function BookList(props) {
   const [books, setBooks] = useState(null);
-  // const [page, setPage] = useState(0);
-  // const [limit, setLimit] = useState(12);
-
-  // useEffect(() => {
-  //   const fetchBooks = async () => {
-  //     const response = await fetch(`/api/books/?p=${page}&limit=${limit}`);
-  //     if (response.ok) {
-  //       const json = await response.json();
-  //       setBooks(json);
-  //     }
-  //   };
-  //   fetchBooks();
-  // }, [page, limit]);
-
-  // function nextPage() {
-  //   setPage((prevPage) => prevPage + 1); // Correctly update page state
-  // }
-
-  // function backPage() {
-  //   if (page > 0) {
-  //     setPage((prevPage) => prevPage - 1); // Correctly update page state
-  //   }
-  // }
-  //lay du lieu tu back end
+  const sort= props.query
+ 
   useEffect(() => {
     fetchData();
     async function fetchData() {
       try {
-        const response = await axios.get("/api/books/getall");
+        const response = await axios.get(`/api/books/getall?sortBy=${sort}`);
         console.log(response.data);
         setBooks(response.data.books);
       } catch (error) {

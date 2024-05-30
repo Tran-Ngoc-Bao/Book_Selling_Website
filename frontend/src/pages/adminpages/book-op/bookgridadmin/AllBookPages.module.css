@@ -1,0 +1,52 @@
+/* AllBookPages.module.css */
+
+.modal {
+    /* Styles for the modal container */
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    overflow: scroll;
+  }
+  
+  .modalContent {
+    /* Styles for the modal content */
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .close {
+    /* Styles for the close button */
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .contentContainer {
+    /* Styles for the content layout */
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .sidebarContainer {
+    /* Styles for the sidebar */
+    
+  }
+  
+  .BookGridContainer {
+    /* Styles for the book grid */
+    flex: 2;
+    width: max-content;
+    height: max-content;
+  }
+  

@@ -1,0 +1,64 @@
+/* Order.module.css */
+.orderContainer {
+    padding: 20px;
+  }
+  
+  .orderHeader {
+    font-size: 24px;
+    color: #333;
+  }
+  
+  .orderItem {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .orderItem p {
+    margin: 5px 0;
+  }
+  
+  .orderImage {
+    margin-right: 20px;
+  }
+  
+  .orderDetails {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .orderInfo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  .statusFilter {
+    margin-bottom: 20px;
+  }
+  
+  .pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .pagination button {
+    margin: 0 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  .pagination button.disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+  
+  
+  .orderInfo p{
+    padding-right: 20px;
+  }
+  

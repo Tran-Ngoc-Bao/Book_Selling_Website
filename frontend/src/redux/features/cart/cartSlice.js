@@ -65,7 +65,7 @@ function getInfoBookinCart() {
       let infoarr = await Promise.all(
         arr.map(async (item) => {
           try {
-            const response = await axios.get(`/api/books/${item.bookid}`);
+            const response = await axios.get(`/api/books/getone/${item.bookid}`);
             const { _id, title, price } = response.data;
             console.log(title);
             return { _id, title, price };
@@ -86,13 +86,12 @@ function getInfoBookinCart() {
 function updateBackEndCart() {
   return async function updateCartBE(dispatch, getState) {
     let tk = getState().token
-    let temp =getState().user
     let container = await getState().cart.cart;
     // const newcart=container.filter((item)=>bookid!==item.bookid)
     console.log("day laf:" ,container)
     try {
       const response = await axios.put(
-        `/api/customers/update/${temp._id}`,
+        `/api/customers/update/${tk._id}`,
          {cart: container} ,
         {
           headers: {
@@ -109,7 +108,7 @@ function updateBackEndCart() {
       try{
         const newtk = await dispatch(getnewTk())
         const response = await axios.put(
-          `/api/customers/update/${temp._id}`,
+          `/api/customers/update/${tk._id}`,
           {cart: container} ,
           {
             headers: {
@@ -141,7 +140,7 @@ function updateBackEndCart() {
     return async (dispatch, getState) => {
       try {
         const { user, cart } = getState();
-        if (!user._id) {
+        if (!user.login) {
           return ("not logged in");
         }
         // Dispatch 'addToCart' action and wait for its completion

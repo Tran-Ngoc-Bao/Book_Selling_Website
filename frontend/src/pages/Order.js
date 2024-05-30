@@ -1,9 +1,112 @@
-import React from 'react'
+import React, { useEffect, useState } from "react";
+import { getOrder } from "../redux/features/user/OrderSlide";
+import { useDispatch, useSelector } from "react-redux";
+import Header from "../components/header/header";
+import Footer from "../components/footer/footer";
+import styles from "./Order.module.css";
 
 function Order() {
+  const dispatch = useDispatch();
+  const orderlist = useSelector((state) => state.order.order_list);
+  const login = useSelector((state) => state.user.login);
+  const [statusFilter, setStatusFilter] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const ordersPerPage = 10;
+
+  useEffect(() => {
+    dispatch(getOrder());
+  }, [dispatch]);
+
+  const handleStatusChange = (event) => {
+    setStatusFilter(event.target.value);
+    setCurrentPage(1); // Reset to first page on filter change
+  };
+
+  const filteredOrders = statusFilter
+    ? orderlist.filter((order) => order.status === statusFilter)
+    : orderlist;
+
+  // Calculate the orders to display based on the current page
+  const indexOfLastOrder = currentPage * ordersPerPage;
+  const indexOfFirstOrder = indexOfLastOrder - ordersPerPage;
+  const currentOrders = filteredOrders.slice(
+    indexOfFirstOrder,
+    indexOfLastOrder
+  );
+
+  const totalPages = Math.ceil(filteredOrders.length / ordersPerPage);
+
+  const handleClick = (page) => {
+    setCurrentPage(page);
+  };
+
   return (
-    <div>order</div>
-  )
+    <div className={styles.orderContainer}>
+      {!login && <h2>Hãy login để xem đơn đặt</h2>}
+      {login && (
+        <div>
+          <h1 className={styles.orderHeader}>Đơn hàng</h1>
+          <div className={styles.statusFilter}>
+            <label htmlFor="status">Filter by status:</label>
+            <select
+              id="status"
+              value={statusFilter}
+              onChange={handleStatusChange}
+            >
+              <option value="">All</option>
+              <option value="CXN">Chờ xác nhận</option>
+              <option value="CLH">Chờ lấy hàng</option>
+              <option value="CGH">Chờ giao hàng</option>
+              <option value="DG">Đã giao</option>
+              <option value="DH">Đã hủy</option>
+              <option value="TH">Trả hàng</option>
+            </select>
+          </div>
+          <div>
+            {currentOrders &&
+              currentOrders.map((order) => (
+                <div key={order._id} className={styles.orderItem}>
+                  <img
+                    src={`../images/${order.bookid}.jpeg`}
+                    width={70}
+                    height={70}
+                    alt="small book"
+                    className={styles.orderImage}
+                  />
+                  <div className={styles.orderDetails}>
+                    <p>Mã đơn: {order.orderid}</p>
+                    <div className={styles.orderInfo}>
+                      <p>Mã sản phẩm: {order.bookid}</p>
+                      <p>Số lượng: {order.quantity}</p>
+                      <p>Trạng thái: {order.status}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+          </div>
+          <div className={styles.pagination}>
+            <button
+              onClick={() => handleClick(currentPage - 1)}
+              disabled={currentPage === 1}
+              className={currentPage === 1 ? "disabled" : ""}
+            >
+              Previous
+            </button>
+            <p>
+              {currentPage} / {totalPages}
+            </p>
+            <button
+              onClick={() => handleClick(currentPage + 1)}
+              disabled={currentPage === totalPages}
+              className={currentPage === totalPages ? "disabled" : ""}
+            >
+              Next
+            </button>
+          </div>
+        </div>
+      )}
+    </div>
+  );
 }
 
-export default Order
+export default Order;

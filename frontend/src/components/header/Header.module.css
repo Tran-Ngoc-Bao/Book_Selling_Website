@@ -104,3 +104,14 @@
   color: #ffffff;
   line-height: 150%;
 }
+.book_item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px; /* Add some margin if needed */
+
+}
+.search_box{
+  width: 10;
+}
+
+

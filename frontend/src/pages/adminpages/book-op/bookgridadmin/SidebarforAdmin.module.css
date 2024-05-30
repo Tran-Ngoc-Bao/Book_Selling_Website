@@ -1,0 +1,38 @@
+/* SidebarforAdmin.module.css */
+*{
+    margin: 0;
+    padding: 0;
+}
+.SidebarforAdmincontainer {
+    width: min-content;
+    padding-right: 0;
+    margin-right: 0;
+  }
+  
+  .genres,
+  .sortby {
+
+  }
+  
+/* SidebarforAdmin.module.css */
+.filterTag {
+    width: 200px;
+    display: inline-block;
+  }
+  
+  span {
+    width: 200px;
+
+  }
+  
+  span input {
+    width: auto;
+    margin-left: 10px;
+    margin-right: 5px;
+  }
+  
+  
+  
+  
+  /* Additional styles for individual elements if needed */
+  

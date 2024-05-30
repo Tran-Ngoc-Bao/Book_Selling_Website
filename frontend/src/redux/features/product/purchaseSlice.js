@@ -25,6 +25,13 @@ export const purchaseSlice = createSlice({
           return undefined; // Explicitly return undefined
       });
       return { ...state, bookbuy: action.payload, totalPrice: cost };
+  },
+  resetPurchase : (state,action)=>{
+    return {
+      bookbuy:[],
+      totalPrice:0,
+      shipprice:0,
+    }
   }
   
     },
@@ -33,6 +40,6 @@ export const purchaseSlice = createSlice({
 // function to send to backend thanh toans
 
 
-export const { PrductDetail_setPurchase,Cart_setPurchase } = purchaseSlice.actions;
+export const { PrductDetail_setPurchase,Cart_setPurchase,resetPurchase } = purchaseSlice.actions;
 
 export default purchaseSlice.reducer;

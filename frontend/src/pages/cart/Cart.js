@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import CartItem from "../../components/products/cartItem/CartItem";
 import Popup from "../../components/products/PopUp";
 import { Link } from "react-router-dom";
-import { useDispatch, useSelector, shallowEqual, useStore } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   addCartAsync,
   removeCartAsync,
@@ -21,10 +21,10 @@ import CartStyle from "./Cart.module.css";
 function Cart() {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
-  const purchas = useSelector((state) => state.purchase);
-  const { _id } = user;
+  const { login } = user;
   const cart_info = useSelector((state) => state.cart);
   const { book, price } = cart_info; // chua id sach, ten sach, gia sach
+
 
   const [buy, setBuy] = useState(false);
   const [purchase, setPurchase] = useState([]);
@@ -46,6 +46,7 @@ function Cart() {
       });
       newpurchase = [...newpurchase, item];
       setPurchase(newpurchase);
+      dispatch(Cart_setPurchase(newpurchase))
       console.log("thanh toan: ", newpurchase);
     } else {
       setPurchase([...purchase, item]);
@@ -59,6 +60,7 @@ function Cart() {
         return curitem.bookid !== item.bookid;
       });
       setPurchase(newpurchase);
+      dispatch(Cart_setPurchase(newpurchase))
       console.log("thanh toan: ", newpurchase);
     }
   }
@@ -81,8 +83,7 @@ function Cart() {
       <Header />
       <div className={CartStyle.cart_page_content}>
         <>
-          {console.log("no")}
-          {_id ? (
+          {login ? (
             <div className={CartStyle.log_in_notification}>
               <span className={CartStyle.log_in_title}>Giỏ hàng</span>
               <div className={CartStyle.added_product}>

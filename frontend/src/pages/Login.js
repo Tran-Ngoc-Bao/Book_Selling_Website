@@ -5,19 +5,23 @@ import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { setUser } from "../redux/features/user/userSlice";
 import { setCart, setIntialCart } from "../redux/features/cart/cartSlice";
-import {
-  setToken,
-  selectAccessToken,
-  selectAccToken,
-} from "../redux/features/user/tokenSlide";
+import { setToken } from "../redux/features/user/tokenSlide";
 import login from "./Login.module.css";
+import { useNavigate } from "react-router-dom";
 
-function Login(props) {
+
+function Login() {
   const dispatch = useDispatch();
-  const [error, setError] = useState(null);
+  const [err, setError] = useState(null);
   const [response, setResponse] = useState(null);
   const [loginMethod, setLoginMethod] = useState("phone");
-  const [user, setUser1] = useState(null);
+  const navigate = useNavigate();
+  function hadlenav(msg) {
+    alert(msg);
+    navigate("/");
+  }
+
+  const a = useSelector((state) => state.user.login);
 
   function loginbyphone() {
     setLoginMethod("phone");
@@ -37,7 +41,7 @@ function Login(props) {
         },
       });
       // Assuming the response contains user data
-      setUser1(response.data.existingCustomer); // Set user state with user data from response
+      // setUser1(response.data.existingCustomer); // Set user state with user data from response
       console.log(response.data.existingCustomer);
       setResponse(response.data.message); // Set response state with message from response
       setError(null); // Clear error state
@@ -47,14 +51,10 @@ function Login(props) {
       dispatch(setToken(response.data));
       dispatch(setUser(response.data.existingCustomer || null));
       dispatch(setIntialCart(response.data.existingCustomer || null));
-
-      let a = dispatch(selectAccToken());
-      console.log(a);
     } catch (error) {
-      console.error("Error:", error);
-      setError(error.response);
+      console.error("day la Error:", error);
+      setError(error.response.data.message);
       setResponse(null);
-      setUser1(null); // Reset user state if login fails
     }
   };
 
@@ -99,23 +99,25 @@ function Login(props) {
               placeholder="Your password"
             />
           </div>
-          {(error && <p className={login.error_message}>{error}</p>) ||
+          {(err && <p className={login.error_message}>{err}</p>) ||
             (response && <p className={login.success_message}>{response}</p>)}
 
-          {!user && loginMethod === "phone" && (
+          {response === "Login successful" && hadlenav(response)}
+          {!a && loginMethod === "phone" && (
             <p onClick={loginbyemail}>Đăng nhập bằng địa chỉ email</p>
           )}
-          {!user && loginMethod === "email" && (
+          {!a && loginMethod === "email" && (
             <p onClick={loginbyphone}>Đăng nhập bằng số điện thoại</p>
           )}
           <br />
-          {!user && <button type="submit">Đăng nhập</button>}
+          {!a && <button type="submit">Đăng nhập</button>}
         </form>
-        {!response && (
+        {!a && (
           <div className={login.signup_link}>
             <Link to="/signup">Đăng ký</Link>
           </div>
         )}
+        
       </div>
     </div>
   );

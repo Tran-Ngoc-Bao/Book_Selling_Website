@@ -3,9 +3,7 @@ import axios from "axios";
 // import UserContext from "../../UserContext";
 // import { useContext } from "react";
 import { useDispatch, useSelector, shallowEqual, useStore } from "react-redux";
-import { sentUser, showUserinfo } from "../../../redux/features/user/userSlice";
 import { useReducer } from "react";
-import Cart from "../../../pages/cart/Cart";
 import CartItemStyle from "./CartItem.module.css";
 
 const initialState = {
@@ -49,10 +47,11 @@ function CartItem(props) {
   // const [item, setItem] = useState(null);
   const [state, dispatch] = useReducer(reducer, initialState);
   const { name, bookid, price, quantity, totalprice } = state;
+  const dayla = useDispatch()
 
   useEffect(() => {
     async function booka() {
-      const fetchedBook = await axios.get(`/api/books/${_id}`);
+      const fetchedBook = await axios.get(`/api/books/getone/${_id}`);
       setBook(fetchedBook.data);
     }
     booka();
@@ -76,7 +75,7 @@ function CartItem(props) {
 
   useEffect(() => {
     if (isChecked) {
-      addToPurchase(state);
+      (addToPurchase(state));
       console.log("add this to purchase: ", state);
     } else {
       if (count > 0) console.log("remove this from purchase: ", state);
@@ -101,7 +100,6 @@ function CartItem(props) {
 
   function rm() {
     // Calculate the price of the removed book
-    const removedBookPrice = state.totalprice;
     remove(_id);
     // Update the cart and cost states
     // Remove the book from the parent component's cart state using its bookid
@@ -116,7 +114,7 @@ function CartItem(props) {
         if (newState) {
           addToPurchase(state);
         } else {
-          removeFromPurchase(state);
+          (removeFromPurchase(state));
           count++;
         }
         return newState; // Return the new state value

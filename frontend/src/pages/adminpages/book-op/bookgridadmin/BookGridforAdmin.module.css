@@ -1,0 +1,29 @@
+/* BookGridforAdmin.module.css */
+
+.container{
+    width: max-content;
+    height:100%;
+}
+.book-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+  
+  .pagination button {
+    /* Add your button styles here */
+  }
+  
+  .pagination p {
+    /* Add your paragraph styles here */
+  }
+  
