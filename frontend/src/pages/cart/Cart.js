@@ -85,8 +85,11 @@ function Cart() {
         <>
           {login ? (
             <div className={CartStyle.log_in_notification}>
-              <span className={CartStyle.log_in_title}>Giỏ hàng</span>
-              <div className={CartStyle.added_product}>
+              <h3 className={CartStyle.log_in_title}>Giỏ hàng</h3>
+              {(book.length==0)?(
+                <h3>Giỏ hàng trống</h3>
+              ):(
+                <div className={CartStyle.added_product}>
                 {book.map((book) => (
                   <CartItem
                     key={book._id}
@@ -96,9 +99,7 @@ function Cart() {
                     removeFromPurchase={removeFromPurchase}
                   />
                 ))}
-              </div>
-
-              <button
+                 <button
                 className={CartStyle.buy_button}
                 onClick={async () => {
                   await doBuy();
@@ -107,7 +108,10 @@ function Cart() {
               >
                 Thanh toán
               </button>
+              
               <Popup isOpen={buy} onClose={closeBuy}></Popup>
+              </div>
+              )}
             </div>
           ) : (
             <div className={CartStyle.no_login_notification}>

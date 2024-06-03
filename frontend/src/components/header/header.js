@@ -1,9 +1,6 @@
 import React, { useState, useRef, useMemo } from "react";
 import { Link } from "react-router-dom";
-import searchIcon from "../../images/icons/search.png";
 import header from "./Header.module.css";
-import UserContext from "../../UserContext";
-import { useContext } from "react";
 import axios from "axios";
 import { logoutAsync } from "../../redux/features/user/userSlice";
 import { useDispatch, useSelector } from "react-redux";

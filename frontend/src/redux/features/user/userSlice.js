@@ -9,7 +9,7 @@ name:"user_info",
     login: false,
     isadmin : false,
     user:{_id : "",
-      address: null,
+      address: '',
       bank: null, 
       birthday: null, 
       gender: null, 
@@ -23,14 +23,15 @@ name:"user_info",
   reducers: {
     setUser: (state, action) => {
       console.log("thong tin dang nhap: ",action.payload)
-      const { _id, address, bank, birthday, email, gender, name, phone, password, ...rest } = action.payload;
-      const user_info = { _id, address, bank, birthday, email, gender, name, phone, password }; 
-      return { ...state, user:{user_info}, login : true };
+      
+      const { _id, address, bank, birthday, email, gender, name, phone, password } = action.payload;
+       ; 
+      return { ...state, user:{ _id, address, bank, birthday, email, gender, name, phone, password }, login : true };
     },
     updateUser: (state, action) => {
-      const { address, bank, birthday, gender, email, phone, name, password, ...rest } = action.payload;
-      const user_info = { address, bank, birthday, gender, name, password }; 
-      return {  ...state, user:{user_info} };
+      console.log("trong ham update", action.payload)
+      const {  address, bank, birthday, email, gender, name, phone, password } = action.payload; 
+      return {  ...state, user:{  address, bank, birthday, email, gender, name, phone, password }};
     },
     setError:(state, action) =>{
       return { ...state,error: action.payload };
@@ -64,8 +65,7 @@ export const { setUser, updateUser,setError,logOut,setAdmin } = userSlice.action
     export function sentUser (user){
     return async function sentUserBythunk(dispatch,getState){
         let { address, bank, birthday, email, gender, name, phone, password, ...rest }=user// object truyen vao
-        let temp =getState().user // state hien tai
-
+        let temp =getState().user.user
         //  console.log("day la: ",temp._id)
         let tk = getState().token
         // console.log("day la token: ",tk.accessTk)
@@ -94,6 +94,7 @@ export const { setUser, updateUser,setError,logOut,setAdmin } = userSlice.action
                 });
                 // console.log(response.data.updatedCustomer)
                 dispatch(setError("success"))
+                console.log("response",response.data)
         dispatch(updateUser(response.data.updatedCustomer))
         }catch(error){
           try{
@@ -118,12 +119,6 @@ export const { setUser, updateUser,setError,logOut,setAdmin } = userSlice.action
     } 
     }}
 
-    export const showUserinfo = ()=> {return async function Show (dispatch,getState)
-      {const a= await getState().user.user
-        const { _id, address, bank, birthday, email, gender, name, phone, password, ...rest } =a;
-        const t={_id, address, bank, birthday, email, gender, name, phone, password}
-      return t
-     }};
 
      export const logoutAsync = () => {
       return async (dispatch) => {

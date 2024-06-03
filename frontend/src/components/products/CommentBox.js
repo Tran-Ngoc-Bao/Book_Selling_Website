@@ -73,7 +73,19 @@ function CommentBox(props) {
 
   return (
     <div>
-      {!login && <h3>Hãy đăng nhập để nhận xét</h3>}
+      {!login && (
+        <TextField
+          id="filled-multiline-static"
+          label="Nhận xét"
+          multiline
+          rows={4}
+          variant="filled"
+          fullWidth
+          inputProps={{ readOnly: true }}
+          value={"Đăng nhập để viết nhận xét"}
+          style={{ backgroundColor: "white" }}
+        />
+      )}
       {login && (
         <div>
           <Typography component="legend">Đánh giá</Typography>
@@ -99,7 +111,7 @@ function CommentBox(props) {
           </div>
           <Box mt={2}>
             <Button variant="contained" color="primary" onClick={submit}>
-              Gửi
+              Submit
             </Button>
           </Box>
         </div>

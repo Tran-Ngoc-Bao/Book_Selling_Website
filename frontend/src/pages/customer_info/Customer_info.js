@@ -44,7 +44,7 @@ function Customer_info() {
 
   useEffect(() => {
     async function hello() {
-      const data = await dispatch(showUserinfo());
+      const data = user_info.user
       defaultname.current = data.name;
       console.log("this is user name: ", defaultname.current);
       defaultaddress.current = data.address;
@@ -99,6 +99,7 @@ function Customer_info() {
       birthday: `${convertToISO8601(getValues().birthday)}`,
     };
     dispatch(sentUser(sent));
+    console.log("new user",sent)
     count.current++;
   }
 

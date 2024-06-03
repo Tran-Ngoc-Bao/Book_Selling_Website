@@ -3,6 +3,7 @@ import axios from "axios";
 import { useDispatch, useSelector, shallowEqual, useStore } from "react-redux";
 import { useReducer } from "react";
 import CartItemStyle from "./CartItem.module.css";
+import { NumericFormat } from 'react-number-format';
 
 const initialState = {
   name: null,
@@ -162,13 +163,13 @@ function CartItem(props) {
       <div className={CartItemStyle.price_container}>
         {book && (
           <span className={CartItemStyle.price_label}>
-            Đơn giá: {book.price}USD{" "}
+        Đơn giá:  {book.price.toLocaleString()} VND;
           </span>
         )}
       </div>
       <div className={CartItemStyle.total_price_container}>
         <span className={CartItemStyle.total_price}>
-          Tổng giá: {state.totalprice}
+          Tổng giá: {state.totalprice.toLocaleString()} VND
         </span>
       </div>
 

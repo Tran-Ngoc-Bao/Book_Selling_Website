@@ -11,6 +11,7 @@ import { useSelector, useDispatch } from "react-redux";
 import Popup from "../components/products/PopUp";
 import CommentBox from "../components/products/CommentBox";
 import CommentList from "../components/products/CommentList";
+import { NumericFormat } from "react-number-format";
 function BookDetail(props) {
   // Access the URL parameters using useParams
   const dispatch = useDispatch();
@@ -85,7 +86,6 @@ function BookDetail(props) {
               src={`../images/${id}.jpeg`}
               alt="anh"
             />
-
             <div className={bookdetail.bookdetail}>
               <div className={bookdetail.main_detail}>
                 <p className={bookdetail.title}>{book.title}</p>{" "}
@@ -104,6 +104,12 @@ function BookDetail(props) {
                     ))}
                   </div>
                 </div>
+                <NumericFormat
+                  value={book.price}
+                  thousandSeparator=","
+                  readOnly="true"
+                  suffix=" VND"
+                />
                 <div className={bookdetail.rate_price}>
                   <p className={bookdetail.rating}>{book.rate}/5</p>
                   <p className={bookdetail.sold}>Đã bán: {book.sold}</p>
@@ -142,11 +148,15 @@ function BookDetail(props) {
               <Popup isOpen={buy} onClose={closeBuy}></Popup>
             </div>
           </div>
-
-          <div className={bookdetail.recommend_books}>
-            <BookList name="Sách được gợi ý" />
-          </div>
-
+          <h3>Mô tả sách</h3>
+          <textarea
+            readOnly={true}
+            value={book.description}
+            style={{ width: "100%", whiteSpace: "pre-wrap" }}
+            cols={30}
+            rows={10}
+          ></textarea>
+          <h3>Bình luận của khách hàng: </h3>
           <div className={bookdetail.comment_section}>
             <span>Bình luận của khách hàng: </span>
             <CommentList feedback={feedbacks} />
@@ -155,6 +165,7 @@ function BookDetail(props) {
             <span>Nhận xét của bạn: </span>
             <CommentBox setFeedbacks={setFeedbacks} />
           </div>
+          <BookList name="Sách được gợi ý" />
         </div>
       )}
 

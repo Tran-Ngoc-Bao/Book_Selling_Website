@@ -28,8 +28,8 @@ function BookCard({ book }) {
           >
             <p className={bookcard.book_title}>{book.title}</p>
           </Link>
-          <p>Sold: {book.sold}</p>
-          <p>Price: {book.price}$</p>
+          <p>Đã bán: {book.sold}</p>
+          <p>Giá: { book.price.toLocaleString()} VND</p>
         </div>
       </div>
     </div>
