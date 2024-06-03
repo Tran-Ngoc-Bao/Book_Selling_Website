@@ -15,9 +15,10 @@ import Book from "./pages/Book";
 import AdminLogin from "./pages/adminpages/AdminLogin";
 import Admin from "./pages/adminpages/Admin";
 import Appstyle from "./App.module.css"; // Import your CSS module for dark mode styles
+import BookDetailAdmin from "./pages/adminpages/book-op/bookgridadmin/BookDetailAdmin";
 
 function App() {
-  const [user, setUser] = useState(null);
+  const [ user, setUser] = useState(null);
   const [darkMode, setDarkMode] = useState(false);
   const [accesstk, setAccessTk] = useState(null);
   const [refreshtk, setRefreshTk] = useState(null);
@@ -155,7 +156,9 @@ function App() {
             />
             <Route path="/admin/login" element={<AdminLogin />} />
             <Route path="/admin" element={<Admin />} />
-          </Routes>
+            <Route path="/admin/book/:id" element={<BookDetailAdmin />} />
+            </Routes>
+
         </div>
 
         <button className={Appstyle["toggle-button"]} onClick={toggleDarkMode}>

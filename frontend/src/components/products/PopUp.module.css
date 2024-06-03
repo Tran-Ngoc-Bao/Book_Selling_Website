@@ -1,3 +1,5 @@
+/* PopUp.module.css */
+
 .popup_overlay {
   position: fixed;
   top: 0;
@@ -15,6 +17,8 @@
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* drop shadow */
+  overflow-y: auto; /* Make content scrollable */
+  max-height: calc(100vh - 100px); /* Maximum height for content */
 }
 
 .popup_close {
@@ -26,3 +30,41 @@
   font-size: 20px;
   cursor: pointer;
 }
+
+.payment_modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* drop shadow */
+  overflow-y: auto; /* Make content scrollable */
+  max-height: calc(100vh - 100px); /* Maximum height for content */
+}
+
+.paymentmethod {
+  margin-bottom: 20px;
+}
+
+.paymentmethod h3 {
+  margin-bottom: 10px;
+}
+
+.paymentmethod ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+}
+
+.paymentmethod li {
+  padding: 0;
+  margin: 0;
+  width: max-content;
+
+}
+
