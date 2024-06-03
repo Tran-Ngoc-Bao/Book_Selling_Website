@@ -156,7 +156,7 @@ function BookDetail(props) {
             cols={30}
             rows={10}
           ></textarea>
-          <h3>Bình luận của khách hàng: </h3>
+
           <div className={bookdetail.comment_section}>
             <span>Bình luận của khách hàng: </span>
             <CommentList feedback={feedbacks} />

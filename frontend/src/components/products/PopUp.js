@@ -1,25 +1,13 @@
-import React from "react";
 import popup from "./PopUp.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { json } from "react-router-dom";
+
 import { createOrder } from "../../redux/features/user/OrderSlide";
 import React, { useState } from "react";
 import popupStyles from "./PopUp.module.css";
-import { useDispatch, useSelector } from "react-redux";
-import { createOrder } from "../../redux/features/user/OrderSlide";
+
 import PayPal from "../PayPal";
-import { Button } from "bootstrap";
 
 function Popup({ isOpen, onClose, children }) {
-  const user = useSelector((state) => state.user.user.user_info);
-  const container = useSelector((state) => state.purchase);
-  const purchase = container.bookbuy;
-  const purchasecost = container.totalPrice;
-  const dispatch = useDispatch();
-  async function thanhtoan() {
-    const rep = await dispatch(createOrder());
-    if (rep) {
-      onClose();
   const user = useSelector((state) => state.user.user);
   const container = useSelector((state) => state.purchase);
   const purchase = container.bookbuy;
@@ -46,7 +34,10 @@ function Popup({ isOpen, onClose, children }) {
 
   return (
     <div className={popupStyles.popup_overlay} onClick={onClose}>
-      <div className={popupStyles.popup_content} onClick={(e) => e.stopPropagation()}>
+      <div
+        className={popupStyles.popup_content}
+        onClick={(e) => e.stopPropagation()}
+      >
         <button className={popupStyles.popup_close} onClick={onClose}>
           X
         </button>
@@ -91,7 +82,9 @@ function Popup({ isOpen, onClose, children }) {
               }}
             />
             <p>Tổng cộng: {(purchasecost + 20000).toLocaleString()} VND</p>
-            <button onClick={togglePaymentModal}>Chọn phương thức thanh toán</button>
+            <button onClick={togglePaymentModal}>
+              Chọn phương thức thanh toán
+            </button>
             {showPaymentModal && (
               <div className={popupStyles.payment_modal}>
                 <div className={popupStyles.paymentmethod}>
@@ -106,10 +99,10 @@ function Popup({ isOpen, onClose, children }) {
                           onChange={() => setPayment("COD")}
                         />
                         Thanh toán khi nhận hàng (COD)
-                        </span>
+                      </span>
                     </li>
                     <li>
-                        <span>
+                      <span>
                         <input
                           type="radio"
                           value="Bank"
@@ -117,10 +110,10 @@ function Popup({ isOpen, onClose, children }) {
                           onChange={() => setPayment("Bank")}
                         />
                         Sử dụng tài khoản ngân hàng
-                        </span>
+                      </span>
                     </li>
                     <li>
-                    <span>
+                      <span>
                         <input
                           type="radio"
                           value="PayPal"
@@ -128,22 +121,39 @@ function Popup({ isOpen, onClose, children }) {
                           onChange={() => setPayment("PayPal")}
                         />
                         Thanh toán bằng PayPal
-                        </span>
+                      </span>
                     </li>
                   </ul>
                 </div>
-                {payment === "PayPal" && <PayPal total={(purchasecost + 20000)/23000} thanhtoan={thanhtoan}  />}
+                {payment === "PayPal" && (
+                  <PayPal
+                    total={(purchasecost + 20000) / 23000}
+                    thanhtoan={thanhtoan}
+                  />
+                )}
                 {payment === "Bank" && (
                   <div>
                     <p>Ngân hàng: {user.bank.name}</p>
                     <p>Số tài khoản: {user.bank.seri}</p>
-                    <br/>
-                    <button onClick={()=>{thanhtoan()}}>Đặt hàng</button>
+                    <br />
+                    <button
+                      onClick={() => {
+                        thanhtoan();
+                      }}
+                    >
+                      Đặt hàng
+                    </button>
                   </div>
                 )}
                 {payment === "COD" && (
                   <div>
-                    <button onClick={()=>{thanhtoan()}}>Đặt hàng</button>
+                    <button
+                      onClick={() => {
+                        thanhtoan();
+                      }}
+                    >
+                      Đặt hàng
+                    </button>
                   </div>
                 )}
                 <button onClick={togglePaymentModal}>Đóng</button>
