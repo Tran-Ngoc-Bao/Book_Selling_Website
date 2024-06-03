@@ -117,7 +117,9 @@ function BookDetail(props) {
               </div>
 
               <div className={bookdetail.price_control}>
-                <p className={bookdetail.price}>${book.price}</p>
+                <p className={bookdetail.price}>
+                  {book.price.toLocaleString()} VND
+                </p>
                 <div className={bookdetail.quantity_control}>
                   <button
                     className={bookdetail.setQuantity_button}
