@@ -1,64 +1,96 @@
 /* Order.module.css */
 .orderContainer {
-    padding: 20px;
-  }
-  
-  .orderHeader {
-    font-size: 24px;
-    color: #333;
-  }
-  
-  .orderItem {
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-  }
-  
-  .orderItem p {
-    margin: 5px 0;
-  }
-  
-  .orderImage {
-    margin-right: 20px;
-  }
-  
-  .orderDetails {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .orderInfo {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-  }
-  
-  .statusFilter {
-    margin-bottom: 20px;
-  }
-  
-  .pagination {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-  }
-  
-  .pagination button {
-    margin: 0 5px;
-    padding: 5px 10px;
-    cursor: pointer;
-  }
-  
-  .pagination button.disabled {
-    cursor: not-allowed;
-    opacity: 0.5;
-  }
-  
-  
-  .orderInfo p{
-    padding-right: 20px;
-  }
-  
+  display: flex;
+  flex-direction: column;
+}
+.page_content {
+  min-height: 600px;
+}
+.no_login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.no_login_prompt {
+  width: max-content;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.logged_in_notification {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin-left: 25%;
+}
+
+.orderHeader {
+  font-size: 24px;
+  color: #333;
+}
+
+.orderItem {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  margin-bottom: 10px;
+  border: 1px solid #e7e7e7;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.orderImage {
+  margin-right: 20px;
+  border-radius: 4px;
+}
+
+.orderDetails {
+  flex: 1;
+}
+
+.orderDetails p {
+  margin: 0;
+  font-size: 14px;
+  color: #333;
+}
+
+.orderInfo {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.orderInfo p {
+  margin-right: 20px;
+  font-size: 12px;
+  color: #555;
+}
+
+.orderInfo p:last-child {
+  margin-right: 0;
+}
+
+.statusFilter {
+  margin-bottom: 20px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination button {
+  margin: 0 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.pagination button.disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.orderInfo p {
+  padding-right: 20px;
+}

@@ -15,6 +15,7 @@
   font-weight: 500;
   color: #ff6347;
   line-height: 150%;
+  width: max-content;
 }
 
 .no_login_notification {
@@ -30,4 +31,15 @@
   flex-direction: column;
   width: 600px;
   margin-bottom: 20px;
+}
+.gender_choices {
+  display: flex;
+}
+.gender_radio_choices {
+  margin-top: 9px;
+  width: 40px;
+  height: 12px;
+}
+.change_button {
+  margin-left: 45%;
 }

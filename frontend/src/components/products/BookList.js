@@ -4,8 +4,8 @@ import booklist from "./BookList.module.css";
 import axios from "axios";
 function BookList(props) {
   const [books, setBooks] = useState(null);
-  const sort= props.query
- 
+  const sort = props.query;
+
   useEffect(() => {
     fetchData();
     async function fetchData() {
@@ -24,7 +24,7 @@ function BookList(props) {
   // }
   return (
     <div className={booklist.container}>
-      <h2>{props.name}</h2>
+      <span className={booklist.name}>{props.name}</span>
       <div className={booklist.list_container}>
         {books &&
           books.map((book) => (

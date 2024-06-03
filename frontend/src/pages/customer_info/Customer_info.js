@@ -12,7 +12,7 @@ function Customer_info() {
   const dispatch = useDispatch();
 
   const user_info = useSelector((state) => state.user);
-  const login = user_info.login
+  const login = user_info.login;
 
   const count = useRef(0);
   // console.log(user_info);
@@ -107,7 +107,7 @@ function Customer_info() {
       <Header />
       <div className={CustomerInfoStyle.information_container}>
         <span className={CustomerInfoStyle.information_title}>
-          Customer Information
+          Thông tin cá nhân
         </span>
         {login && (
           <div className={CustomerInfoStyle.login_notification}>
@@ -157,25 +157,30 @@ function Customer_info() {
 
               <div>
                 <label>Giới tính:</label>
-                <input
-                  type="radio"
-                  id="nam"
-                  value="Male"
-                  {...register("gender", {
-                    required: "Giới tính không được bỏ trống",
-                  })}
-                  defaultChecked={defaultgender === "Male"}
-                />
-                <label htmlFor="nam">Nam</label>
-                <input
-                  type="radio"
-                  id="nu"
-                  value="Female"
-                  {...register("gender", { required: true })}
-                  defaultChecked={defaultgender === "Female"}
-                />
-                <label htmlFor="nu">Nữ</label>
-                <p>{errors.gender && errors.gender.message}</p>
+                <div className={CustomerInfoStyle.gender_choices}>
+                  <label htmlFor="nam">Nam</label>
+                  <input
+                    className={CustomerInfoStyle.gender_radio_choices}
+                    type="radio"
+                    id="nam"
+                    value="Male"
+                    {...register("gender", {
+                      required: "Giới tính không được bỏ trống",
+                    })}
+                    defaultChecked={defaultgender === "Male"}
+                  />
+                  <label htmlFor="nu">Nữ</label>
+                  <input
+                    className={CustomerInfoStyle.gender_radio_choices}
+                    type="radio"
+                    id="nu"
+                    value="Female"
+                    {...register("gender", { required: true })}
+                    defaultChecked={defaultgender === "Female"}
+                  />
+
+                  <p>{errors.gender && errors.gender.message}</p>
+                </div>
               </div>
 
               <div>
@@ -243,7 +248,9 @@ function Customer_info() {
                 />
                 <p>{errors.password && errors.password.message}</p>
               </div>
-              <button type="submit">Đổi</button>
+              <button type="submit" className={CustomerInfoStyle.change_button}>
+                Đổi
+              </button>
             </form>
             <DevTool control={control} />
           </div>

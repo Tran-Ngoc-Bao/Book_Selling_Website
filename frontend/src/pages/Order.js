@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { getOrder } from "../redux/features/user/OrderSlide";
 import { useDispatch, useSelector } from "react-redux";
 import Header from "../components/header/header";
@@ -42,69 +43,84 @@ function Order() {
 
   return (
     <div className={styles.orderContainer}>
-      {!login && <h2>Hãy login để xem đơn đặt</h2>}
-      {login && (
-        <div>
-          <h1 className={styles.orderHeader}>Đơn hàng</h1>
-          <div className={styles.statusFilter}>
-            <label htmlFor="status">Filter by status:</label>
-            <select
-              id="status"
-              value={statusFilter}
-              onChange={handleStatusChange}
-            >
-              <option value="">All</option>
-              <option value="CXN">Chờ xác nhận</option>
-              <option value="CLH">Chờ lấy hàng</option>
-              <option value="CGH">Chờ giao hàng</option>
-              <option value="DG">Đã giao</option>
-              <option value="DH">Đã hủy</option>
-              <option value="TH">Trả hàng</option>
-            </select>
+      <Header />
+      <div className={styles.page_content}>
+        {!login && (
+          <div className={styles.no_login}>
+            <span className={styles.no_login_prompt}>
+              Hãy đăng nhập để xem đơn hàng của bạn
+            </span>
+            <div className={styles.no_login_notification_link}>
+              <Link to="/login">
+                <p>Đăng nhập</p>
+              </Link>
+            </div>
           </div>
-          <div>
-            {currentOrders &&
-              currentOrders.map((order) => (
-                <div key={order._id} className={styles.orderItem}>
-                  <img
-                    src={`../images/${order.bookid}.jpeg`}
-                    width={70}
-                    height={70}
-                    alt="small book"
-                    className={styles.orderImage}
-                  />
-                  <div className={styles.orderDetails}>
-                    <p>Mã đơn: {order.orderid}</p>
-                    <div className={styles.orderInfo}>
-                      <p>Mã sản phẩm: {order.bookid}</p>
-                      <p>Số lượng: {order.quantity}</p>
-                      <p>Trạng thái: {order.status}</p>
+        )}
+        {login && (
+          <div className={styles.logged_in_notification}>
+            <span className={styles.orderHeader}>Đơn hàng</span>
+            <div className={styles.statusFilter}>
+              <label htmlFor="status">Lọc theo trạng thái: </label>
+              <select
+                id="status"
+                value={statusFilter}
+                onChange={handleStatusChange}
+              >
+                <option value="">All</option>
+                <option value="CXN">Chờ xác nhận</option>
+                <option value="CLH">Chờ lấy hàng</option>
+                <option value="CGH">Chờ giao hàng</option>
+                <option value="DG">Đã giao</option>
+                <option value="DH">Đã hủy</option>
+                <option value="TH">Trả hàng</option>
+              </select>
+            </div>
+            <div>
+              {currentOrders &&
+                currentOrders.map((order) => (
+                  <div key={order._id} className={styles.orderItem}>
+                    <img
+                      src={`../images/${order.bookid}.jpeg`}
+                      width={70}
+                      height={70}
+                      alt="small book"
+                      className={styles.orderImage}
+                    />
+                    <div className={styles.orderDetails}>
+                      <p>Mã đơn: {order.orderid}</p>
+                      <div className={styles.orderInfo}>
+                        <p>Mã sản phẩm: {order.bookid}</p>
+                        <p>Số lượng: {order.quantity}</p>
+                        <p>Trạng thái: {order.status}</p>
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                ))}
+            </div>
+            <div className={styles.pagination}>
+              <button
+                onClick={() => handleClick(currentPage - 1)}
+                disabled={currentPage === 1}
+                className={currentPage === 1 ? "disabled" : ""}
+              >
+                Previous
+              </button>
+              <p>
+                {currentPage} / {totalPages}
+              </p>
+              <button
+                onClick={() => handleClick(currentPage + 1)}
+                disabled={currentPage === totalPages}
+                className={currentPage === totalPages ? "disabled" : ""}
+              >
+                Next
+              </button>
+            </div>
           </div>
-          <div className={styles.pagination}>
-            <button
-              onClick={() => handleClick(currentPage - 1)}
-              disabled={currentPage === 1}
-              className={currentPage === 1 ? "disabled" : ""}
-            >
-              Previous
-            </button>
-            <p>
-              {currentPage} / {totalPages}
-            </p>
-            <button
-              onClick={() => handleClick(currentPage + 1)}
-              disabled={currentPage === totalPages}
-              className={currentPage === totalPages ? "disabled" : ""}
-            >
-              Next
-            </button>
-          </div>
-        </div>
-      )}
+        )}
+      </div>
+      <Footer />
     </div>
   );
 }

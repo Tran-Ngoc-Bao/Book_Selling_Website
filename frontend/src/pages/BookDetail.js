@@ -2,6 +2,8 @@ import { useParams } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import bookdetail from "./BookDetail.module.css";
 import BookList from "../components/products/BookList";
+import Header from "../components/header/header";
+import Footer from "../components/footer/footer";
 import axios from "axios";
 import { addCartAsync, calTotalPrice } from "../redux/features/cart/cartSlice";
 import { PrductDetail_setPurchase } from "../redux/features/product/purchaseSlice";
@@ -72,9 +74,11 @@ function BookDetail(props) {
   };
 
   return (
-    <div>
+    <div className={bookdetail.page_container}>
+      <Header />
+
       {book && (
-        <div>
+        <div className={bookdetail.page_content}>
           <div className={bookdetail.book}>
             <img
               className={bookdetail.main_img}
@@ -83,62 +87,78 @@ function BookDetail(props) {
             />
 
             <div className={bookdetail.bookdetail}>
-              <p className={bookdetail.title}>{book.title}</p>
-
-              <div className={bookdetail.author}>
-                <p>Tác giả: </p>
+              <div className={bookdetail.main_detail}>
+                <p className={bookdetail.title}>{book.title}</p>{" "}
+                <div className={bookdetail.author}></div>
+                <span className={bookdetail.author_title}>Tác giả: </span>
                 <div className={bookdetail.author_name}>
                   {book.authors.map((author) => (
                     <p key={author}>{author}</p>
                   ))}
                 </div>
-
                 <div className={bookdetail.genre}>
-                  <p>Thể loại: </p>
+                  <span className={bookdetail.genre_title}>Thể loại: </span>
                   <div className={bookdetail.genre_name}>
                     {book.genres.map((genre) => (
                       <p key={genre}>{genre}</p>
                     ))}
                   </div>
                 </div>
-
-                <p className={bookdetail.price}>${book.price}</p>
-
                 <div className={bookdetail.rate_price}>
                   <p className={bookdetail.rating}>{book.rate}/5</p>
-                  <p className={bookdetail.sold}>sold: {book.sold}</p>
+                  <p className={bookdetail.sold}>Đã bán: {book.sold}</p>
                 </div>
               </div>
-              <div className={bookdetail.detail}></div>
 
-              <button onClick={Increase}>+</button>
-              <span>{quantity}</span>
-              <button onClick={Decrease}>-</button>
-              <br />
-              <br />
-              <button onClick={AddToCart} className={bookdetail.cart}>
-                Add to cart
-              </button>
-              <p>{error}</p>
+              <div className={bookdetail.price_control}>
+                <p className={bookdetail.price}>${book.price}</p>
+                <div className={bookdetail.quantity_control}>
+                  <button
+                    className={bookdetail.setQuantity_button}
+                    onClick={Increase}
+                  >
+                    +
+                  </button>
+                  <span className={bookdetail.quantity}>{quantity}</span>
+                  <button
+                    className={bookdetail.setQuantity_button}
+                    onClick={Decrease}
+                  >
+                    -
+                  </button>
+                </div>
 
-              <button className={bookdetail.buy} onClick={AddtoPurchase}>
-                {" "}
-                Buy now
-              </button>
+                <button onClick={AddToCart} className={bookdetail.cart}>
+                  Thêm vào giỏ hàng
+                </button>
+                <p>{error}</p>
+
+                <button className={bookdetail.buy} onClick={AddtoPurchase}>
+                  {" "}
+                  Mua ngay
+                </button>
+              </div>
+
               <Popup isOpen={buy} onClose={closeBuy}></Popup>
             </div>
           </div>
-          <BookList name="Sách được gợi ý" />
-          <h3>Bình luận của khách hàng: </h3>
+
+          <div className={bookdetail.recommend_books}>
+            <BookList name="Sách được gợi ý" />
+          </div>
+
           <div className={bookdetail.comment_section}>
+            <span>Bình luận của khách hàng: </span>
             <CommentList feedback={feedbacks} />
           </div>
-          <div>
-            <h3>Nhận xét của bạn: </h3>
+          <div className={bookdetail.your_comment}>
+            <span>Nhận xét của bạn: </span>
             <CommentBox setFeedbacks={setFeedbacks} />
           </div>
         </div>
       )}
+
+      <Footer />
     </div>
   );
 }

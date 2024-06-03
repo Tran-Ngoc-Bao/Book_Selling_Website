@@ -25,7 +25,6 @@ function Cart() {
   const cart_info = useSelector((state) => state.cart);
   const { book, price } = cart_info; // chua id sach, ten sach, gia sach
 
-
   const [buy, setBuy] = useState(false);
   const [purchase, setPurchase] = useState([]);
 
@@ -46,7 +45,7 @@ function Cart() {
       });
       newpurchase = [...newpurchase, item];
       setPurchase(newpurchase);
-      dispatch(Cart_setPurchase(newpurchase))
+      dispatch(Cart_setPurchase(newpurchase));
       console.log("thanh toan: ", newpurchase);
     } else {
       setPurchase([...purchase, item]);
@@ -60,7 +59,7 @@ function Cart() {
         return curitem.bookid !== item.bookid;
       });
       setPurchase(newpurchase);
-      dispatch(Cart_setPurchase(newpurchase))
+      dispatch(Cart_setPurchase(newpurchase));
       console.log("thanh toan: ", newpurchase);
     }
   }
@@ -81,6 +80,7 @@ function Cart() {
   return (
     <div className={CartStyle.cart_page}>
       <Header />
+
       <div className={CartStyle.cart_page_content}>
         <>
           {login ? (
@@ -112,7 +112,7 @@ function Cart() {
           ) : (
             <div className={CartStyle.no_login_notification}>
               <span className={CartStyle.no_login_title}>
-                Đăng nhập để xem giỏ hàng
+                Đăng nhập để xem giỏ hàng của bạn
               </span>
               <div className={CartStyle.no_login_notification_link}>
                 <Link to="/login">

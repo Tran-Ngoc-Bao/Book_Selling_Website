@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-// import UserContext from "../../UserContext";
-// import { useContext } from "react";
 import { useDispatch, useSelector, shallowEqual, useStore } from "react-redux";
 import { useReducer } from "react";
 import CartItemStyle from "./CartItem.module.css";
@@ -47,7 +45,7 @@ function CartItem(props) {
   // const [item, setItem] = useState(null);
   const [state, dispatch] = useReducer(reducer, initialState);
   const { name, bookid, price, quantity, totalprice } = state;
-  const dayla = useDispatch()
+  const dayla = useDispatch();
 
   useEffect(() => {
     async function booka() {
@@ -75,7 +73,7 @@ function CartItem(props) {
 
   useEffect(() => {
     if (isChecked) {
-      (addToPurchase(state));
+      addToPurchase(state);
       console.log("add this to purchase: ", state);
     } else {
       if (count > 0) console.log("remove this from purchase: ", state);
@@ -114,7 +112,7 @@ function CartItem(props) {
         if (newState) {
           addToPurchase(state);
         } else {
-          (removeFromPurchase(state));
+          removeFromPurchase(state);
           count++;
         }
         return newState; // Return the new state value
@@ -127,28 +125,41 @@ function CartItem(props) {
       <div className={CartItemStyle.item_title_container}>
         {book && <span className={CartItemStyle.item_title}>{book.title}</span>}
       </div>
-      <div className={CartItemStyle.item_image}>
+      <div className={CartItemStyle.item_image_container}>
         {book && (
           <img
+            className={CartItemStyle.item_image}
             src={`../images/${book._id}.jpeg`}
-            width={70}
-            height={70}
             alt={"small book"}
           />
         )}
       </div>
-      <div className={CartItemStyle.add_button}>
-        {book && <button onClick={increase}>+</button>}
+
+      <div className={CartItemStyle.quantity_control}>
+        <div>
+          {book && (
+            <button className={CartItemStyle.add_button} onClick={increase}>
+              +
+            </button>
+          )}
+        </div>
+
+        <span className={CartItemStyle.quantity_tag}>{state.quantity}</span>
+        <div>
+          {book && (
+            <button className={CartItemStyle.minus_button} onClick={decrease}>
+              -
+            </button>
+          )}
+        </div>
       </div>
 
-      <span className={CartItemStyle.quantity_tag}>{state.quantity}</span>
-      <div className={CartItemStyle.minus_button}>
-        {book && <button onClick={decrease}>-</button>}
-      </div>
       <div className={CartItemStyle.remove_button_container}>
-        <button onClick={rm}>Remove</button>
+        <button className={CartItemStyle.remove_button} onClick={rm}>
+          Loại bỏ
+        </button>
       </div>
-      <div className={CartItemStyle.total_price_container}>
+      <div className={CartItemStyle.price_container}>
         {book && (
           <span className={CartItemStyle.price_label}>
             Đơn giá: {book.price}USD{" "}
@@ -161,7 +172,14 @@ function CartItem(props) {
         </span>
       </div>
 
-      <input type="checkBox" bookid="chosen" onChange={clickHandler} />
+      <div className={CartItemStyle.check_container}>
+        <input
+          className={CartItemStyle.check}
+          type="checkBox"
+          bookid="chosen"
+          onChange={clickHandler}
+        />
+      </div>
     </div>
   );
 }

@@ -1,10 +1,14 @@
 .header_container {
   display: flex;
+  min-height: 200px;
+  justify-content: center;
+  align-items: center;
+}
+.content_row {
+  min-height: 200px;
+  display: flex;
   flex-direction: row;
-  width: 1440px;
-  height: 164px;
-  padding-top: 40px;
-  padding-left: 10%;
+  align-items: center;
   gap: 40px;
 }
 
@@ -44,6 +48,11 @@
 }
 .search_icon {
   width: 20px;
+}
+.search_result {
+  display: flex;
+  flex-direction: column;
+  z-index: 3;
 }
 
 .homepage_nav {
@@ -90,11 +99,12 @@
   line-height: 150%;
 }
 .login_button {
+  display: flex;
   background-color: #ff6347;
   width: 126px;
-  height: 52px;
+  height: 40px;
   border-radius: 8px;
-  padding-top: 10px;
+  align-items: center;
 }
 .login_label {
   margin-left: 24px;
@@ -108,10 +118,7 @@
   display: flex;
   align-items: center;
   margin-bottom: 10px; /* Add some margin if needed */
-
 }
-.search_box{
+.search_box {
   width: 10;
 }
-
-

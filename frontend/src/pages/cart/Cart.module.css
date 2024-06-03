@@ -15,24 +15,52 @@
   align-items: center;
 }
 .no_login_title {
-  font-family: "Inter", sans-serif;
+  /* font-family: "Inter", sans-serif;
   font-size: 20px;
-  font-weight: 500;
-  color: #ff6347;
-  line-height: 150%;
+  font-weight: lighter;
+  color: black;
+  line-height: 150%; */
   margin-top: 20px;
+  margin-bottom: 20px;
+  width: max-content;
 }
 
 .log_in_notification {
+  background-color: #ffffff;
+  border: 1px solid #e7e7e7;
+  border-radius: 8px;
+  padding: 20px;
+  width: 80%;
+  margin: 20px auto;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.log_in_title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.added_product {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  gap: 20px;
+  margin-bottom: 20px;
 }
-.log_in_title {
-  font-family: "Inter", sans-serif;
-  font-size: 25px;
-  font-weight: 500;
-  color: #ff6347;
-  line-height: 150%;
-  margin-top: 20px;
+
+.buy_button {
+  background-color: #ff9900;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 100%;
+}
+
+.buy_button:hover {
+  background-color: #e68900;
 }
