@@ -74,7 +74,18 @@ npm start
 </ul>
 
 ## Demo
-...
+### Home page
+  <img src="https://github.com/Tran-Ngoc-Bao/BookSellingWebsite/blob/master/illustration/homepage.png">
+  <img src="https://github.com/Tran-Ngoc-Bao/BookSellingWebsite/blob/master/illustration/subhomepage.png">
+  
+### Cart
+  <img src="https://github.com/Tran-Ngoc-Bao/BookSellingWebsite/blob/master/illustration/cart.png">
+  
+### Order
+  <img src="https://github.com/Tran-Ngoc-Bao/BookSellingWebsite/blob/master/illustration/order.png">
+  
+### Admin demo
+  <img src="https://github.com/Tran-Ngoc-Bao/BookSellingWebsite/blob/master/illustration/admin.png">
 
 ## Report
 <ul>
