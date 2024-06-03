@@ -20,7 +20,7 @@ const storage = multer.diskStorage({
     },
     filename: function (req, file, cb) {
         const productId = req.body.productId
-        cb(null, `${productId}.png`)
+        cb(null, `${productId}.jpeg`)
     }
 })
 const upload = multer({ storage: storage })

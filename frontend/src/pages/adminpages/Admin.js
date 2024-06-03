@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import AddBook from "./book-op/AddBook";
 import DeleteBook from "./book-op/DeleteBook";
-import UserIdModal from "./UserIdModal";
+// import UserIdModal from "./UserIdModal";
 import CreatePublishingHouse from "./CreatePublishingHouse"
 import AllBookPages from "./book-op/bookgridadmin/AllBookPages"; // Import the AllBookPages component
 import PublishingHousesList from "./PublishingHousesList"; // Import the PublishingHousesList component
@@ -72,14 +72,14 @@ function Admin() {
               onDelete={handleDelete}
             />
           </div>
-          <div>
+          {/* <div>
             <button onClick={openUserIdModal}>Enter User ID</button>
             <UserIdModal
               isOpen={isUserIdModalOpen}
               onClose={closeUserIdModal}
               onSubmit={handleUserIdSubmit}
             />
-          </div>
+          </div> */}
           <AllBookPages isOpen={isAllBookOpen} onClose={closeAllBookModal} /> {/* AllBookPages modal */}
           {isPublishingHousesModalOpen && <PublishingHousesList close ={closePublishingHousesModal} />} {/* Rendering PublishingHousesList component as modal */}
         </div>

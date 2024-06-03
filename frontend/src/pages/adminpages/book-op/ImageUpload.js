@@ -1,10 +1,10 @@
 import React, { useState, useRef } from "react";
 import axios from "axios";
 
-function ImageUpload({ bookId, closed }) {
+function ImageUpload({ bookId, closed, setBookId }) {
   const [file, setFile] = useState(null);
-  const id = useRef();
-  const [productId, setProductId] = useState(bookId); // Added state for product ID
+  const id = useRef(bookId.current);
+  const [productId, setProductId] = useState(bookId.current); // Added state for product ID
 
   const handleFileChange = (event) => {
     setFile(event.target.files[0]);
@@ -17,13 +17,14 @@ function ImageUpload({ bookId, closed }) {
 
   const handleUpload = async () => {
     if (file && productId) {
+      const renamedFile = new File([file], `${id.current}.jpeg`, { type: file.type });
       const formData = new FormData();
       formData.append("productId", id.current);
-      formData.append("image", file);
+      formData.append("image", renamedFile);
 
       try {
         const response = await axios.post(
-          "http://localhost:8000/api/books/uploadimages",
+          "/api/books/uploadimages",
           formData,
           {
             headers: {
@@ -33,7 +34,9 @@ function ImageUpload({ bookId, closed }) {
         );
         // Handle the response as needed
         console.log(response.data);
-        alert(response.data.message)
+        alert(response.data.message);
+        bookId.current=" "
+        setBookId(null)
         closed(); // Close the popup after successful upload
       } catch (error) {
         // Handle the error as needed
