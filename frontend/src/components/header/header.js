@@ -55,7 +55,7 @@ export default function Header() {
   return (
     <div className={header.header_container}>
       <div className={header.content_row}>
-        <form className={header.search}>
+        <form className={header.search_area}>
           <input
             style={{ width: "500px", padding: "10px" }}
             type="text"
@@ -87,8 +87,8 @@ export default function Header() {
 
           {result && (
             <div
-              style={{ backgroundColor: "white" }}
-              className={header.search_result}
+              // style={{ backgroundColor: "white" }}
+              className={header.search_result_box}
             >
               {result.map((item) => (
                 <div key={item._id} className={header.book_item}>
