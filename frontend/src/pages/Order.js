@@ -88,7 +88,7 @@ function Order() {
                       className={styles.orderImage}
                     />
                     <div className={styles.orderDetails}>
-                      <p>Mã đơn: {order.orderid}</p>
+                      <p>Mã đơn: {order._id}</p>
                       <div className={styles.orderInfo}>
                         <p>Mã sản phẩm: {order.bookid}</p>
                         <p>Số lượng: {order.quantity}</p>

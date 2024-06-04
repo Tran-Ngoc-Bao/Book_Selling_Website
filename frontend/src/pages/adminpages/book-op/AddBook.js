@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useRef } from "react";
 import styles from "./AddBook.module.css";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
@@ -8,7 +8,7 @@ import ImageUpload from "./ImageUpload"; // Import the ImageUpload component
 const AddBook = ({ isOpen, onClose, children }) => {
   const dispatch = useDispatch();
   const token = useSelector((state) => state.token.accessTk);
-
+const insertid= useRef("")
   const [bookData, setBookData] = useState({
     authors: "",
     description: "",
@@ -48,26 +48,32 @@ const AddBook = ({ isOpen, onClose, children }) => {
 
   async function handleSubmit(e) {
     e.preventDefault();
-
+    const updatedBookValues = {
+      ...bookData,
+      authors: bookData.authors.split(",").map((author) => author.trim()), // Split authors string back into array
+      genres: bookData.genres.split(",").map((genre) => genre.trim()), // Split genres string back into array
+    };
     try {
-      const response = await axios.post("/api/books/admin/create", bookData, {
+      const response = await axios.post("/api/books/admin/create", updatedBookValues, {
         headers: {
           token: token, // Assuming you're using Bearer token
         },
       });
       console.log(response);
       setBookId(response.data.insertedId); // Set the ID of the newly created book
+      insertid.current=response.data.insertedId
       alert("Thêm sách thành công");
     } catch (error) {
       const newtk = await dispatch(getnewTk());
       try {
-        const response = await axios.post("/api/books/admin/create", bookData, {
+        const response = await axios.post("/api/books/admin/create", updatedBookValues, {
           headers: {
             token: newtk, // Assuming you're using Bearer token
           },
         });
         console.log(response);
         setBookId(response.data.insertedId); // Set the ID of the newly created book
+        insertid.current=response.data.insertedId
         alert("Thêm sách thành công");
       } catch (err) {
         console.error("Error creating book:", error);
@@ -169,7 +175,7 @@ const AddBook = ({ isOpen, onClose, children }) => {
           <button type="submit">Submit</button>
         </form>
         {/* Conditionally render ImageUpload component within the overlay */}
-        {bookId && <ImageUpload bookId={bookId} closed={closed} />}
+        {bookId && <ImageUpload bookId={insertid} closed={closed} setBookId={setBookId} />}
       </div>
     </div>
   );

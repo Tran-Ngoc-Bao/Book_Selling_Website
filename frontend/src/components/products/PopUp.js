@@ -59,7 +59,6 @@ function Popup({ isOpen, onClose, children }) {
                   <p>Tên sản phẩm: {item.name}</p>
                   <p>Số lượng: {item.quantity} quyển</p>
                   <p>Tạm tính: {item.totalprice.toLocaleString()} VND</p>
-                  <p>{JSON.stringify(item)}</p>
                   <br />
                   <hr
                     style={{
