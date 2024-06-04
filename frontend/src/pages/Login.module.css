@@ -1,5 +1,10 @@
 .login_container {
   padding-top: 100px;
+  background-image: url("../../src/images/banner/bookbackground.jpg"); /* Replace with your image path */
+  background-size: cover; /* Adjust as needed (cover, contain, etc.) */
+  background-position: center; /* Adjust as needed (center, top left, etc.) */
+  background-repeat: no-repeat; /* Prevent image tiling */
+  height: 100vh; /* Set height to fill viewport (optional) */
 }
 /* Style for the form container */
 .form_container {
