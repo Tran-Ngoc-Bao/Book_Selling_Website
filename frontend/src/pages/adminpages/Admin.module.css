@@ -1,0 +1,66 @@
+.page_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  min-height: 800px;
+  /* height: auto; */
+}
+
+.logged_in_page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.welcome {
+  background: radial-gradient(circle, blue, red);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-size: 50px;
+  font-weight: normal;
+  width: max-content;
+}
+
+.prompt {
+  color: gray;
+  font-size: 50px;
+  font-weight: normal;
+  width: max-content;
+}
+
+.content_page {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.add_book_button {
+  background-color: rgb(197, 197, 197);
+  /* height: 100px;
+  width: 100px; */
+}
+
+.view_all_book_button {
+  background-color: rgb(197, 197, 197);
+}
+
+.view_all_publisher_button {
+  background-color: rgb(197, 197, 197);
+  /* height: 100px;
+  width: 100px; */
+}
+.publishingHouses_container {
+  display: flex;
+  flex-direction: column;
+}
+
+.add_publisher_button {
+  background-color: rgb(197, 197, 197);
+}
+
+.delete_book_button {
+  background-color: rgb(197, 197, 197);
+}

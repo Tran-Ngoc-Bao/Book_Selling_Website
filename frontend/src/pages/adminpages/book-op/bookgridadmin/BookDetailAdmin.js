@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { getnewTk } from "../../../../redux/features/user/tokenSlide";
+import BookDetailAdminStyles from "./BookDetailAdmin.module.css";
 
 function BookDetailAdmin() {
   const { id } = useParams();
@@ -20,8 +21,8 @@ function BookDetailAdmin() {
       const { _id, authors, genres, ...rest } = response.data;
       setFormValues({
         ...rest,
-        authors: authors.join(", "), // Join authors array into a string
-        genres: genres.join(", "), // Join genres array into a string
+        authors: authors.join(", "),
+        genres: genres.join(", "),
       });
     }
 
@@ -36,8 +37,8 @@ function BookDetailAdmin() {
   const handleFormSubmit = async () => {
     const updatedFormValues = {
       ...formValues,
-      authors: formValues.authors.split(",").map((author) => author.trim()), // Split authors string back into array
-      genres: formValues.genres.split(",").map((genre) => genre.trim()), // Split genres string back into array
+      authors: formValues.authors.split(",").map((author) => author.trim()),
+      genres: formValues.genres.split(",").map((genre) => genre.trim()),
     };
     try {
       const response = await axios.put(
@@ -45,13 +46,13 @@ function BookDetailAdmin() {
         updatedFormValues,
         {
           headers: {
-            token: token, // Assuming you're using Bearer token
+            token: token,
           },
         }
       );
       console.log(response);
-      setBook(updatedFormValues); // Update book state with the new values
-      setEditMode(false); // Disable edit mode after form submission
+      setBook(updatedFormValues);
+      setEditMode(false);
       alert(response.data.message);
     } catch (error) {
       const newtk = await dispatch(getnewTk());
@@ -66,8 +67,8 @@ function BookDetailAdmin() {
           }
         );
         console.log(response);
-        setBook(updatedFormValues); // Update book state with the new values
-        setEditMode(false); // Disable edit mode after form submission
+        setBook(updatedFormValues);
+        setEditMode(false);
         alert(response.data.message);
       } catch (err) {
         console.error("Error updating book:", error);
@@ -76,19 +77,26 @@ function BookDetailAdmin() {
   };
 
   return (
-    <div>
+    <div className={BookDetailAdminStyles.container}>
       {isadmin && book && (
         <div>
           <img
+            className={BookDetailAdminStyles.image}
             src={`http://localhost:8000/images/${id}.jpeg`}
             width={200}
             height={200}
             alt={book.title}
           />
-          <form onSubmit={handleFormSubmit}>
-            <div>
-              <label htmlFor="title">Tên sách:</label>
+          <form
+            className={BookDetailAdminStyles.form}
+            onSubmit={handleFormSubmit}
+          >
+            <div className={BookDetailAdminStyles.formGroup}>
+              <label className={BookDetailAdminStyles.label} htmlFor="title">
+                Tên sách:
+              </label>
               <input
+                className={BookDetailAdminStyles.input}
                 id="title"
                 type="text"
                 value={formValues.title}
@@ -96,9 +104,12 @@ function BookDetailAdmin() {
                 readOnly={!editMode}
               />
             </div>
-            <div>
-              <label htmlFor="authors">Tác giả:</label>
+            <div className={BookDetailAdminStyles.formGroup}>
+              <label className={BookDetailAdminStyles.label} htmlFor="authors">
+                Tác giả:
+              </label>
               <input
+                className={BookDetailAdminStyles.input}
                 id="authors"
                 type="text"
                 value={formValues.authors}
@@ -106,9 +117,12 @@ function BookDetailAdmin() {
                 readOnly={!editMode}
               />
             </div>
-            <div>
-              <label htmlFor="genres">Thể loại:</label>
+            <div className={BookDetailAdminStyles.formGroup}>
+              <label className={BookDetailAdminStyles.label} htmlFor="genres">
+                Thể loại:
+              </label>
               <input
+                className={BookDetailAdminStyles.input}
                 id="genres"
                 type="text"
                 value={formValues.genres}
@@ -116,9 +130,12 @@ function BookDetailAdmin() {
                 readOnly={!editMode}
               />
             </div>
-            <div>
-              <label htmlFor="price">Giá bán:</label>
+            <div className={BookDetailAdminStyles.formGroup}>
+              <label className={BookDetailAdminStyles.label} htmlFor="price">
+                Giá bán:
+              </label>
               <input
+                className={BookDetailAdminStyles.input}
                 id="price"
                 type="number"
                 value={formValues.price}
@@ -126,9 +143,12 @@ function BookDetailAdmin() {
                 readOnly={!editMode}
               />
             </div>
-            <div>
-              <label htmlFor="quantity">Số lượng:</label>
+            <div className={BookDetailAdminStyles.formGroup}>
+              <label className={BookDetailAdminStyles.label} htmlFor="quantity">
+                Số lượng:
+              </label>
               <input
+                className={BookDetailAdminStyles.input}
                 id="quantity"
                 type="number"
                 value={formValues.quantity}
@@ -136,9 +156,15 @@ function BookDetailAdmin() {
                 readOnly={!editMode}
               />
             </div>
-            <div>
-              <label htmlFor="description">Mô tả sách:</label>
+            <div className={BookDetailAdminStyles.formGroup}>
+              <label
+                className={BookDetailAdminStyles.label}
+                htmlFor="description"
+              >
+                Mô tả sách:
+              </label>
               <textarea
+                className={BookDetailAdminStyles.textarea}
                 id="description"
                 value={formValues.description}
                 onChange={handleInputChange}
@@ -148,9 +174,12 @@ function BookDetailAdmin() {
                 rows={10}
               ></textarea>
             </div>
-            <div>
-              <label htmlFor="year">Năm xuất bản:</label>
+            <div className={BookDetailAdminStyles.formGroup}>
+              <label className={BookDetailAdminStyles.label} htmlFor="year">
+                Năm xuất bản:
+              </label>
               <input
+                className={BookDetailAdminStyles.input}
                 id="year"
                 type="number"
                 value={formValues.year}
@@ -158,10 +187,13 @@ function BookDetailAdmin() {
                 readOnly={!editMode}
               />
             </div>
-            <p>Đây là: {editMode ? "Edit Mode" : "View Mode"}</p>
+            <p className={BookDetailAdminStyles.mode}>
+              Đây là: {editMode ? "Edit Mode" : "View Mode"}
+            </p>
             {editMode ? (
-              <div>
+              <div className={BookDetailAdminStyles.buttons}>
                 <button
+                  className={`${BookDetailAdminStyles.button} ${BookDetailAdminStyles.cancel}`}
                   onClick={(event) => {
                     event.preventDefault();
                     setEditMode(false);
@@ -170,6 +202,7 @@ function BookDetailAdmin() {
                   Quay lại
                 </button>
                 <button
+                  className={`${BookDetailAdminStyles.button} ${BookDetailAdminStyles.submit}`}
                   onClick={async (event) => {
                     event.preventDefault();
                     setEditMode(false);
@@ -182,6 +215,7 @@ function BookDetailAdmin() {
               </div>
             ) : (
               <button
+                className={`${BookDetailAdminStyles.button} ${BookDetailAdminStyles.edit}`}
                 onClick={(event) => {
                   event.preventDefault();
                   setEditMode(true);

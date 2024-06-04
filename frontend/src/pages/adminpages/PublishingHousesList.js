@@ -3,6 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import DeletePublishingHouse from "./book-op/DeletePublishingHouse";
 import UpdatePublishingHouseModal from "./UpdatePublishingHouseModal";
+import PublishingHousesListStyle from "./PublishingHousesList.module.css";
 
 function PublishingHousesList({ close }) {
   const [publishingHouses, setPublishingHouses] = useState([]);
@@ -11,7 +12,7 @@ function PublishingHousesList({ close }) {
   const [expandedHouse, setExpandedHouse] = useState(null);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [isUpdateModalOpen, setIsUpdateModalOpen] = useState(false);
-  const [selectedHouse, setSelectedHouse] = useState({_id: ""});
+  const [selectedHouse, setSelectedHouse] = useState({ _id: "" });
   const booksPerPage = 5; // Number of books to display per page
 
   const openUpdateModal = (house) => {
@@ -76,70 +77,106 @@ function PublishingHousesList({ close }) {
   }
 
   return (
-    <div>
-      <button onClick={close}>X</button>
-      <h1>Publishing Houses</h1>
+    <div className={PublishingHousesListStyle.page_container}>
+      <button
+        className={PublishingHousesListStyle.close_button}
+        onClick={close}
+      >
+        X
+      </button>
+      <span className={PublishingHousesListStyle.title}>
+        Danh sách nhà xuất bản
+      </span>
       {publishingHouses.map((house) => (
-        <div key={house._id}>
-          <h2>{house.name}</h2>
-          <button onClick={() => openUpdateModal(house)}>Cập nhật chi tiết NXB</button>
-          <UpdatePublishingHouseModal
-            isOpen={isUpdateModalOpen && selectedHouse === house}
-            onClose={closeUpdateModal}
-            house={selectedHouse}
-          />
-          <button onClick={() => openDeleteModal(house)}>Xóa NXB</button>
-          <DeletePublishingHouse
-            isOpen={isDeleteModalOpen && selectedHouse === house}
-            onClose={closeDeleteModal}
-            onDelete={() => handleDelete(selectedHouse._id)}
-            id={selectedHouse._id}
-          />
+        <div
+          className={PublishingHousesListStyle.publisher_container}
+          key={house._id}
+        >
+          <span className={PublishingHousesListStyle.house_name}>
+            {house.name}
+          </span>
 
           <p>ID: {house._id}</p>
           <p>Email: {house.email}</p>
-          <p>Phone: {house.phone}</p>
-          <p>Location: {house.location}</p>
-          <p>Books:</p>
-          <button onClick={() => toggleExpand(house._id)}>
-            {expandedHouse === house._id ? "Hide Details" : "Show Details"}
-          </button>
-          {expandedHouse === house._id && (
-            <div>
-              <ul>
-                {house.bookids
-                  .slice(
-                    (house.currentPage - 1) * booksPerPage,
-                    house.currentPage * booksPerPage
-                  )
-                  .map((bookId) => (
-                    <li key={bookId}>
-                      <Link to={`/admin/book/${bookId}`}>
-                        <img
-                          src={`../images/${bookId}.jpeg`}
-                          width={60}
-                          height={60}
-                          alt={bookId}
-                        />
-                        {bookId}
-                      </Link>
-                    </li>
-                  ))}
-              </ul>
-              <ul>
-                {Array.from(
-                  { length: Math.ceil(house.bookids.length / booksPerPage) },
-                  (_, i) => (
-                    <li key={i}>
-                      <button onClick={() => handlePaginate(house._id, i + 1)}>
-                        {i + 1}
-                      </button>
-                    </li>
-                  )
-                )}
-              </ul>
-            </div>
-          )}
+          <p>Số điện thoại: {house.phone}</p>
+          <p>Địa chỉ: {house.location}</p>
+          <p>Sách:</p>
+
+          <div className={PublishingHousesListStyle.button_array}>
+            <button
+              className={PublishingHousesListStyle.update_button}
+              onClick={() => openUpdateModal(house)}
+            >
+              Cập nhật chi tiết NXB
+            </button>
+            <UpdatePublishingHouseModal
+              isOpen={isUpdateModalOpen && selectedHouse === house}
+              onClose={closeUpdateModal}
+              house={selectedHouse}
+            />
+            <button
+              className={PublishingHousesListStyle.remove_button}
+              onClick={() => openDeleteModal(house)}
+            >
+              Xóa NXB
+            </button>
+            <DeletePublishingHouse
+              isOpen={isDeleteModalOpen && selectedHouse === house}
+              onClose={closeDeleteModal}
+              onDelete={() => handleDelete(selectedHouse._id)}
+              id={selectedHouse._id}
+            />
+            <button
+              className={PublishingHousesListStyle.detail_button}
+              onClick={() => toggleExpand(house._id)}
+            >
+              {expandedHouse === house._id ? "Ẩn chi tiết" : "Hiện chi tiết"}
+            </button>
+            {expandedHouse === house._id && (
+              <div>
+                <ul>
+                  {house.bookids
+                    .slice(
+                      (house.currentPage - 1) * booksPerPage,
+                      house.currentPage * booksPerPage
+                    )
+                    .map((bookId) => (
+                      <li key={bookId}>
+                        <Link to={`/admin/book/${bookId}`}>
+                          <img
+                            src={`../images/${bookId}.jpeg`}
+                            width={60}
+                            height={60}
+                            alt={bookId}
+                          />
+                          {bookId}
+                        </Link>
+                      </li>
+                    ))}
+                </ul>
+                <ul className={PublishingHousesListStyle.book_pages_pickers}>
+                  {Array.from(
+                    { length: Math.ceil(house.bookids.length / booksPerPage) },
+                    (_, i) => (
+                      <li
+                        key={i}
+                        className={
+                          PublishingHousesListStyle.book_pages_single_page
+                        }
+                      >
+                        <button
+                          className={PublishingHousesListStyle.page_button}
+                          onClick={() => handlePaginate(house._id, i + 1)}
+                        >
+                          {i + 1}
+                        </button>
+                      </li>
+                    )
+                  )}
+                </ul>
+              </div>
+            )}
+          </div>
         </div>
       ))}
     </div>

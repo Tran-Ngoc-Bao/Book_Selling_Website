@@ -1,0 +1,101 @@
+/* PublishingHousesList.module.css */
+.page_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+.close_button {
+  align-self: flex-end;
+  background-color: #ff6b6b;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  width: max-content;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.publisher_container {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+  width: 80%;
+}
+
+.house_name {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.button_array {
+  display: flex;
+  flex-direction: column;
+}
+
+.update_button,
+.remove_button,
+.detail_button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.remove_button {
+  background-color: #ff6b6b;
+}
+
+.detail_button {
+  background-color: #2196f3;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+img {
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+button + button {
+  margin-left: 10px;
+}
+
+.book_pages_pickers {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}

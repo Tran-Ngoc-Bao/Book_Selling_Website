@@ -1,0 +1,71 @@
+/* BookDetailAdmin.module.css */
+.container {
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+.image {
+  display: block;
+  margin: 0 auto 20px;
+}
+
+.form {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.formGroup {
+  margin-bottom: 15px;
+}
+
+.label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.input,
+.textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.textarea {
+  resize: vertical;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.button.cancel {
+  background-color: #ff6b6b;
+}
+
+.button.submit {
+  background-color: #4caf50;
+}
+
+.button.edit {
+  background-color: #2196f3;
+}
+
+p.mode {
+  font-weight: bold;
+  margin-top: 20px;
+}
